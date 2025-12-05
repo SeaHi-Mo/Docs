@@ -3,9 +3,12 @@
 layout: home
 
 hero:
-  name: "SeaHi"
-  text: "在线文档"
-  tagline: My great project tagline
+  name: "SeaHiの个人资料站<br><br>"
+  text: "专注无线电子DIY<br>"
+  tagline: "一起走进充满成就感的电子DIY世界"
+  image:
+    src: /Seahi.png
+    alt: VitePress
   actions:
     - theme: brand
       text: Markdown Examples
