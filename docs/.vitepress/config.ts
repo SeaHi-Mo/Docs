@@ -22,7 +22,7 @@ import { HeadData } from "./ConfigHyde/Head"; // 导入 HeadData 导入和类型
 
 import { createRewrites } from "vitepress-theme-teek/config";
 
-import AutoFrontmatter, {FileInfo} from "vitepress-plugin-auto-frontmatter";
+import AutoFrontmatter, { FileInfo } from "vitepress-plugin-auto-frontmatter";
 import { useTransformByRules, type TransformRule } from "./theme/composables/useTransform";
 
 
@@ -37,7 +37,7 @@ const description = [
 const CoverImgList = Cover; // 获取封面列表
 // const CoverBgList = Wallpaper; // 获取壁纸列表
 
- 
+
 const teekConfig = defineTeekConfig({
   // // 首页顶部按 F11 开启壁纸模式
   // 首页顶部按 F11 开启壁纸模式
@@ -56,9 +56,9 @@ const teekConfig = defineTeekConfig({
       defaultColorName: "ep-blue",   //默认主题色为蓝色
     },
   },
-  
+
   windowTransition: true,
-  
+
   sidebarTrigger: true, //侧边栏收缩
 
   // author: { name: "Teeker", link: "https://github.com/Kele-Bingtang" },
@@ -66,7 +66,7 @@ const teekConfig = defineTeekConfig({
     // 博主信息，显示在首页侧边栏
     avatar: "/img/xyy.webp",  //侧边栏个人头像
     shape: "circle-rotate", // 头像风格：square 为方形头像，circle 为圆形头像，circle-rotate 可支持鼠标悬停旋转
-    name: "One", // 侧边栏个人昵称
+    name: "SeaHi", // 侧边栏个人昵称
     slogan: "明心静性，爱自己", // 侧边栏个人座右铭
     circleBgImg: "https://img.onedayxyy.cn/images/Teek/TeekBg/14.webp", // 侧边栏个人头像圆形背景图
     circleBgMask: false, // 头像圆形背景图是否显示遮罩层
@@ -77,7 +77,7 @@ const teekConfig = defineTeekConfig({
       icon: "😜", // 状态图标
       size: 24, // 图标大小
       title: "有趣", // 鼠标悬停图标的提示语
-    },    
+    },
   },
 
 
@@ -87,7 +87,7 @@ const teekConfig = defineTeekConfig({
     limit: 8, // 一页显示的数量
     autoPage: false, // 是否自动翻页
     pageSpeed: 4000, // 翻页间隔时间，单位：毫秒。autoPage 为 true 时生效
-  },  
+  },
   // 标签卡片
   tag: {
     enabled: true, // 是否启用标签卡片
@@ -133,7 +133,7 @@ const teekConfig = defineTeekConfig({
   // },
 
 
-// 布蒜子统计分析
+  // 布蒜子统计分析
   docAnalysis: {
     createTime: "2025-02-26",
     statistics: {
@@ -145,18 +145,15 @@ const teekConfig = defineTeekConfig({
     },
     wordCount: true,
     readingTime: true,
-  },  
+  },
 
 
   // 风险链接提示页
   riskLink: {
-    enabled: true, //是否启用风险链接提示功能
-    whitelist: ["https://onedayxyy.cn/", "https://status.onedayxyy.cn/", "https://zdir.onedayxyy.cn/", "https://umami.onedayxyy.cn/", "https://zola.onedayxyy.cn/", "https://img.onedayxyy.cn/", "https://cnb.cool/onedayxyy/vitepress-theme-teek-one-public", "https://one.onedayxyy.cn/", "https://vp.teek.top/", "https://teek.seasir.top/", /https:\/\/github.com/, /https:\/\/giee.com/], // 白名单，匹配到的链接不提示风险
+    enabled: false, //是否启用风险链接提示功能
+    whitelist: ["https://docs.c-hi.cn", /https:\/\/github.com/, /https:\/\/giee.com/], // 白名单，匹配到的链接不提示风险
     blacklist: [], // 黑名单，匹配到的链接提示风险
   },
-
-
-
 
   // articleBottomTip: () => {
   //   return {
@@ -170,7 +167,7 @@ const teekConfig = defineTeekConfig({
   // },
 
   // backTopDone: TkMessage => TkMessage.success("返回顶部"),
-  
+
   // //右下角回到顶部配置。
   backTop: {
     enabled: true, // 是否启动回到顶部功能
@@ -273,7 +270,7 @@ const teekConfig = defineTeekConfig({
       collapsed: true, //打开侧边栏自动收缩功能
       ignoreList: [/^_.*$/],
       resolveRule: "rewrites",
-      checkRewritesPrefix: true,    
+      checkRewritesPrefix: true,
       ignoreIndexMd: true,
     },
 
@@ -286,25 +283,25 @@ const teekConfig = defineTeekConfig({
     autoFrontmatterOption: {
       // exclude: { title: true, date: true }, // 排除自动生成字段
       transform: frontmatter => {
-       // 如果文件本身存在了 coverImg，则不生成
-       if (frontmatter.coverImg) return;
-        
-       const list = CoverImgList;
-        
-       const coverImg = list[Math.floor(Math.random() * list.length)];
-        
-       const transformResult = { ...frontmatter, coverImg };
-        
-       return Object.keys(transformResult).length ? transformResult : undefined;
+        // 如果文件本身存在了 coverImg，则不生成
+        if (frontmatter.coverImg) return;
+
+        const list = CoverImgList;
+
+        const coverImg = list[Math.floor(Math.random() * list.length)];
+
+        const transformResult = { ...frontmatter, coverImg };
+
+        return Object.keys(transformResult).length ? transformResult : undefined;
       },
-    }, 
+    },
   },
 
   markdown: {
     config: (md) => {
       md.use(timeline); //时间线插件
       md.use(groupIconMdPlugin); // 代码组图标插件
-    },    
+    },
     demo: {
       githubUrl: "https://github.com/Kele-Bingtang/vitepress-theme-teek/blob/master/docs",
     },
@@ -325,18 +322,18 @@ const teekConfig = defineTeekConfig({
   ],
 
 
-  // 赞赏在文章下方
-  appreciation: {
-    position: "doc-after",
-    options: {
-      // buttonHtml: `<button>测试按钮</button>`,
-      icon: "weChatPay", // 赞赏图标，内置 weChatPay 和 alipay
-      expandTitle: "打赏支持", // 展开标题，支持 HTML
-      collapseTitle: "下次一定", // 折叠标题，支持 HTML
-      content: `<img src='/img/alipay/1.png'><img src='/img/alipay/2.png'>`, // 赞赏内容，支持 HTML
-      expand: false, // 是否默认展开，默认 false
-    },
-  },  
+  // // 赞赏在文章下方
+  // appreciation: {
+  //   position: "doc-after",
+  //   options: {
+  //     // buttonHtml: `<button>测试按钮</button>`,
+  //     icon: "weChatPay", // 赞赏图标，内置 weChatPay 和 alipay
+  //     expandTitle: "打赏支持", // 展开标题，支持 HTML
+  //     collapseTitle: "下次一定", // 折叠标题，支持 HTML
+  //     content: `<img src='/img/alipay/1.png'><img src='/img/alipay/2.png'>`, // 赞赏内容，支持 HTML
+  //     expand: false, // 是否默认展开，默认 false
+  //   },
+  // },  
 
   // 单文章页banner功能
   articleBanner: {
@@ -345,7 +342,7 @@ const teekConfig = defineTeekConfig({
     showTag: true, // 是否展示标签
     defaultCoverImg: "", // 默认封面图
     defaultCoverBgColor: "", // 默认封面背景色，优先级低于 defaultCoverImg
-  },  
+  },
 });
 
 // https://vitepress.dev/reference/site-config
@@ -355,9 +352,9 @@ export default defineConfig({
   }),
 
   extends: teekConfig,
-  title: "One", //左上角网站名称
+  title: "SeaHi", //左上角网站名称
   description: description,
-  
+
   cleanUrls: true,  //设置为true就是让链接后不默认添加.html
 
   lastUpdated: true,
@@ -395,7 +392,7 @@ export default defineConfig({
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     // logo: "/teek-logo-mini.svg",
-    logo: "/favicon.ico",   //网站logo
+    logo: "/Seahi.png",   //网站logo
     darkModeSwitchLabel: "主题",
     sidebarMenuLabel: "菜单",
     returnToTopLabel: "返回顶部",
@@ -406,7 +403,7 @@ export default defineConfig({
         dateStyle: 'full',
         timeStyle: 'medium'
       }
-    },    
+    },
     outline: {
       level: [2, 4],
       label: "本页导航",
@@ -476,16 +473,16 @@ export default defineConfig({
               },
             },
           },
-        },        
+        },
       }
     },
 
-    
-    editLink: {
-      text: "在 GitHub 上编辑此页",
-      // pattern: "https://github.com/Kele-Bingtang/vitepress-theme-teek/edit/master/docs/:path",
-      pattern: "https://onedayxyy.cn/teek/teek-one",
-    },
+
+    // editLink: {
+    //   text: "在 GitHub 上编辑此页",
+    //   // pattern: "https://github.com/Kele-Bingtang/vitepress-theme-teek/edit/master/docs/:path",
+    //   pattern: "https://onedayxyy.cn/teek/teek-one",
+    // },
   },
 
   vite: {
@@ -495,65 +492,65 @@ export default defineConfig({
       // strictPort: true, // 若端口已被占用则会直接退出
       // open: true, // 运行后自动打开网页
     },
-    
+
     // 构建
     build: {
       chunkSizeWarningLimit: 1500, // 限制警告的块大小
-    },    
+    },
 
     plugins: [
       // 自动注入一级前缀（rewrite模式）
       AutoFrontmatter({
-          pattern: "**/*.md",
-          // exclude 指定的对象如果在 markdown frontmatter 存在，则忽略该文件。当 include 和 exclude 存在相同文件时，exclude 优先级高
-          //exclude: { coverImg: true},
-          recoverTransform: true, // false 只添加不存在的字段
-          // 返回一个新的 frontmatter 或只返回 undefined，如果返回 {}，则清空 MD 文件本身存在的 frontmatter
-          transform: (frontMatter: Record<string, any>, fileInfo: FileInfo) => {
+        pattern: "**/*.md",
+        // exclude 指定的对象如果在 markdown frontmatter 存在，则忽略该文件。当 include 和 exclude 存在相同文件时，exclude 优先级高
+        //exclude: { coverImg: true},
+        recoverTransform: true, // false 只添加不存在的字段
+        // 返回一个新的 frontmatter 或只返回 undefined，如果返回 {}，则清空 MD 文件本身存在的 frontmatter
+        transform: (frontMatter: Record<string, any>, fileInfo: FileInfo) => {
 
-              // 定义需要处理的所有规则（可扩展多个）
-              const rules: TransformRule[] = [
-                  // { folderName: "95.Teek", prefix: "/teek" }, // 添加前缀
-                  // { folderName: "10.Teek", prefix: "/teek" }, // 添加前缀
-                  // { folderName: "20.工具资源/01.SSL证书", prefix: "/tool", removeLevel: 1 }, // 移除一层前缀后再添加前缀
-                  // { folderName: "10.笔记专栏/99.博客搭建", prefix: "/note", clear: true }, // 清空 permalink，优先级最高
-                  // { folderName: "20.文档", prefix: "/note", clear: true }, // 清空 permalink，优先级最高
-                  // { folderName: "01.前端/01.vite/", prefix: "/testa/$uuid5/$uuid1/$uuid10/$uuid99", removeLevel: 99}, // 清空前缀并且添加前缀使用随机数
-                  { folderName: "10.运维", prefix: "/linux/$uuid5", removeLevel: 99}, // 清空前缀并且添加前缀使用随机数
-                  { folderName: "20.前端", prefix: "/qianduan/$uuid5", removeLevel: 99}, // 清空前缀并且添加前缀使用随机数
-                  { folderName: "30.编程", prefix: "/code/$uuid5", removeLevel: 99}, // 清空前缀并且添加前缀使用随机数
-                  { folderName: "35.黑客", prefix: "/hacker/$uuid5", removeLevel: 99}, // 清空前缀并且添加前缀使用随机数
-                  { folderName: "40.专题", prefix: "/zhuanti/$uuid5", removeLevel: 99}, // 清空前缀并且添加前缀使用随机数
-                  { folderName: "50.工具", prefix: "/tools/$uuid5", removeLevel: 99}, // 清空前缀并且添加前缀使用随机数
-                  { folderName: "60.生活", prefix: "/life/$uuid5", removeLevel: 99}, // 清空前缀并且添加前缀使用随机数
-                  { folderName: "70.精神小屋", prefix: "/love/$uuid5", removeLevel: 99}, // 清空前缀并且添加前缀使用随机数
-                  { folderName: "80.娱乐", prefix: "/yule/$uuid5", removeLevel: 99}, // 清空前缀并且添加前缀使用随机数
-                  { folderName: "85.兴趣", prefix: "/xingqu/$uuid5", removeLevel: 99}, // 清空前缀并且添加前缀使用随机数
-                  { folderName: "90.关于", prefix: "/about/$uuid5", removeLevel: 99}, // 清空前缀并且添加前缀使用随机数
-                  { folderName: "100.Teek", prefix: "/teek/$uuid5", removeLevel: 99}, // 清空前缀并且添加前缀使用随机数
-                  { folderName: "110.hugo-teek", prefix: "/hugo-teek/$uuid5", removeLevel: 99}, // 清空前缀并且添加前缀使用随机数
-                  // { folderName: "105.博客搭建", prefix: "/blog/$uuid5", removeLevel: 99}, // 清空前缀并且添加前缀使用随机数
-                  // { folderName: "40.专题/10.博客搭建/45.静态站点构建器", prefix: "/zhuanti/$uuid5", removeLevel: 99}, // 清空前缀并且添加前缀使用随机数
-                  // { folderName: "40.专题/10.博客搭建/45.静态站点构建器", prefix: "/zhuanti", clear: true }, // 清空前缀并且添加前缀使用随机数
-              ];
-              // 应用规则转换
-              return useTransformByRules(frontMatter, fileInfo, rules);
+          // 定义需要处理的所有规则（可扩展多个）
+          const rules: TransformRule[] = [
+            // { folderName: "95.Teek", prefix: "/teek" }, // 添加前缀
+            // { folderName: "10.Teek", prefix: "/teek" }, // 添加前缀
+            // { folderName: "20.工具资源/01.SSL证书", prefix: "/tool", removeLevel: 1 }, // 移除一层前缀后再添加前缀
+            // { folderName: "10.笔记专栏/99.博客搭建", prefix: "/note", clear: true }, // 清空 permalink，优先级最高
+            // { folderName: "20.文档", prefix: "/note", clear: true }, // 清空 permalink，优先级最高
+            // { folderName: "01.前端/01.vite/", prefix: "/testa/$uuid5/$uuid1/$uuid10/$uuid99", removeLevel: 99}, // 清空前缀并且添加前缀使用随机数
+            { folderName: "10.运维", prefix: "/linux/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
+            { folderName: "20.前端", prefix: "/qianduan/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
+            { folderName: "30.编程", prefix: "/code/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
+            { folderName: "35.黑客", prefix: "/hacker/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
+            { folderName: "40.专题", prefix: "/zhuanti/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
+            { folderName: "50.工具", prefix: "/tools/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
+            { folderName: "60.生活", prefix: "/life/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
+            { folderName: "70.精神小屋", prefix: "/love/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
+            { folderName: "80.娱乐", prefix: "/yule/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
+            { folderName: "85.兴趣", prefix: "/xingqu/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
+            { folderName: "90.关于", prefix: "/about/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
+            { folderName: "100.Teek", prefix: "/teek/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
+            { folderName: "110.hugo-teek", prefix: "/hugo-teek/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
+            // { folderName: "105.博客搭建", prefix: "/blog/$uuid5", removeLevel: 99}, // 清空前缀并且添加前缀使用随机数
+            // { folderName: "40.专题/10.博客搭建/45.静态站点构建器", prefix: "/zhuanti/$uuid5", removeLevel: 99}, // 清空前缀并且添加前缀使用随机数
+            // { folderName: "40.专题/10.博客搭建/45.静态站点构建器", prefix: "/zhuanti", clear: true }, // 清空前缀并且添加前缀使用随机数
+          ];
+          // 应用规则转换
+          return useTransformByRules(frontMatter, fileInfo, rules);
 
-  /*            // 如果文件本身存在了 coverImg，则不生成
-              if (frontMatter.coverImg) return; // 随机获取 coverImg
-              const list = [...Wallpaper, ...BlogCover];
-              const coverImg = list[Math.floor(Math.random() * list.length)];
-              const transformResult = { ...frontMatter, coverImg };
-              console.log("transformResult", transformResult)
-              return Object.keys(transformResult).length
-                  ? transformResult
-                  : undefined;*/
-          },
-      }),      
+          /*            // 如果文件本身存在了 coverImg，则不生成
+                      if (frontMatter.coverImg) return; // 随机获取 coverImg
+                      const list = [...Wallpaper, ...BlogCover];
+                      const coverImg = list[Math.floor(Math.random() * list.length)];
+                      const transformResult = { ...frontMatter, coverImg };
+                      console.log("transformResult", transformResult)
+                      return Object.keys(transformResult).length
+                          ? transformResult
+                          : undefined;*/
+        },
+      }),
 
     ],
 
-  },  
+  },
 
   transformHtml: (code, id, context) => {
     if (context.page !== "404.md") return code;

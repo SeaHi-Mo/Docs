@@ -1,9 +1,9 @@
-import { gitee, email, WhatsApp, telegram } from "../theme/icon/icons";
+import { github, email, WhatsApp, telegram } from "../theme/icon/icons";
 
 export const SocialLinks = [
   {
-    icon: { svg: gitee },
-    link: "https://cnb.cool/onedayxyy/vitepress-theme-teek-one-public",
+    icon: { svg:github },
+    link: "https://github.com/SeaHi-Mo",
   },
   // {
   //   icon: { svg: email },
