@@ -377,7 +377,7 @@ export default defineConfig({
     },
   },
   sitemap: {
-    hostname: "https://onedayxyy.cn",
+    hostname: "https://docs.c-hi.cn",
     // transformItems: items => {
     //   const permalinkItemBak: typeof items = [];
     //   // 使用永久链接生成 sitemap
