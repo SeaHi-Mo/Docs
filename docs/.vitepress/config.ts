@@ -64,7 +64,7 @@ const teekConfig = defineTeekConfig({
   // author: { name: "Teeker", link: "https://github.com/Kele-Bingtang" },
   blogger: {
     // 博主信息，显示在首页侧边栏
-    avatar: "/img/xyy.webp",  //侧边栏个人头像
+    avatar: "/Seahi-Logo.png",  //侧边栏个人头像
     shape: "circle-rotate", // 头像风格：square 为方形头像，circle 为圆形头像，circle-rotate 可支持鼠标悬停旋转
     name: "SeaHi", // 侧边栏个人昵称
     slogan: "明心静性，爱自己", // 侧边栏个人座右铭
@@ -392,7 +392,7 @@ export default defineConfig({
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     // logo: "/teek-logo-mini.svg",
-    logo: "/Seahi.png",   //网站logo
+    logo: "/Seahi-Logo.png",   //网站logo
     darkModeSwitchLabel: "主题",
     sidebarMenuLabel: "菜单",
     returnToTopLabel: "返回顶部",
