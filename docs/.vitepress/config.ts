@@ -76,7 +76,7 @@ const teekConfig = defineTeekConfig({
     status: {
       icon: "😜", // 状态图标
       size: 24, // 图标大小
-      title: "有趣", // 鼠标悬停图标的提示语
+      title: "我是一个程序员", // 鼠标悬停图标的提示语
     },
   },
 
@@ -134,18 +134,18 @@ const teekConfig = defineTeekConfig({
 
 
   // 布蒜子统计分析
-  docAnalysis: {
-    createTime: "2025-02-26",
-    statistics: {
-      provider: "busuanzi",
-      url: "https://bszi.eryajf.net/jsonp?callback=BusuanziCallback",
-      tryRequest: true,
-      tryCount: 5,
-      tryIterationTime: 2000,
-    },
-    wordCount: true,
-    readingTime: true,
-  },
+  // docAnalysis: {
+  //   createTime: "2025-02-26",
+  //   statistics: {
+  //     provider: "busuanzi",
+  //     url: "https://bszi.eryajf.net/jsonp?callback=BusuanziCallback",
+  //     tryRequest: true,
+  //     tryCount: 5,
+  //     tryIterationTime: 2000,
+  //   },
+  //   wordCount: true,
+  //   readingTime: true,
+  // },
 
 
   // 风险链接提示页
@@ -392,7 +392,7 @@ export default defineConfig({
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     // logo: "/teek-logo-mini.svg",
-    logo: "/Seahi-Logo.png",   //网站logo
+    logo: "/seahi.ico",   //网站logo
     darkModeSwitchLabel: "主题",
     sidebarMenuLabel: "菜单",
     returnToTopLabel: "返回顶部",

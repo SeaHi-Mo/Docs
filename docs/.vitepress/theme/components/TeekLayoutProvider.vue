@@ -4,7 +4,8 @@ import Teek, { teekConfigContext, clockIcon } from "vitepress-theme-teek";
 import { useData } from "vitepress";
 import { watch, nextTick, ref, provide } from "vue";
 // import { teekDocConfig } from "../config/teekConfig";
-import { teekBlogCardConfig } from "../config/teekConfig";
+// import { teekBlogCardConfig } from "../config/teekConfig";
+import { teekBlogParkConfig } from "../config/teekConfig";
 import { useRibbon } from "../composables/useRibbon";
 import { useRuntime } from "../composables/useRuntime";
 import ConfigSwitch from "./ConfigSwitch.vue";
@@ -24,9 +25,6 @@ import BackTop from "./BackTop.vue"; //导入回到顶部组件
 import Clock from "./Clock.vue"; // 时钟组件
 // import OhMyLive2D from "./OhMyLive2D.vue"; //导入看板娘组件
 
-
-// @ts-ignore
-// import InformationCard from "./InformationCard.vue";  //导入信息卡片和舔狗日记组件
 
 import NoticeCard from "./NoticeCard.vue"; //导入公告卡片组件
 import WelcomeCard from "./WelcomeCard.vue"; //导入欢迎卡片组件
@@ -53,8 +51,12 @@ const { frontmatter } = useData();
 
 
 // 默认博客 卡片风
-const currentStyle = ref("blog-card");
-const teekConfig = ref(teekBlogCardConfig);
+// const currentStyle = ref("blog-card");
+// const teekConfig = ref(teekBlogCardConfig);
+// 默认博客 小图
+const currentStyle = ref("blog-part");
+const teekConfig = ref(teekBlogParkConfig);
+
 provide(teekConfigContext, teekConfig);
 
 // 彩带背景
@@ -163,9 +165,9 @@ const handleConfigSwitch = (config: TeekConfig, style: string) => {
 
 
     <!-- 自定义公告卡片 -->
-    <template #teek-home-card-doc-analysis-after>
+    <!-- <template #teek-home-card-doc-analysis-after>
       <WechatAccountCard />
-    </template>
+    </template> -->
 
     <!-- 回到顶部组件插槽 -->
     <template #teek-back-top>

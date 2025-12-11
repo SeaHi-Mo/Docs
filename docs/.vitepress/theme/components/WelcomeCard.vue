@@ -102,7 +102,7 @@ interface WeatherData {
 // 公告内容类型
 interface NoticeContent {
   title: string;
-  subtitle: string;
+  // subtitle: string;
   content: string;
   error: string;
   email: string;
@@ -115,12 +115,12 @@ const distance = ref<string>("");
 
 // 公告内容
 const noticeContent: NoticeContent = {
-  title: "📢 欢迎来访者",
-  subtitle: "👋🏻 Hi，我是One，欢迎您！",
+  title: "🎉我是SeaHi，欢迎您来到我的博客",
+  // subtitle: "👋🏻你好，我是SeaHi，欢迎您！",
   content: "❓ 如有问题欢迎评论区交流！",
   error: "😫 页面异常？尝试Ctrl+F5",
   email:
-    '📧 如需联系我：<a href="mailto:2675263825@gmail.com" style="color: var(--vp-c-brand-1);">发送邮件🚀</a>',
+    '📧 如需联系我：<a href="mailto:seahi-mo@foxmail.com" style="color: var(--vp-c-brand-1);">发送邮件🚀</a>',
 };
 
 // 获取IP数据

@@ -49,8 +49,12 @@ const emit = defineEmits<{
 // const currentStyle = useStorage("tk:configStyle", "doc");
 
 // 默认blog-card风格
-const themeStyle = defineModel({ default: "blog-card" });
-const currentStyle = useStorage("tk:configStyle", "blog-card");
+// const themeStyle = defineModel({ default: "blog-card" });
+// const currentStyle = useStorage("tk:configStyle", "card");
+// 默认blog-part风格
+const themeStyle = defineModel({ default: "blog-part" });
+const currentStyle = useStorage("tk:configStyle", "part");
+
 const teekConfig = ref(teekDocConfig);
 
 const { copy, copied } = useClipboard();

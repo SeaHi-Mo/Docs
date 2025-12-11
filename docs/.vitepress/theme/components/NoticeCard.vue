@@ -40,11 +40,11 @@ interface NoticeContent {
 
 // 公告内容
 const noticeContent: NoticeContent = {
-  title: '📢 重要公告',
-  subtitle: '全网最美博客Teek🎉',
-  content: 'Teek~一款简约、唯美、丝滑且强大的VitePress主题博客(知识库&博客二合一) ，正在持续迭代更新，欢迎交流学习！',
-  operationButtonName: '查看详情',
-  operationButtonPath: 'https://vp.teek.top/',
+  title: '📢 公告',
+  subtitle: '🎉祝贺本站的盛大建立',
+  content: '贺SeaHi の博客首次发布！从此，把踩过的坑、悟到的道，都写成独属于自己的成长序章。🎉🎉🎉 为此，奖励大家一个SeaHi 的博客',
+  operationButtonName: '热烈欢迎',
+  operationButtonPath: 'https://docs.c-hi.cn',
 };
 
 // 判断是否为外链

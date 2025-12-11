@@ -81,7 +81,7 @@ export default {
     // app.component("NavIcon", NavIcon); //导航栏图标
 
     // 注册全局组件
-    app.component("friend-link", SLink);
+    // app.component("friend-link", SLink);
 
     app.component("emoji-Shiroki", EmojiShiroki); // ◀️ 注入 Emoji 表情库组件布局
 

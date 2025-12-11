@@ -20,12 +20,13 @@ export const teekDocConfig: TeekConfig = {
       createYear: 2025,
       suffix: "Seahi",
     },
-  },  
+  },
 
   //选择第三个选项：全部站看，侧边栏和内容区域宽度都可以调整
   themeEnhance: {
     layoutSwitch: {
-      defaultMode: "bothWidthAdjustable",
+      // defaultMode: "bothWidthAdjustable",
+      disabled: true,
     },
   },
 };
@@ -37,7 +38,16 @@ const teekBlogCommonConfig: TeekConfig = {
   themeEnhance: {
     layoutSwitch: {
       defaultMode: "bothWidthAdjustable",
+      disabled: true,
     },
+    themeColor: {
+      disabled: true,
+    },
+
+    spotlight: {
+      disabled: true,
+    },
+    enabled: false,
   },
 
 
@@ -66,7 +76,7 @@ const teekBlogCommonConfig: TeekConfig = {
     typesOutTime: 100, // 删除一个文字的时间，单位：毫秒。descStyle 为 types 时生效
     typesNextTime: 800, // 打字与删字的间隔时间，单位：毫秒。descStyle 为 types 时生效
     typesShuffle: false, // 描述信息是否随机打字，为 false 时按顺序打字，descStyle 为 types 时生效
-  },  
+  },
 
   // // 首页顶部按 F11 开启壁纸模式
   // wallpaper: {
@@ -78,15 +88,11 @@ const teekBlogCommonConfig: TeekConfig = {
   // footerInfo: {
   //   customHtml: `<span id="runtime"></span>`, // 需要搭配 .vitepress/theme/helper/useRuntime.ts 使用
   // },
-  
+
   footerInfo: FooterInfo, // 底部信息配置 
   friendLink: FriendLink, // 友链配置
   social: SocialDate, //社交信息配置
-   
-  
 
-
-  
   // docAnalysis: {
   //   createTime: "2025-03-23",
   //   statistics: {
@@ -175,10 +181,15 @@ export const teekBlogConfig: TeekConfig = {
 // 博客小图配置
 export const teekBlogParkConfig: TeekConfig = {
   ...teekBlogCommonConfig,
+  post: {
+    postStyle: "card",
+    
+  },
+  
   banner: {
     name: "🎉 SeaHi",
     bgStyle: "partImg",
-    imgSrc: ["/blog/bg1.webp", "/blog/bg2.webp", "/blog/bg3.webp"],
+    imgSrc: ["/img/blog/banner-bg1.webp", "/img/blog/banner-bg2.webp"],
     description: [
       "故事由我书写，旅程由你见证，传奇由她聆听 —— 来自 Young Kbt",
       "积跬步以至千里，致敬每个爱学习的你 —— 来自 Evan Xu",
@@ -226,6 +237,10 @@ export const teekBlogBodyConfig: TeekConfig = {
   themeEnhance: {
     layoutSwitch: {
       defaultMode: "original",
+      disabled: true,
+    },
+    themeColor: {
+      disabled: true,
     },
   },
 };
