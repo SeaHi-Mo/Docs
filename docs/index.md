@@ -2,7 +2,7 @@
 layout: home
 
 title: SeaHi
-titleTemplate: 明心静性，爱自己
+titleTemplate: 言念君子，温其如玉
 
 tk:
   teekHome: false

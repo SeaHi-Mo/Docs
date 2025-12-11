@@ -173,8 +173,17 @@ export const teekBlogConfig: TeekConfig = {
   ...teekBlogCommonConfig,
   banner: {
     name: "🎉 SeaHi",
-    description: "故事由我书写，旅程由你见证，传奇由她聆听 —— 来自 Young Kbt",
+    description: [
+      "有些人心如花木，皆向阳而生 —— 《剑来》",
+      "认定一件事，即使拿十分力气都无法完成，也要拿出十二分力气去努力 —— 《剑来》：陈平安",
+      "即使蚍蜉用尽全力，也无法撼动大树，但他想要对大树做些什么，是他的态度",
+      "人生当苦无妨，良人当归即好",
+      "苦难艰辛之大困局中，最难耐者能耐之，苦定回甘。",
+      "落魄时，一定要把自己当回事；发迹后，一定要把他人当回事。",
+    ],
     bgStyle: "partImg",
+
+    
   },
 };
 
@@ -185,15 +194,18 @@ export const teekBlogParkConfig: TeekConfig = {
     postStyle: "card",
     
   },
-  
+  homeCardListPosition: "left",
   banner: {
-    name: "🎉 SeaHi",
+    name: "SeaHi の博客 🎉",
     bgStyle: "partImg",
-    imgSrc: ["/img/blog/banner-bg1.webp", "/img/blog/banner-bg2.webp"],
+    imgSrc: ["/img/blog/3.png","/img/blog/banner-bg1.webp", "/img/blog/banner-bg2.webp","/img/blog/3.png"],
     description: [
-      "故事由我书写，旅程由你见证，传奇由她聆听 —— 来自 Young Kbt",
-      "积跬步以至千里，致敬每个爱学习的你 —— 来自 Evan Xu",
-      "这一生波澜壮阔或是不惊都没问题 —— 来自 Weibw",
+      "有些人心如花木，皆向阳而生 —— 《剑来》",
+      "认定一件事，即使拿十分力气都无法完成，也要拿出十二分力气去努力 —— 《剑来》：陈平安",
+      "即使蚍蜉用尽全力，也无法撼动大树，但他想要对大树做些什么，是他的态度",
+      "人生当苦无妨，良人当归即好",
+      "苦难艰辛之大困局中，最难耐者能耐之，苦定回甘。",
+      "落魄时，一定要把自己当回事；发迹后，一定要把他人当回事。",
     ],
     descStyle: "switch",
   },
@@ -210,9 +222,12 @@ export const teekBlogFullConfig: TeekConfig = {
     bgStyle: "fullImg",
     imgSrc: ["/blog/bg1.webp", "/blog/bg2.webp", "/blog/bg3.webp"],
     description: [
-      "故事由我书写，旅程由你见证，传奇由她聆听 —— 来自 Young Kbt",
-      "积跬步以至千里，致敬每个爱学习的你 —— 来自 Evan Xu",
-      "这一生波澜壮阔或是不惊都没问题 —— 来自 Weibw",
+      "有些人心如花木，皆向阳而生 —— 《剑来》",
+      "认定一件事，即使拿十分力气都无法完成，也要拿出十二分力气去努力 —— 《剑来》：陈平安",
+      "即使蚍蜉用尽全力，也无法撼动大树，但他想要对大树做些什么，是他的态度",
+      "人生当苦无妨，良人当归即好",
+      "苦难艰辛之大困局中，最难耐者能耐之，苦定回甘。",
+      "落魄时，一定要把自己当回事；发迹后，一定要把他人当回事。",
     ],
     descStyle: "types",
   },

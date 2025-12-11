@@ -30,9 +30,9 @@ import { useTransformByRules, type TransformRule } from "./theme/composables/use
 
 
 const description = [
-  "欢迎来到 vitepress-theme-teek 使用文档",
-  "Teek 是一个基于 VitePress 构建的主题，是在默认主题的基础上进行拓展，支持 VitePress 的所有功能、配置",
-  "Teek 拥有三种典型的知识管理形态：结构化、碎片化、体系化，可以轻松构建一个结构化知识库，适用个人博客、文档站、知识库等场景",
+  "欢迎来到 SeaHi 的博客",
+  "本站是一个嵌入式个人资料库，记录了 SeaHi 的在电子、编程、DIY的学习过程",
+  "或与你在这里可以找到C51、STM32、WiFi、蓝牙等嵌入式开发资料和开发经验",
 ].toString();
 const CoverImgList = Cover; // 获取封面列表
 // const CoverBgList = Wallpaper; // 获取壁纸列表
@@ -67,7 +67,7 @@ const teekConfig = defineTeekConfig({
     avatar: "/Seahi-Logo.png",  //侧边栏个人头像
     shape: "circle-rotate", // 头像风格：square 为方形头像，circle 为圆形头像，circle-rotate 可支持鼠标悬停旋转
     name: "SeaHi", // 侧边栏个人昵称
-    slogan: "明心静性，爱自己", // 侧边栏个人座右铭
+    slogan: "言念君子，温其如玉", // 侧边栏个人座右铭
     circleBgImg: "https://img.onedayxyy.cn/images/Teek/TeekBg/14.webp", // 侧边栏个人头像圆形背景图
     circleBgMask: false, // 头像圆形背景图是否显示遮罩层
     color: "#fff",
