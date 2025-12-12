@@ -198,7 +198,7 @@ export const teekBlogParkConfig: TeekConfig = {
   banner: {
     name: "SeaHi の博客 🎉",
     bgStyle: "partImg",
-    imgSrc: ["/img/blog/3.png","/img/blog/banner-bg1.webp", "/img/blog/banner-bg2.webp","/img/blog/3.png"],
+    imgSrc: ["/img/blog/4.jpeg", "/img/blog/3.png","/img/blog/2.png"],
     description: [
       "有些人心如花木，皆向阳而生 —— 《剑来》",
       "认定一件事，即使拿十分力气都无法完成，也要拿出十二分力气去努力 —— 《剑来》：陈平安",

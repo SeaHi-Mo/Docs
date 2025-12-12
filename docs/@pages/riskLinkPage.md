@@ -4,7 +4,7 @@ title: riskLinkPage
 permalink: /risk-link
 layout: false
 riskLinkPage: true
-logo: /favicon.ico
-name: One Blog
+logo: /Seahi-Logo.png
+name: SeaHi Blog
 article: false
 ---

@@ -399,7 +399,7 @@ export const teekConfig = defineTeekConfig({
     const { origin, pathname, search } = location;
     const url = `${origin}${frontmatter.permalink ?? pathname}${query ? search : ""}${hash ? location.hash : ""}`;
 
-    const author = "Teek";
+    const author = "SeaHi";
 
     return {
       type: "tip",
