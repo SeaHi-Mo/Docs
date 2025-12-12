@@ -26,9 +26,6 @@ import AutoFrontmatter, { FileInfo } from "vitepress-plugin-auto-frontmatter";
 import { useTransformByRules, type TransformRule } from "./theme/composables/useTransform";
 
 
-
-
-
 const description = [
   "欢迎来到 SeaHi 的博客",
   "本站是一个嵌入式个人资料库，记录了 SeaHi 的在电子、编程、DIY的学习过程",
