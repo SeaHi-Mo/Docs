@@ -4,12 +4,17 @@ export const Nav = [
     { text: "首页", link: "/" },
     // 笔记
     {
-      text: '文档',
+      text: '教程',
       items: [
       
       ],
     },  
+  {
+    text: '开源项目',
+    items: [
 
+    ],
+  },  
     // 专题
     {
       text: '工具',
@@ -23,7 +28,7 @@ export const Nav = [
 
     // 关于
     {
-      text: '🍷关于',
+      text: '关于',
       items: [
         { text: '👋关于我', link: '/about/me' },
         // {
