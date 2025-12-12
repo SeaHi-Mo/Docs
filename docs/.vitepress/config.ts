@@ -83,14 +83,14 @@ const teekConfig = defineTeekConfig({
 
   // 分类卡片
   category: {
-    enabled: true, // 是否启用分类卡片
+    enabled: false, // 是否启用分类卡片
     limit: 8, // 一页显示的数量
     autoPage: false, // 是否自动翻页
     pageSpeed: 4000, // 翻页间隔时间，单位：毫秒。autoPage 为 true 时生效
   },
   // 标签卡片
   tag: {
-    enabled: true, // 是否启用标签卡片
+    enabled: false, // 是否启用标签卡片
     limit: 21, // 一页显示的数量
     autoPage: false, // 是否自动翻页
     pageSpeed: 4000, // 翻页间隔时间，单位：毫秒。autoPage 为 true 时生效
@@ -99,7 +99,7 @@ const teekConfig = defineTeekConfig({
 
   // 精选文章卡片
   topArticle: {
-    enabled: true, // 是否启用精选文章卡片
+    enabled: false, // 是否启用精选文章卡片
     limit: 5, // 一页显示的数量
     autoPage: false, // 是否自动翻页
     pageSpeed: 4000, // 翻页间隔时间，单位：毫秒。autoPage 为 true 时生效
