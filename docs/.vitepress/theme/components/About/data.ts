@@ -9,11 +9,16 @@ import {
   JLCEDA,
   STM32Cube,
   Arduino,
+  Ubuntu,
   MarkDown,
   MQTT,
   BLE,
   WiFi,
   c,
+  LoRa,
+  tcpip,
+  cloudflare,
+  HomeAssistant,
 } from "./TechIcons";
 
 export const profile = {
@@ -112,10 +117,14 @@ export const techStackIcons = [
   { name: "WiFi", icon: WiFi },
   { name: "BLE", icon: BLE },
   { name: "MQTT", icon: MQTT },
+  { name: "LoRa", icon: LoRa },
+  { name: "TCP/IP", icon: tcpip },
+  { name: "HomeAssistant", icon: HomeAssistant },
   // 第三行
  
   { name: "Linux", icon: LinuxDark },
-
+  { name: "Ubuntu", icon: Ubuntu },
+  { name: "Cloudflare", icon: cloudflare },
   // 第四行，首尾空
   {},
 
