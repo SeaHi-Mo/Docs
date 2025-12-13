@@ -57,7 +57,7 @@ const teekBlogCommonConfig: TeekConfig = {
   banner: {
     enabled: true,
     name: "SeaHi の博客 🎉", // Banner 标题，默认读取 vitepress 的 title 属性
-    bgStyle: "fullImg", // Banner 背景风格：pure 为纯色背景，partImg 为局部图片背景，fullImg 为全屏图片背景
+    bgStyle: "partImg", // Banner 背景风格：pure 为纯色背景，partImg 为局部图片背景，fullImg 为全屏图片背景
     pureBgColor: "#28282d", // Banner 背景色，bgStyle 为 pure 时生效
     imgSrc: Wallpaper, // Banner 图片链接。bgStyle 为 partImg 或 fullImg 时生效
     imgInterval: 15000, // 当多张图片时（imgSrc 为数组），设置切换时间，单位：毫秒
@@ -74,7 +74,7 @@ const teekBlogCommonConfig: TeekConfig = {
     switchShuffle: true, // 描述信息是否随机切换，为 false 时按顺序切换。descStyle 为 switch 时生效
     typesInTime: 200, // 输出一个文字的时间，单位：毫秒。descStyle 为 types 时生效
     typesOutTime: 100, // 删除一个文字的时间，单位：毫秒。descStyle 为 types 时生效
-    typesNextTime: 800, // 打字与删字的间隔时间，单位：毫秒。descStyle 为 types 时生效
+    typesNextTime: 100, // 打字与删字的间隔时间，单位：毫秒。descStyle 为 types 时生效
     typesShuffle: false, // 描述信息是否随机打字，为 false 时按顺序打字，descStyle 为 types 时生效
   },
 
@@ -93,79 +93,6 @@ const teekBlogCommonConfig: TeekConfig = {
   friendLink: FriendLink, // 友链配置
   social: SocialDate, //社交信息配置
 
-  // docAnalysis: {
-  //   createTime: "2025-03-23",
-  //   statistics: {
-  //     // provider: "busuanzi",
-  //     provider: "vercount",
-  //     // url: "//bsz.eryajf.net/jsonp?callback=Busuanzicallback"
-  //   },
-  // },
-  // friendLink: {
-  //   list: [
-  //     {
-  //       name: "Teeker",
-  //       desc: "朝圣的使徒，正在走向编程的至高殿堂！",
-  //       avatar: "https://testingcf.jsdelivr.net/gh/Kele-Bingtang/static/user/avatar2.png",
-  //       link: "http://notes.teek.top/",
-  //     },
-  //     {
-  //       name: "vuepress-theme-vdoing",
-  //       desc: "🚀一款简洁高效的VuePress 知识管理&博客 主题",
-  //       avatar: "https://doc.xugaoyi.com/img/logo.png",
-  //       link: "https://doc.xugaoyi.com/",
-  //     },
-  //     {
-  //       name: "One",
-  //       desc: "明心静性，爱自己",
-  //       avatar: "https://onedayxyy.cn/img/xyy-touxiang.png",
-  //       link: "https://onedayxyy.cn/",
-  //     },
-  //     {
-  //       name: "Hyde Blog",
-  //       desc: "人心中的成见是一座大山",
-  //       avatar: "https://teek.seasir.top/avatar/avatar.webp",
-  //       link: "https://teek.seasir.top/",
-  //     },
-  //     {
-  //       name: "二丫讲梵",
-  //       desc: "💻学习📝记录🔗分享",
-  //       avatar: "https://wiki.eryajf.net/img/logo.png",
-  //       link: " https://wiki.eryajf.net/",
-  //     },
-  //     {
-  //       name: "粥里有勺糖",
-  //       desc: "简约风的 VitePress 博客主题",
-  //       avatar: "https://theme.sugarat.top/logo.png",
-  //       link: "https://theme.sugarat.top/",
-  //     },
-  //     {
-  //       name: "VitePress 快速上手中文教程",
-  //       desc: "如果你也想搭建它，那跟我一起做吧",
-  //       avatar: "https://avatars.githubusercontent.com/u/90893790?v=4",
-  //       link: "https://vitepress.yiov.top/",
-  //     },
-  //     {
-  //       name: "友人A",
-  //       desc: "おとといは兎をみたの，昨日は鹿，今日はあなた",
-  //       avatar: "http://niubin.site/logo.jpg",
-  //       link: "http://niubin.site/",
-  //     },
-  //   ],
-  //   autoScroll: true,
-  // },
-  // social: [
-  //   {
-  //     icon: "mdi:github",
-  //     name: "GitHub",
-  //     link: "https://github.com/kele-bingtang",
-  //   },
-  //   {
-  //     icon: "simple-icons:gitee",
-  //     name: "Gitee",
-  //     link: "https://gitee.com/kele-bingtang",
-  //   },
-  // ],
 };
 
 // 博客默认配置
@@ -182,8 +109,6 @@ export const teekBlogConfig: TeekConfig = {
       "落魄时，一定要把自己当回事；发迹后，一定要把他人当回事。",
     ],
     bgStyle: "partImg",
-
-    
   },
 };
 
@@ -192,13 +117,13 @@ export const teekBlogParkConfig: TeekConfig = {
   ...teekBlogCommonConfig,
   post: {
     postStyle: "card",
-    
+
   },
   homeCardListPosition: "left",
   banner: {
     name: "SeaHi の博客 🎉",
     bgStyle: "partImg",
-    imgSrc: ["/img/blog/4.jpeg", "/img/blog/3.png","/img/blog/1.png"],
+    imgSrc: ["/img/blog/4.jpeg", "/img/blog/3.png", "/img/blog/1.png"],
     description: [
       "有些人心如花木，皆向阳而生 —— 《剑来》",
       "认定一件事，即使拿十分力气都无法完成，也要拿出十二分力气去努力 —— 《剑来》：陈平安",
@@ -207,8 +132,13 @@ export const teekBlogParkConfig: TeekConfig = {
       "苦难艰辛之大困局中，最难耐者能耐之，苦定回甘。",
       "落魄时，一定要把自己当回事；发迹后，一定要把他人当回事。",
     ],
-    descStyle: "switch",
+    descStyle: "types",
+    imgShuffle: true,
+    titleFontSize: "4.2rem", // 标题字体大小
+    switchShuffle: true, // 描述信息是否随机切换，为 false 时按顺序切换。descStyle 为 switch 时生效
+    typesNextTime: 100,
   },
+
 };
 
 // 博客大图配置

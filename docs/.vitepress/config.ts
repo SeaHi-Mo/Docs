@@ -419,6 +419,55 @@ export default defineConfig({
 
     // search: {
     //   provider: "local",
+    //   options: {
+    //     miniSearch: {
+    //       /**
+    //        * @type {Pick<import('minisearch').Options, 'extractField' | 'tokenize' | 'processTerm'>}
+    //        */
+    //       options: {
+    //         tokenize: (text) => {
+    //           const segmenter = new Intl.Segmenter('zh-CN', { granularity: 'word' })
+    //           const result: string[] = []
+    //           for (const it of segmenter.segment(text)) {
+    //             if (it.isWordLike) {
+    //               result.push(it.segment)
+    //             }
+    //           }
+    //           return result;
+    //         }
+    //       },
+    //       /**
+    //        * @type {import('minisearch').SearchOptions}
+    //        * @default
+    //        * { fuzzy: 0.2, prefix: true, boost: { title: 4, text: 2, titles: 1 } }
+    //        */
+    //       searchOptions: {
+    //         fuzzy: 0.2, // 设置模糊搜索的容错率
+    //         prefix: true, // 启用前缀匹配
+    //         boost: {
+    //           title: 4, // 标题字段的权重
+    //           text: 3, // 正文内容的权重
+    //           titles: 1, // 其他标题字段的权重
+    //         },
+    //         /* ... */
+    //       }
+    //     },
+    //     translations: {
+    //       button: {
+    //         buttonText: "搜索文档",
+    //         buttonAriaLabel: "搜索文档",
+    //       },
+    //       modal: {
+    //         noResultsText: "无法找到相关结果",
+    //         resetButtonTitle: "清除查询条件",
+    //         footer: {
+    //           selectText: "选择",
+    //           navigateText: "切换",
+    //           closeText: "关闭",
+    //         },
+    //       },
+    //     },
+    //   },
     // },
 
     // algolia搜索
@@ -509,10 +558,10 @@ export default defineConfig({
           const rules: TransformRule[] = [
             { folderName: "01.开源项目", prefix: "/openHW/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
             { folderName: "10.教程", prefix: "/tutorial/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
-            { folderName: "15.工具", prefix: "/tools/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
-            { folderName: "20.联系方式", prefix: "/contactinformation/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
+            { folderName: "20.工具", prefix: "/tools/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
+            { folderName: "30.联系方式", prefix: "/contactinformation/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
             { folderName: "40.关于", prefix: "/about/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
-            { folderName: "90.Teek", prefix: "/teek/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
+           
           ];
           // 应用规则转换
           return useTransformByRules(frontMatter, fileInfo, rules);
