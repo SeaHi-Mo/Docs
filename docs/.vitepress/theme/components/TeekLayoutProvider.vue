@@ -151,7 +151,7 @@ const handleConfigSwitch = (config: TeekConfig, style: string) => {
     <!-- 自定义公告卡片-欢迎语 -->
     <template #teek-home-card-my-after>
       <!-- <WelcomeCard /> -->
-      <WelcomeCard />
+      <!-- <WelcomeCard /> -->
     </template>    
 
     <!-- 自定义公告卡片 公告-->
