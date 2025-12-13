@@ -45,7 +45,7 @@ const teekConfig = defineTeekConfig({
   },
 
   loading: false, // 启用 Loading 动画，为 false 则关闭 Loading 动画
-  // loading: "正在加载中...", // 修改 Loading 文案
+  // loading: "已经在很努力加载了，请稍等一下哦~", // 修改 Loading 文案
 
 
   themeEnhance: {
@@ -278,18 +278,18 @@ const teekConfig = defineTeekConfig({
 
     // 自动格式formatter插件 添加文章封面图
     autoFrontmatterOption: {
-      // exclude: { title: true, date: true }, // 排除自动生成字段
+      exclude: { title: true, }, // 排除自动生成字段
       transform: frontmatter => {
-        // 如果文件本身存在了 coverImg，则不生成
-        if (frontmatter.coverImg) return;
+      // 如果文件本身存在了 coverImg，则不生成
+      if (frontmatter.coverImg) return;
 
-        const list = CoverImgList;
+      const list = CoverImgList;
 
-        const coverImg = list[Math.floor(Math.random() * list.length)];
+      const coverImg = list[Math.floor(Math.random() * list.length)];
 
-        const transformResult = { ...frontmatter, coverImg };
+      const transformResult = { ...frontmatter, coverImg };
 
-        return Object.keys(transformResult).length ? transformResult : undefined;
+      return Object.keys(transformResult).length ? transformResult : undefined;
       },
     },
   },
@@ -352,7 +352,7 @@ export default defineConfig({
   title: "SeaHi", //左上角网站名称
   description: description,
 
-  cleanUrls: true,  //设置为true就是让链接后不默认添加.html
+  cleanUrls: false,  //设置为true就是让链接后不默认添加.html
 
   lastUpdated: true,
   lang: "zh-CN",
@@ -507,10 +507,12 @@ export default defineConfig({
 
           // 定义需要处理的所有规则（可扩展多个）
           const rules: TransformRule[] = [
-            { folderName: "01.Teek", prefix: "/teek/$uuid5", removeLevel:99 }, // 清空前缀并且添加前缀使用随机数
-            { folderName: "02.关于", prefix: "/about/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
-            { folderName: "03.工具", prefix: "/tools/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
-           
+            { folderName: "01.开源项目", prefix: "/openHW/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
+            { folderName: "10.教程", prefix: "/tutorial/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
+            { folderName: "15.工具", prefix: "/tools/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
+            { folderName: "20.联系方式", prefix: "/contactinformation/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
+            { folderName: "40.关于", prefix: "/about/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
+            { folderName: "90.Teek", prefix: "/teek/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
           ];
           // 应用规则转换
           return useTransformByRules(frontMatter, fileInfo, rules);

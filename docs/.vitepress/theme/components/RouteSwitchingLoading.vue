@@ -1,14 +1,14 @@
-<template>
+<!-- <template>
   <!-- Transition 控制整个遮罩的进入/离开 -->
-  <Transition name="fade" mode="out-in">
-    <div v-show="isTransitioning" class="transition-mask">
-      <div class="loader">
-        <div class="spinner"></div>
-        <p>Teek is Loading...</p>
-      </div>
-    </div>
-  </Transition>
-</template>
+  <!-- <Transition name="fade" mode="out-in"> -->
+    <!-- <div v-show="isTransitioning" class="transition-mask"> -->
+      <!-- <div class="loader"> -->
+        <!-- <div class="spinner"></div> -->
+        <!-- <p>Teek is Loading...</p> -->
+      <!-- </div> -->
+    <!-- </div> -->
+  <!-- </Transition> -->
+<!-- </template> --> 
 
 <script setup>
 import { onBeforeMount, onMounted, ref } from "vue";
@@ -32,7 +32,7 @@ const handleRouteStart = () => {
 const handleRouteComplete = () => {
   const elapsed = Date.now() - transitionStart;
   // 确保动画至少显示 600ms，提升视觉体验
-  const delay = Math.max(0, 600 - elapsed);
+  const delay = Math.max(0, 100 - elapsed);
 
   setTimeout(() => {
     isTransitioning.value = false;

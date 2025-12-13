@@ -5,7 +5,7 @@ import { FooterInfo } from "../../ConfigHyde/FooterInfo"; //导入底部信息�
 import { FriendLink } from "../../ConfigHyde/FriendLink"; // 导入FriendLink模块
 import { HitokotoDate } from "../../ConfigHyde/HitokotoDate"; // 导入HitokotoData模块
 import { Wallpaper } from "../../ConfigHyde/Wallaper"; // 导入Wallaper模块
-import { Cover } from "../../ConfigHyde/Cover"; // 导入Wallaper模块
+// import { Cover } from "../../ConfigHyde/Cover"; // 导入Wallaper模块
 import { SocialDate } from "../../ConfigHyde/SocialDate"; // 导入SocialDate社交信息模块
 
 

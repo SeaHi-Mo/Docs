@@ -44,5 +44,9 @@ export const Nav = [
           
         { text: "👂留言区", link: "/about/liuyanqu" },
       ],
-    },       
+    },
+    {
+      text: '赞赏',
+      link: 'personal',
+    },      
   ]

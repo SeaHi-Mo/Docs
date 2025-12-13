@@ -17,7 +17,7 @@
         </div>
 
         <!-- 文章标题 -->
-        <div class="copyright-item">
+        <!-- <div class="copyright-item">
           <span class="copyright-meta">
             <span class="shiguang-icon shiguang-icon-title"></span>
             <span class="meta-text">本文标题</span>:
@@ -25,10 +25,10 @@
           <span class="copyright-info">
             {{ $frontmatter.title }}
           </span>
-        </div>
+        </div> -->
 
         <!-- 文章链接 -->
-        <div class="copyright-item">
+        <!-- <div class="copyright-item">
           <span class="copyright-meta">
             <span class="shiguang-icon shiguang-icon-link"></span>
             <span class="meta-text">本文链接</span>:
@@ -36,7 +36,7 @@
           <span class="copyright-info">
             <a :href="currentUrl" target="_blank" rel="noopener">{{ currentUrl }}</a>
           </span>
-        </div>
+        </div> -->
 
         <!-- 版权声明 -->
         <div class="copyright-item">

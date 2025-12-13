@@ -1,4 +1,4 @@
-import { gitee, github, email, WhatsApp, telegram } from "../theme/icon/icons";
+import { gitee, github, email, WhatsApp,} from "../theme/icon/icons";
 
 export const SocialLinks = [
   {
@@ -9,5 +9,4 @@ export const SocialLinks = [
     icon: { svg: gitee },
     link: "https://gitee.com/seahi007",
   },
-
 ];
