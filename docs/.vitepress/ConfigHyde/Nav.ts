@@ -46,7 +46,7 @@ export const Nav = [
       ],
     },
     {
-      text: '赞赏',
+      text: '💖打赏',
       link: 'personal',
     },      
   ]
