@@ -629,6 +629,7 @@ const MavenDark = `<svg xmlns="http://www.w3.org/2000/svg" width="256" height="2
     </g>
 </svg>`;
 
+
 export {
   JAVA,
   IDEA,
@@ -663,5 +664,6 @@ export {
   Git,
   GithubDark,
   GitlabDark,
-  Docker,
+  Docker, 
+  JLCEDA,
 };

@@ -23,8 +23,6 @@ import {
   GithubDark,
   GitlabDark,
   Docker,
-  JAVA,
-  IDEA,
   DataGrip,
   RedisDark,
   RabbitMqDark,
@@ -36,6 +34,8 @@ import {
   Star,
   Fork,
   View,
+  JLCEDA,
+  Arduino,
 } from "./TechIcons";
 
 export const profile = {
@@ -122,10 +122,10 @@ export const majorSkills = [
 export const techStackIcons = [
   // 第一行，首尾空
   {},
-  { name: "JAVA", icon: JAVA },
-  { name: "IDEA", icon: IDEA },
+  { name: "VSCode", icon: VscodeDark },
+  { name: "立创EDA", icon: JLCEDA },
   { name: "Webstorm", icon: WebstormDark },
-  { name: "DataGrip", icon: DataGrip },
+  { name: "Arduino", icon: Arduino },
   { name: "Spring", icon: SpringDark },
   { name: "SpringBoot", icon: SpringBootDark },
   {},
