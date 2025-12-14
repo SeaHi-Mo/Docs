@@ -159,7 +159,7 @@ export const ossProjects = [
   //   View: '79.3k',
   //   github: "https://onedayxyy.cn/typora-theme-one",
   // },
-];
+ ];
 
 // 导出开源项目图标用于子组件
 export { Star, Fork, View };
