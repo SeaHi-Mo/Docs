@@ -1,6 +1,6 @@
 <template>
   <div class="oss-section" :class="{ visible: isVisible }">
-    <h2 class="oss-title">开源项目</h2>
+    <!-- <h2 class="oss-title">开源项目</h2> -->
     <div class="oss-list">
       <div class="oss-card" v-for="(item, idx) in ossProjects" :key="item.name" :ref="setOssCardRef(idx)"
         :class="{ visible: !isMobile || ossCardVisible[idx] }" v-memo="[item, ossCardVisible[idx]]">

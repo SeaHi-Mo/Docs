@@ -197,8 +197,9 @@ const lvgl =`<svg
 </svg>
 `;
 
-const Fusion360 = 'Fusion360.png';
+const Fusion360 = '/img/nav/Fusion360.png';
 
+const guigeui = `/img/nav/GUI_Guider_Icon.png`;
 export {
 	VscodeDark,
 	LinuxDark,
@@ -228,4 +229,5 @@ export {
 	FreeRTOS,
 	lvgl,
    Fusion360,
+   guigeui,
 };

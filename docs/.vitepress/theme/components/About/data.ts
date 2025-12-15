@@ -26,10 +26,11 @@ import {
   lvgl,
   KeyShot,
   Fusion360,
+  guigeui,
 } from "./TechIcons";
 
 export const profile = {
-  title: '你好，我是',
+  title: 'Hi，我是',
   name: 'SeaHi',
   desc: '言念君子，温其如玉',
   avatar: '/Seahi-Logo.png',//头像
@@ -125,23 +126,25 @@ export const techStackIcons = [
   { name: "MQTT", icon: MQTT },
   { name: "LoRa", icon: LoRa },
   { name: "TCP/IP", icon: tcpip },
+  { name: "lvgl", icon: lvgl },
   { name: "HomeAssistant", icon: HomeAssistant },
   { name: "FreeRTOS", icon: FreeRTOS },
   { name: "Linux", icon: LinuxDark },
   // 第三行
   { name: "Ubuntu", icon: Ubuntu },
+  { name: "Github", icon: GithubDark },
   { name: "Cloudflare", icon: cloudflare },
   { name: "Phonts", icon: PhontS },
   { name: "Au", icon: Au },
   { name: "AI", icon: AI },
-  { name: "lvgl", icon: lvgl },
+  
   { name: "KeyShot", icon: KeyShot },
    
   // 第四行，首尾空
   {},
   { name: "Git", icon: Git },
-  { name: "Github", icon: GithubDark },
   { name: "Fusion360", icon: Fusion360 },
+  { name: "GUI Guider", icon: guigeui },
   {},
   // 第五行，缩小行
   {},

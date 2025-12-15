@@ -112,7 +112,7 @@ const validSocialLinks = computed(() =>
 
 .about-btn.primary {
     background: var(--vp-c-brand-1);
-    color: #fff;
+    color: #f5f6f7;
 }
 
 .about-btn.default {
@@ -128,7 +128,7 @@ const validSocialLinks = computed(() =>
 
 .about-btn.primary:hover {
     background: var(--vp-c-brand-1);
-    color: #fff;
+    color: #1688d4;
     box-shadow: 0 8px 32px rgba(59, 108, 255, 0.22);
     transform: translateY(-3px) scale(1.04);
     border-color: var(--vp-c-brand-1);
@@ -148,9 +148,9 @@ const validSocialLinks = computed(() =>
     height: 240px;
     border-radius: 50%;
     box-shadow: 0 0 60px 0 var(--vp-c-brand-1);
-    border: 4px solid #fff;
+    border: 4px solid #5c73e7;
     object-fit: cover;
-    background: #fff;
+    background: #5c73e7;
     /* 添加过渡效果 */
     transition: transform 1.2s ease-out;
 }
