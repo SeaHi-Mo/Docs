@@ -113,16 +113,16 @@ const handleConfigSwitch = (config: TeekConfig, style: string) => {
       <RouteSwitchingLoading />
     </template>
 
-
-    <template #teek-theme-enhance-bottom>
+    
+    <!-- <template #teek-theme-enhance-bottom>
       <div :class="[ns, 'flx-align-center']">
         <ConfigSwitch v-model="currentStyle" @switch="handleConfigSwitch" />
       </div>
-    </template>
+    </template> -->
 
-    <template #nav-screen-content-after>
+    <!-- <template #nav-screen-content-after>
       <ConfigSwitch v-model="currentStyle" @switch="handleConfigSwitch" />
-    </template>
+    </template> -->
 
     <template #teek-archives-top-before>
       <ContributeChart />

@@ -1,6 +1,6 @@
 ---
 date: 2025-12-13 16:20:25
-title: 支持这个网站
+title: 支持本站
 sidebar: false
 article: false
 outline: false

@@ -50,7 +50,7 @@ const teekConfig = defineTeekConfig({
 
   themeEnhance: {
     themeColor: {
-      defaultColorName: "ep-blue",   //默认主题色为蓝色
+      defaultColorName: "vp-default",   //默认主题色为蓝色
     },
   },
 
