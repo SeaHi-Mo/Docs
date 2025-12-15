@@ -25,7 +25,7 @@ import {
   FreeRTOS,
   lvgl,
   KeyShot,
-
+  Fusion360,
 } from "./TechIcons";
 
 export const profile = {
@@ -135,12 +135,13 @@ export const techStackIcons = [
   { name: "Au", icon: Au },
   { name: "AI", icon: AI },
   { name: "lvgl", icon: lvgl },
+  { name: "KeyShot", icon: KeyShot },
+   
   // 第四行，首尾空
   {},
-
   { name: "Git", icon: Git },
   { name: "Github", icon: GithubDark },
-
+  { name: "Fusion360", icon: Fusion360 },
   {},
   // 第五行，缩小行
   {},
