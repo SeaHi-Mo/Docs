@@ -5,12 +5,11 @@ sidebar: false
 article: false
 outline: false
 articleBanner: false
-coverImg: https://img.onedayxyy.cn/images/Teek/TeekCover/18.webp
+coverImg: /img/blog/1.png
 permalink: /personal
 categories:
   - null
 ---
-
 
 - 通过以下二维码进行赞助，打赏作者一杯茶 🍵
 
