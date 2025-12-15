@@ -134,7 +134,7 @@ export const teekBlogParkConfig: TeekConfig = {
     ],
     descStyle: "types",
     imgShuffle: true,
-    titleFontSize: "4.2rem", // 标题字体大小
+    titleFontSize: "3.2rem", // 标题字体大小
     switchShuffle: true, // 描述信息是否随机切换，为 false 时按顺序切换。descStyle 为 switch 时生效
     typesNextTime: 100,
   },

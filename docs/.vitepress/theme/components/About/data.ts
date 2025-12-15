@@ -19,6 +19,13 @@ import {
   tcpip,
   cloudflare,
   HomeAssistant,
+  PhontS,
+  Au,
+  AI,
+  FreeRTOS,
+  lvgl,
+  KeyShot,
+
 } from "./TechIcons";
 
 export const profile = {
@@ -113,18 +120,21 @@ export const techStackIcons = [
   { name: "MarkDown", icon: MarkDown },
   {},
   // 第二行
-  
   { name: "WiFi", icon: WiFi },
   { name: "BLE", icon: BLE },
   { name: "MQTT", icon: MQTT },
   { name: "LoRa", icon: LoRa },
   { name: "TCP/IP", icon: tcpip },
   { name: "HomeAssistant", icon: HomeAssistant },
-  // 第三行
- 
+  { name: "FreeRTOS", icon: FreeRTOS },
   { name: "Linux", icon: LinuxDark },
+  // 第三行
   { name: "Ubuntu", icon: Ubuntu },
   { name: "Cloudflare", icon: cloudflare },
+  { name: "Phonts", icon: PhontS },
+  { name: "Au", icon: Au },
+  { name: "AI", icon: AI },
+  { name: "lvgl", icon: lvgl },
   // 第四行，首尾空
   {},
 
