@@ -556,7 +556,7 @@ export default defineConfig({
 
           // 定义需要处理的所有规则（可扩展多个）
           const rules: TransformRule[] = [
-            { folderName: "01.开源项目", prefix: "/openHW/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
+            { folderName: "01.开源项目", prefix: "/project/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
             { folderName: "10.教程", prefix: "/tutorial/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
             { folderName: "20.工具", prefix: "/tools/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
             { folderName: "30.联系方式", prefix: "/contactinformation/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数

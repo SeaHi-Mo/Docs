@@ -25,7 +25,7 @@ export const teekDocConfig: TeekConfig = {
   //选择第三个选项：全部站看，侧边栏和内容区域宽度都可以调整
   themeEnhance: {
     layoutSwitch: {
-      // defaultMode: "bothWidthAdjustable",
+      defaultMode: "bothWidthAdjustable",
       disabled: true,
     },
   },

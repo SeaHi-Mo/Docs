@@ -6,9 +6,7 @@ export const Nav = [
 
   {
     text: '开源项目',
-    items: [
-
-    ],
+    link: '/project/home',
   }, 
   {
     text: '教程',
