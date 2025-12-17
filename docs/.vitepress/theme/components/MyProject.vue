@@ -1,14 +1,14 @@
 <template>
   <div class="about-container">
     <!-- Profile Section -->
-    <ProfileSection :is-visible="aboutHeroVisible" />
+    <!-- <ProfileSection :is-visible="aboutHeroVisible" /> -->
 
     <!-- Skills Section -->
-    <SkillsSection :is-visible="skillsSectionVisible" :is-mobile="isMobile" />
+    <!-- <SkillsSection :is-visible="skillsSectionVisible" :is-mobile="isMobile" /> -->
 
     <!-- Projects Section -->
     <div ref="ossSectionRef">
-      <!-- <ProjectsSection :is-visible="ossSectionVisible" :is-mobile="isMobile" /> -->
+      <ProjectsSection :is-visible="ossSectionVisible" :is-mobile="isMobile" />
     </div>
   </div>
 </template>
@@ -17,9 +17,9 @@
 import { ref, onMounted } from 'vue';
 import { useIntersectionObserver } from './About/useIntersectionObserver';
 import { useMobileDetection } from './About/useMobileDetection';
-import ProfileSection from './About/ProfileSection.vue';
-import SkillsSection from './About/SkillsSection.vue';
-// import ProjectsSection from './About/ProjectsSection.vue';
+// import ProfileSection from './About/ProfileSection.vue';
+// import SkillsSection from './About/SkillsSection.vue';
+import ProjectsSection from './JLC/ProjectsSection.vue';
 
 // 移动端检测
 const { isMobile } = useMobileDetection();

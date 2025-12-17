@@ -75,7 +75,7 @@
 import { ref, computed } from 'vue';
 
 // 管理员密码（请在部署前修改为您自己的密码）
-const ADMIN_PASSWORD = 'Hg@2025'; // 这里请修改为您自己的密码
+const ADMIN_PASSWORD = 'saehi'; // 这里请修改为您自己的密码
 
 // 初始化事件列表，从本地存储加载（如果有）
 const events = ref(JSON.parse(localStorage.getItem('timelineEvents')) || [
