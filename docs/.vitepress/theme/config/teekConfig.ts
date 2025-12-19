@@ -38,10 +38,12 @@ const teekBlogCommonConfig: TeekConfig = {
   themeEnhance: {
     layoutSwitch: {
       defaultMode: "bothWidthAdjustable",
-      disabled: false,
+      disabled: true,
     },
     themeColor: {
-      disabled: false,
+      defaultColorName: "vp-default",
+      disabled: true,
+      disableHelp: true,
     },
 
     spotlight: {
