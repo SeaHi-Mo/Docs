@@ -9,7 +9,7 @@
         </div>
         <div class="oss-content">
           <div class="oss-name">{{ item.name }}</div>
-          <div class="oss-desc">{{ item.desc }}</div>
+          <!-- <div class="oss-desc">{{ item.desc }}</div> -->
           <div class="oss-data">
             <span>
               <TkIcon :icon="View" icon-type="svg" size="16px" />
@@ -90,13 +90,10 @@ onBeforeUnmount(() => {
 </script>
 
 <style scoped>
-
-
-/* 美化后的按钮样式 */
 .oss-section {
-  max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
-  padding: 32px 0;
+  padding: 48px 24px;
   opacity: 0;
   transform: scale(0.8);
   transition: box-shadow 0.22s, transform 0.18s, border 0.18s, opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
@@ -109,20 +106,124 @@ onBeforeUnmount(() => {
 
 .oss-title {
   text-align: center;
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: bold;
-  margin-bottom: 32px;
+  margin-bottom: 48px;
 }
 
 .oss-list {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 默认4列 */
   gap: 32px;
   justify-content: center;
-  flex-wrap: wrap;
 }
 
+/* 超大屏幕：5列 */
+@media (min-width: 1920px) {
+  .oss-section {
+    max-width: 1800px;
+    padding: 56px 32px;
+  }
+  
+  .oss-list {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 36px;
+  }
+  
+  .oss-title {
+    font-size: 3rem;
+    margin-bottom: 56px;
+  }
+}
+
+/* 大屏幕：4列 */
+@media (min-width: 1440px) and (max-width: 1919px) {
+  .oss-section {
+    max-width: 1400px;
+    padding: 48px 32px;
+  }
+  
+  .oss-list {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+  }
+}
+
+/* 中等屏幕：3列 */
+@media (min-width: 1200px) and (max-width: 1439px) {
+  .oss-section {
+    max-width: 1200px;
+    padding: 40px 24px;
+  }
+  
+  .oss-list {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  
+  .oss-title {
+    font-size: 2.25rem;
+    margin-bottom: 40px;
+  }
+}
+
+/* 小屏幕：2列 */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .oss-section {
+    max-width: 100%;
+    padding: 36px 20px;
+  }
+  
+  .oss-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  
+  .oss-title {
+    font-size: 2rem;
+    margin-bottom: 36px;
+  }
+}
+
+/* 平板：2列（调整间距） */
+@media (min-width: 640px) and (max-width: 767px) {
+  .oss-section {
+    padding: 32px 16px;
+  }
+  
+  .oss-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  .oss-title {
+    font-size: 1.75rem;
+    margin-bottom: 32px;
+  }
+}
+
+/* 手机端：1列 */
+@media (max-width: 639px) {
+  .oss-section {
+    padding: 24px 12px;
+  }
+  
+  .oss-list {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .oss-title {
+    font-size: 1.5rem;
+    margin-bottom: 24px;
+  }
+}
+
+/* 卡片样式调整 */
 .oss-card {
-  width: 356px;
+  width: 100%;
   background: #fff;
   border-radius: 18px;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
@@ -152,6 +253,19 @@ onBeforeUnmount(() => {
   overflow: hidden;
 }
 
+/* 图片高度响应式调整 */
+@media (max-width: 767px) {
+  .oss-img-wrap {
+    height: 160px;
+  }
+}
+
+@media (max-width: 639px) {
+  .oss-img-wrap {
+    height: 200px;
+  }
+}
+
 .oss-img {
   width: 100%;
   height: 100%;
@@ -163,16 +277,6 @@ onBeforeUnmount(() => {
 
 .oss-img:hover {
   transform: scale(1.08);
-}
-
-.oss-tag {
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  padding: 0.1rem 1rem;
-  border-radius: 14px;
-  font-size: 1rem;
-  font-weight: 500;
 }
 
 .oss-content {
@@ -198,80 +302,62 @@ onBeforeUnmount(() => {
 
 .oss-data {
   display: flex;
-  gap: 18px;
+  flex-wrap: wrap;
+  gap: 12px 18px;
   color: #888;
-  font-size: 0.98rem;
+  font-size: 0.9rem;
   margin-bottom: 12px;
 }
 
-.oss-data i {
-  margin-right: 4px;
+@media (max-width: 767px) {
+  .oss-data {
+    gap: 8px 12px;
+    font-size: 0.85rem;
+  }
 }
 
-/* .oss-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: var(--vp-c-brand-1);
-} */
-/* 按钮组样式：让两个按钮并排显示 */
+/* 按钮组样式 */
 .oss-btn-group {
   display: flex;
-  gap: 18px; /* 按钮之间的间距 */
+  gap: 12px;
   margin-top: 16px;
 }
 
-/* 美化后的按钮样式 */
+@media (max-width: 639px) {
+  .oss-btn-group {
+    gap: 10px;
+  }
+}
+
 .oss-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 8px 16px;
-  background-color: #409eff; /* 主色调：蓝色 */
+  padding: 10px 16px;
+  background-color: #409eff;
   color: #ffffff;
-  border-radius: 6px; /* 圆角 */
+  border-radius: 6px;
   font-size: 14px;
   font-weight: 500;
   text-decoration: none;
-  transition: all 0.3s ease; /* 过渡动画 */
+  transition: all 0.3s ease;
   border: none;
   cursor: pointer;
-  flex: 1; /* 两个按钮等宽 */
+  flex: 1;
+  text-align: center;
 }
 
 .oss-btn:hover {
-  color:var(--vp-c-brand-1);
+  background-color: #337ecc;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(64, 158, 255, 0.3);
 }
 
-@media (max-width: 960px) {
-
-  .oss-card {
-    width: 362px;
-    flex-direction: column;
-    gap: 18px;
-  }
-
-  .oss-preview-grid {
-    width: 100%;
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .oss-right {
-    min-width: 0;
-  }
-
-  .oss-left {
-    width: 100%;
-    min-width: 0;
-    margin-bottom: 10px;
-  }
-
-  .oss-preview-img {
-    height: 100px;
-    border-radius: 5px;
-  }
-   .oss-btn {
-    padding: 10px 16px;
+/* 移动端按钮调整 */
+@media (max-width: 639px) {
+  .oss-btn {
+    padding: 12px 16px;
+    font-size: 15px;
   }
 }
 </style>

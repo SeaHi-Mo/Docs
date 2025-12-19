@@ -32,6 +32,59 @@ export const ossProjects = [
     projectLink: "https://oshwhub.com/seahi/homeassistant-intelligent-air-re",
     usageLink: "https://oshwhub.com/seahi/homeassistant-intelligent-air-re",
   },
+  {
+    name: "功耗只有16uA的WiFi温湿度计",
+    desc: "这是一个低功耗的传感器采集板，采用安信可Ai-M62-CBS模块，以一小时作为周期进行采集，功耗只有16uA左右",
+    tag: { name: "JavaScript", bg: "#fffbe6", color: "#e4ae3a" },
+    projectsimg: "https://image.lceda.cn/oshwhub/35b00add63cb45b49e7b9ec552f36e8d.jpg",
+    View: '2.7k',
+    good: '4',
+    Mark: '32',
+    Comment: '4',
+
+    projectLink: "https://oshwhub.com/seahi/ha-sensorget",
+    usageLink: "https://oshwhub.com/seahi/ha-sensorget",
+  },
+
+  {
+    name: "HomeAssistant WiFi通断器",
+    desc: "带有带防雷电路的 HomeAssistant 的WiFi通断器，最高能控4000W电器的供电。",
+    tag: { name: "JavaScript", bg: "#fffbe6", color: "#e4ae3a" },
+    projectsimg: "https://image.lceda.cn/oshwhub/e09430f657ab445087a9f55a18dd3a19.png",
+    View: '5.4k',
+    good: '28',
+    Mark: '77',
+    Comment: '32',
+
+    projectLink: "https://oshwhub.com/seahi/homeassistant-tong-duan-qi",
+    usageLink: "https://oshwhub.com/seahi/homeassistant-tong-duan-qi",
+  },
+  {
+    name: "HomeAssistantUSB小夜灯控制器",
+    desc: "WiFi MQTT直连HomeAssistant 的USB小夜灯控制器",
+    tag: { name: "JavaScript", bg: "#fffbe6", color: "#e4ae3a" },
+    projectsimg: "https://image.lceda.cn/oshwhub/ee98381827994809a135d7ad172c0fc8.png",
+    View: '3.2k',
+    good: '10',
+    Mark: '25',
+    Comment: '17',
+
+    projectLink: "https://oshwhub.com/seahi/ha-usb-kai-guan",
+    usageLink: "https://oshwhub.com/seahi/ha-usb-kai-guan",
+  },
+  {
+    name: "HomeAssistant智能家居红外遥控器——丐版",
+    desc: "接入HomeAssitant 的智能红外遥控器，可实现远程控制家里的空调。",
+    tag: { name: "JavaScript", bg: "#fffbe6", color: "#e4ae3a" },
+    projectsimg: "https://image.lceda.cn/oshwhub/0f9c0e99ef914dcbaadbe415c1b0bb33.png",
+    View: '5.1k',
+    good: '19',
+    Mark: '54',
+    Comment: '10',
+
+    projectLink: "https://oshwhub.com/seahi/homeassistant-smart-home-infrared-remote-control",
+    usageLink: "https://oshwhub.com/seahi/homeassistant-smart-home-infrared-remote-control",
+  },
  ];
 
 // 导出开源项目图标用于子组件
