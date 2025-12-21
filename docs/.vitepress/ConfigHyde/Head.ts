@@ -36,15 +36,6 @@ export const HeadData = [
   //     `,
   // ],
   // <!--Cloudflare Web Analytics-- > <script defer src = 'https://static.cloudflareinsights.com/beacon.min.js' data - cf - beacon='{"token": "df4eef3344604401971fe9b1f140231f"}' > </script><!-- End Cloudflare Web Analytics -->
-[
-    'script',
-    {
-      defer: true,
-      src: 'https://static.cloudflareinsights.com/beacon.min.js',
-      "data-cf-beacon": '{"token": "df4eef3344604401971fe9b1f140231f"}',
-    },
-],
-
   
   // ["meta", { name: "referrer", content: "no-referrer-when-downgrade" }], //不蒜子统计
   // ["meta", { name: "author", content: "Tianke" }],
