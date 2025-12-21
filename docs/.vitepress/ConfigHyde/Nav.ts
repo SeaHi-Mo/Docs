@@ -1,13 +1,21 @@
 // nav导航栏配置
 import { TeekIcon, VdoingIcon, SSLIcon, BlogIcon } from "./icon/NavIcon";
 export const Nav = [
+  
   { text: "首页", link: "/" },
-  // 笔记
 
   {
     text: '开源项目',
     link: '/project/home',
-  }, 
+  },
+
+  {
+    text: '使用说明',
+    items: [
+      { text: 'WiFi模组烧录架', link: '/user/bruntools'},
+    ],
+  },
+
   {
     text: '教程',
     items: [

@@ -280,16 +280,16 @@ const teekConfig = defineTeekConfig({
     autoFrontmatterOption: {
       exclude: { title: true, }, // 排除自动生成字段
       transform: frontmatter => {
-      // 如果文件本身存在了 coverImg，则不生成
-      if (frontmatter.coverImg) return;
+        // 如果文件本身存在了 coverImg，则不生成
+        if (frontmatter.coverImg) return;
 
-      const list = CoverImgList;
+        const list = CoverImgList;
 
-      const coverImg = list[Math.floor(Math.random() * list.length)];
+        const coverImg = list[Math.floor(Math.random() * list.length)];
 
-      const transformResult = { ...frontmatter, coverImg };
+        const transformResult = { ...frontmatter, coverImg };
 
-      return Object.keys(transformResult).length ? transformResult : undefined;
+        return Object.keys(transformResult).length ? transformResult : undefined;
       },
     },
   },
@@ -557,11 +557,11 @@ export default defineConfig({
           // 定义需要处理的所有规则（可扩展多个）
           const rules: TransformRule[] = [
             { folderName: "01.开源项目", prefix: "/project/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
+            { folderName: "02.使用说明", prefix: "/user/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
             { folderName: "10.教程", prefix: "/tutorial/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
             { folderName: "20.工具", prefix: "/tools/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
             { folderName: "30.联系方式", prefix: "/contactinformation/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
             { folderName: "40.关于", prefix: "/about/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
-           
           ];
           // 应用规则转换
           return useTransformByRules(frontMatter, fileInfo, rules);
