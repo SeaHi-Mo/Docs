@@ -41,9 +41,7 @@ export const HeadData = [
     {
       defer: true,
       src: 'https://static.cloudflareinsights.com/beacon.min.js',
-      'data-cf-beacon': JSON.stringify({
-        token: 'df4eef3344604401971fe9b1f140231f'
-      })
+      "data-cf-beacon": '{"token": "df4eef3344604401971fe9b1f140231f"}',
     },
 ],
 
