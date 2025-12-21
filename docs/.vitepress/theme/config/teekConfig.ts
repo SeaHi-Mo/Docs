@@ -38,7 +38,7 @@ const teekBlogCommonConfig: TeekConfig = {
   themeEnhance: {
     layoutSwitch: {
       defaultMode: "bothWidthAdjustable",
-      disabled: true,
+      disabled: false,
     },
     themeColor: {
       defaultColorName: "vp-default",

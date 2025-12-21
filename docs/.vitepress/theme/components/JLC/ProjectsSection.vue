@@ -120,13 +120,13 @@ onBeforeUnmount(() => {
 
 /* 超大屏幕：5列 */
 @media (min-width: 1920px) {
-  .oss-section {
-    max-width: 1800px;
-    padding: 56px 32px;
+   .oss-section {
+    max-width: 1400px;
+    padding: 48px 32px;
   }
   
   .oss-list {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 36px;
   }
   

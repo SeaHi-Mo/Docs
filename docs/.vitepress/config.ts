@@ -303,20 +303,20 @@ const teekConfig = defineTeekConfig({
       githubUrl: "https://github.com/Kele-Bingtang/vitepress-theme-teek/blob/master/docs",
     },
   },
-  siteAnalytics: [
-    {
-      provider: "baidu",
-      options: {
-        id: "d5ee872d9aa1ef8021f4a3921b2e9c2a",
-      },
-    },
-    {
-      provider: "google",
-      options: {
-        id: "G-K5GNDW3L7K",
-      },
-    },
-  ],
+  // siteAnalytics: [
+  //   {
+  //     provider: "baidu",
+  //     options: {
+  //       id: "d5ee872d9aa1ef8021f4a3921b2e9c2a",
+  //     },
+  //   },
+  //   {
+  //     provider: "google",
+  //     options: {
+  //       id: "G-K5GNDW3L7K",
+  //     },
+  //   },
+  // ],
 
 
   // // 赞赏在文章下方
