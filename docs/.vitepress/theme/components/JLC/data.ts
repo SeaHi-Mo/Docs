@@ -17,17 +17,17 @@ export const ossProjects = [
     Comment: '5',
     projectLink: "https://oshwhub.com/seahi/bruntools",
     //使用说明连接
-    usageLink:"https://oshwhub.com/seahi/bruntools",
+    usageLink: "https://oshwhub.com/seahi/bruntools",
   },
   {
-    name: "HomeAssistant 智能红外遥控器",
-    desc: "适用于HomeAssistant 的空调红外遥控器，采用WiFi通讯，支持市面上98%的空调控制，支持一键匹配空调码。支持外接I2C传感器！",
+    name: "HomeAssistant 红外遥控器",
+    desc: "适用于HomeAssistant 的空调红外遥控器，支持市面上98%的空调控制，支持一键匹配空调码。",
     tag: { name: "JavaScript", bg: "#fffbe6", color: "#e4ae3a" },
     projectsimg: "https://image.lceda.cn/oshwhub/55aa204882094732a033b10a1e47efeb.png",
-    View: '96.8k',
-    good: '7',
-    Mark: '10',
-    Comment: '5',
+    View: '1.0w',
+    good: '45',
+    Mark: '134',
+    Comment: '30',
 
     projectLink: "https://oshwhub.com/seahi/homeassistant-intelligent-air-re",
     usageLink: "https://oshwhub.com/seahi/homeassistant-intelligent-air-re",
@@ -73,7 +73,7 @@ export const ossProjects = [
     usageLink: "https://oshwhub.com/seahi/ha-usb-kai-guan",
   },
   {
-    name: "HomeAssistant智能家居红外遥控器——丐版",
+    name: "HomeAssistant红外遥控器——丐版",
     desc: "接入HomeAssitant 的智能红外遥控器，可实现远程控制家里的空调。",
     tag: { name: "JavaScript", bg: "#fffbe6", color: "#e4ae3a" },
     projectsimg: "https://image.lceda.cn/oshwhub/0f9c0e99ef914dcbaadbe415c1b0bb33.png",
@@ -85,7 +85,7 @@ export const ossProjects = [
     projectLink: "https://oshwhub.com/seahi/homeassistant-smart-home-infrared-remote-control",
     usageLink: "https://oshwhub.com/seahi/homeassistant-smart-home-infrared-remote-control",
   },
- ];
+];
 
 // 导出开源项目图标用于子组件
 export { View, good, Mark, Comment };

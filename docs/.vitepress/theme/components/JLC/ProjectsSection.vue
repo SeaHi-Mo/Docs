@@ -9,7 +9,7 @@
         </div>
         <div class="oss-content">
           <div class="oss-name">{{ item.name }}</div>
-          <!-- <div class="oss-desc">{{ item.desc }}</div> -->
+          <div class="oss-desc">{{ item.desc }}</div>
           <div class="oss-data">
             <span>
               <TkIcon :icon="View" icon-type="svg" size="16px" />
@@ -345,6 +345,7 @@ onBeforeUnmount(() => {
   cursor: pointer;
   flex: 1;
   text-align: center;
+  
 }
 
 .oss-btn:hover {
