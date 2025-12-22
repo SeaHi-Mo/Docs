@@ -43,15 +43,6 @@ export const HeadData = [
 
   // ['meta', { property: 'og:image', content: 'https://onedayxyy.cn/img/xyy.webp' }],
   //<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "a817f3d463b346598b37b42440235ade"}'></script><!-- End Cloudflare Web Analytics -->
-[
-'script',
-{
-  defer: 'defer',
-  src: 'https://static.cloudflareinsights.com/beacon.min.js',
-  'data-cf-beacon': '{"token": "a817f3d463b346598b37b42440235ade"}',
-},
-],
-
   [
     "meta",
     {
