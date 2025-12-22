@@ -36,13 +36,21 @@ export const HeadData = [
   //     `,
   // ],
   // <!--Cloudflare Web Analytics-- > <script defer src = 'https://static.cloudflareinsights.com/beacon.min.js' data - cf - beacon='{"token": "df4eef3344604401971fe9b1f140231f"}' > </script><!-- End Cloudflare Web Analytics -->
-  
+
   // ["meta", { name: "referrer", content: "no-referrer-when-downgrade" }], //不蒜子统计
   // ["meta", { name: "author", content: "Tianke" }],
   // ['meta', { property: 'og:description', content: '明心静性，爱自己' }],
 
   // ['meta', { property: 'og:image', content: 'https://onedayxyy.cn/img/xyy.webp' }],
-
+  //<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "a817f3d463b346598b37b42440235ade"}'></script><!-- End Cloudflare Web Analytics -->
+[
+'script',
+{
+  defer: 'defer',
+  src: 'https://static.cloudflareinsights.com/beacon.min.js',
+  'data-cf-beacon': '{"token": "a817f3d463b346598b37b42440235ade"}',
+},
+],
 
   [
     "meta",
