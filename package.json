@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "canvas-confetti": "^1.9.3",
+    "mermaid": "^11.12.2",
     "oh-my-live2d": "^0.19.3",
     "pnpm": "^10.25.0",
     "twikoo": "^1.6.44",
