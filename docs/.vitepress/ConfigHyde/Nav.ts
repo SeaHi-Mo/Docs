@@ -12,7 +12,7 @@ export const Nav = [
   {
     text: '使用说明',
     items: [
-      { text: 'WiFi模组烧录架', link: '/user/bruntools'},
+      { text: 'STLink+TTL工具', link: '/user/bruntools'},
     ],
   },
 
