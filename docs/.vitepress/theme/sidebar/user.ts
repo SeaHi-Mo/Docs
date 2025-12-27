@@ -1,11 +1,19 @@
 export const sidebarUser = [
-{
-	text: "使用说明",
-	collapsed: true, // 是否折叠
-	link: "/user/bruntools",
-	items: [
-		{ text: "WiFi模组烧录架", link: "/user/bruntools", },
-		{ text: "STLink343 调试器", link: "/user/minijlink", },
-	],
-},
+	{
+		text: "WiFi模组烧录架",
+		collapsed: true, // 是否折叠
+		link: "/user/bruntools",
+		items: [
+			{ text: "首页", link: "/user/bruntools", },
+		],
+	},
+	{
+		text: "STLink343 调试器",
+		collapsed: true, // 是否折叠
+		link: "/user/minijlink",
+		items: [
+			{ text: "首页", link: "/user/minijlink", },
+
+		],
+	},
 ];

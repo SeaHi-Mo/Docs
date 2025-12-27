@@ -1,0 +1,130 @@
+// table.scss - 完整版：修复浅色黑色 + 恢复所有美观样式
+// 核心：高优先级选择器 + !important 保证生效，同时还原美观细节
+.vp-doc>table {
+	// 基础布局（恢复美观样式）
+	display: table !important;
+	width: 100% !important;
+	border-collapse: collapse !important;
+	border-spacing: 0 !important;
+	// 恢复圆角（关键美观样式）
+	border-radius: 12px !important;
+	overflow: hidden !important;
+	// 恢复细腻阴影（视觉层次）
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+	margin: 20px 0 !important;
+	// 浅色模式强制纯白
+	background-color: #ffffff !important;
+	color: #333333 !important;
+	// 恢复过渡动画（切换模式更丝滑）
+	transition: all 0.3s ease !important;
+}
+
+// 单元格基础样式（恢复舒适内边距+排版）
+.vp-doc>table th,
+.vp-doc>table td {
+	min-width: 80px !important;
+	// 恢复舒适内边距
+	padding: 14px 18px !important;
+	vertical-align: middle !important;
+	text-align: left !important;
+	// 恢复统一字号+行高
+	font-size: 14px !important;
+	line-height: 1.5 !important;
+	// 浅色分隔线（细腻）
+	border-right: 1px solid #e5e7eb !important;
+	border-bottom: none !important;
+}
+
+// 表头样式（恢复层级+美观）
+.vp-doc>table th {
+	// 表头浅灰背景（美观区分）
+	background-color: #f5f7fa !important;
+	font-weight: 600 !important;
+	text-align: center !important;
+	color: #333333 !important;
+	// 恢复表头品牌色底线（视觉重点）
+	border-bottom: 2px solid #42b983 !important;
+	// 表头文字略大（强化层级）
+	font-size: 14.5px !important;
+}
+
+// ========== 恢复相邻行斑马纹（核心美观样式） ==========
+.vp-doc>table tr:nth-child(odd) td {
+	background-color: #ffffff !important;
+}
+
+.vp-doc>table tr:nth-child(even) td {
+	background-color: #f8f9fa !important;
+}
+
+// ========== 恢复悬停动效（交互美观） ==========
+.vp-doc>table tr:hover td {
+	background-color: #f0f2f5 !important;
+	// 恢复悬停阴影+过渡
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06) !important;
+	transition: all 0.2s ease !important;
+}
+
+// 边框优化（整洁美观）
+.vp-doc>table th:last-child,
+.vp-doc>table td:last-child {
+	border-right: none !important;
+}
+
+// ========== 恢复响应式适配（移动端美观） ==========
+@media (max-width: 768px) {
+	.vp-doc>table {
+		display: block !important;
+		overflow-x: auto !important;
+		-webkit-overflow-scrolling: touch !important;
+	}
+
+	.vp-doc>table th,
+	.vp-doc>table td {
+		// 移动端适配内边距
+		padding: 12px 14px !important;
+	}
+}
+
+// ========== 深色模式（保留修复+恢复美观） ==========
+.dark .vp-doc>table {
+	background-color: #1e1e20 !important;
+	color: #e5e5e5 !important;
+	// 深色模式强化阴影（美观）
+	box-shadow: 0 3px 12px rgba(0, 0, 0, 0.25) !important;
+}
+
+.dark .vp-doc>table th,
+.dark .vp-doc>table td {
+	border-right: 1px solid #38383d !important;
+}
+
+.dark .vp-doc>table th {
+	// 深色表头更深背景（层级）
+	background-color: #2c2c31 !important;
+	color: #ffffff !important;
+	border-bottom: 2px solid #42b983 !important;
+}
+
+// 深色模式斑马纹（恢复对比美观）
+.dark .vp-doc>table tr:nth-child(odd) td {
+	background-color: #1e1e20 !important;
+}
+
+.dark .vp-doc>table tr:nth-child(even) td {
+	background-color: #252528 !important;
+}
+
+// 深色模式悬停（恢复交互美观）
+.dark .vp-doc>table tr:hover td {
+	background-color: #303036 !important;
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3) !important;
+	transition: all 0.2s ease !important;
+}
+
+// 兜底兼容系统媒体查询
+@media (prefers-color-scheme: dark) {
+	:root:not(.light) .vp-doc>table {
+		background-color: #1e1e20 !important;
+	}
+}
