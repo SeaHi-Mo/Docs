@@ -6,6 +6,7 @@ import { Cover } from "./ConfigHyde/Cover"; // 导入Wallaper模块
 
 import { CommentData } from "./ConfigHyde/Comment"; //导入评论配置
 import { Nav } from "./ConfigHyde/Nav"; // 导入Nav模块
+import { sidebarConfig } from "./theme/sidebar/SidebarConfig"; // 导入Sidebar模块
 import { SocialLinks } from "./ConfigHyde/SocialLinks"; //导入社交链接配置
 
 
@@ -257,6 +258,7 @@ const teekConfig = defineTeekConfig({
 
 
 
+
   vitePlugins: {
     permalink: true,
     sidebar: true,
@@ -320,17 +322,17 @@ const teekConfig = defineTeekConfig({
 
 
   // // 赞赏在文章下方
-  // appreciation: {
-  //   position: "doc-after",
-  //   options: {
-  //     // buttonHtml: `<button>测试按钮</button>`,
-  //     icon: "weChatPay", // 赞赏图标，内置 weChatPay 和 alipay
-  //     expandTitle: "打赏支持", // 展开标题，支持 HTML
-  //     collapseTitle: "下次一定", // 折叠标题，支持 HTML
-  //     content: `<img src='/img/alipay/1.png'><img src='/img/alipay/2.png'>`, // 赞赏内容，支持 HTML
-  //     expand: false, // 是否默认展开，默认 false
-  //   },
-  // },  
+  appreciation: {
+    position: "doc-after",
+    options: {
+      // buttonHtml: `<button>测试按钮</button>`,
+      icon: "weChatPay", // 赞赏图标，内置 weChatPay 和 alipay
+      expandTitle: "打赏作者", // 展开标题，支持 HTML
+      collapseTitle: "下次一定", // 折叠标题，支持 HTML
+      content: `<img src='/img/alipay/1.png'><img src='/img/alipay/2.png'>`, // 赞赏内容，支持 HTML
+      expand: false, // 是否默认展开，默认 false
+    },
+  },  
 
   // 单文章页banner功能
   articleBanner: {
@@ -375,16 +377,16 @@ export default defineConfig({
   },
   sitemap: {
     hostname: "https://docs.c-hi.cn",
-    // transformItems: items => {
-    //   const permalinkItemBak: typeof items = [];
-    //   // 使用永久链接生成 sitemap
-    //   const permalinks = (globalThis as any).VITEPRESS_CONFIG.site.themeConfig.permalinks;
-    //   items.forEach(item => {
-    //     const permalink = permalinks?.map[item.url];
-    //     if (permalink) permalinkItemBak.push({ url: permalink, lastmod: item.lastmod });
-    //   });
-    //   return [...items, ...permalinkItemBak];
-    // },
+    transformItems: items => {
+      const permalinkItemBak: typeof items = [];
+      // 使用永久链接生成 sitemap
+      const permalinks = (globalThis as any).VITEPRESS_CONFIG.site.themeConfig.permalinks;
+      items.forEach(item => {
+        const permalink = permalinks?.map[item.url];
+        if (permalink) permalinkItemBak.push({ url: permalink, lastmod: item.lastmod });
+      });
+      return [...items, ...permalinkItemBak];
+    },
   },
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
@@ -413,115 +415,112 @@ export default defineConfig({
     nav: Nav, // 导航栏配置    
     // socialLinks: [{ icon: "github", link: "https://github.com/Kele-Bingtang/vitepress-theme-teek" }],
     socialLinks: SocialLinks, // 社交链接配置
-
-
-
-
-    // search: {
-    //   provider: "local",
-    //   options: {
-    //     miniSearch: {
-    //       /**
-    //        * @type {Pick<import('minisearch').Options, 'extractField' | 'tokenize' | 'processTerm'>}
-    //        */
-    //       options: {
-    //         tokenize: (text) => {
-    //           const segmenter = new Intl.Segmenter('zh-CN', { granularity: 'word' })
-    //           const result: string[] = []
-    //           for (const it of segmenter.segment(text)) {
-    //             if (it.isWordLike) {
-    //               result.push(it.segment)
-    //             }
-    //           }
-    //           return result;
-    //         }
-    //       },
-    //       /**
-    //        * @type {import('minisearch').SearchOptions}
-    //        * @default
-    //        * { fuzzy: 0.2, prefix: true, boost: { title: 4, text: 2, titles: 1 } }
-    //        */
-    //       searchOptions: {
-    //         fuzzy: 0.2, // 设置模糊搜索的容错率
-    //         prefix: true, // 启用前缀匹配
-    //         boost: {
-    //           title: 4, // 标题字段的权重
-    //           text: 3, // 正文内容的权重
-    //           titles: 1, // 其他标题字段的权重
-    //         },
-    //         /* ... */
-    //       }
-    //     },
-    //     translations: {
-    //       button: {
-    //         buttonText: "搜索文档",
-    //         buttonAriaLabel: "搜索文档",
-    //       },
-    //       modal: {
-    //         noResultsText: "无法找到相关结果",
-    //         resetButtonTitle: "清除查询条件",
-    //         footer: {
-    //           selectText: "选择",
-    //           navigateText: "切换",
-    //           closeText: "关闭",
-    //         },
-    //       },
-    //     },
-    //   },
-    // },
-
-    // algolia搜索
+    sidebar: sidebarConfig, // 侧边栏配置
     search: {
-      provider: 'algolia',
+      provider: "local",
       options: {
-        appId: '6AC1N60WH4',
-        apiKey: '90f7d1ece3094d290fe42fcaf6cdfd3c',
-        indexName: 'onedayxyy',
-        locales: {
-          root: {
-            placeholder: '搜索文档',
-            translations: {
-              button: {
-                buttonText: '搜索文档',
-                buttonAriaLabel: '搜索文档'
-              },
-              modal: {
-                searchBox: {
-                  resetButtonTitle: '清除查询条件',
-                  resetButtonAriaLabel: '清除查询条件',
-                  cancelButtonText: '取消',
-                  cancelButtonAriaLabel: '取消'
-                },
-                startScreen: {
-                  recentSearchesTitle: '搜索历史',
-                  noRecentSearchesText: '没有搜索历史',
-                  saveRecentSearchButtonTitle: '保存至搜索历史',
-                  removeRecentSearchButtonTitle: '从搜索历史中移除',
-                  favoriteSearchesTitle: '收藏',
-                  removeFavoriteSearchButtonTitle: '从收藏中移除'
-                },
-                errorScreen: {
-                  titleText: '无法获取结果',
-                  helpText: '你可能需要检查你的网络连接'
-                },
-                footer: {
-                  selectText: '选择',
-                  navigateText: '切换',
-                  closeText: '关闭',
-                  searchByText: '搜索提供者'
-                },
-                noResultsScreen: {
-                  noResultsText: '无法找到相关结果',
-                  suggestedQueryText: '你可以尝试查询',
-                  reportMissingResultsText: '你认为该查询应该有结果？',
-                  reportMissingResultsLinkText: '点击反馈'
-                },
-              },
+        miniSearch: {
+          /**
+           * @type {Pick<import('minisearch').Options, 'extractField' | 'tokenize' | 'processTerm'>}
+           */
+          options: {
+            tokenize: (text) => {
+              const segmenter = new Intl.Segmenter('zh-CN', { granularity: 'word' })
+              const result: string[] = []
+              for (const it of segmenter.segment(text)) {
+                if (it.isWordLike) {
+                  result.push(it.segment)
+                }
+              }
+              return result;
+            }
+          },
+          /**
+           * @type {import('minisearch').SearchOptions}
+           * @default
+           * { fuzzy: 0.2, prefix: true, boost: { title: 4, text: 2, titles: 1 } }
+           */
+          searchOptions: {
+            fuzzy: 0.2, // 设置模糊搜索的容错率
+            prefix: true, // 启用前缀匹配
+            boost: {
+              title: 4, // 标题字段的权重
+              text: 3, // 正文内容的权重
+              titles: 1, // 其他标题字段的权重
+            },
+            /* ... */
+          }
+        },
+        translations: {
+          button: {
+            buttonText: "搜索文档",
+            buttonAriaLabel: "搜索文档",
+          },
+          modal: {
+            noResultsText: "无法找到相关结果",
+            resetButtonTitle: "清除查询条件",
+            footer: {
+              selectText: "选择",
+              navigateText: "切换",
+              closeText: "关闭",
             },
           },
         },
-      }
+      },
     },
+
+    // algolia搜索
+    // search: {
+    //   provider: 'algolia',
+    //   options: {
+    //     appId: '6AC1N60WH4',
+    //     apiKey: '90f7d1ece3094d290fe42fcaf6cdfd3c',
+    //     indexName: 'onedayxyy',
+    //     locales: {
+    //       root: {
+    //         placeholder: '搜索文档',
+    //         translations: {
+    //           button: {
+    //             buttonText: '搜索文档',
+    //             buttonAriaLabel: '搜索文档'
+    //           },
+    //           modal: {
+    //             searchBox: {
+    //               resetButtonTitle: '清除查询条件',
+    //               resetButtonAriaLabel: '清除查询条件',
+    //               cancelButtonText: '取消',
+    //               cancelButtonAriaLabel: '取消'
+    //             },
+    //             startScreen: {
+    //               recentSearchesTitle: '搜索历史',
+    //               noRecentSearchesText: '没有搜索历史',
+    //               saveRecentSearchButtonTitle: '保存至搜索历史',
+    //               removeRecentSearchButtonTitle: '从搜索历史中移除',
+    //               favoriteSearchesTitle: '收藏',
+    //               removeFavoriteSearchButtonTitle: '从收藏中移除'
+    //             },
+    //             errorScreen: {
+    //               titleText: '无法获取结果',
+    //               helpText: '你可能需要检查你的网络连接'
+    //             },
+    //             footer: {
+    //               selectText: '选择',
+    //               navigateText: '切换',
+    //               closeText: '关闭',
+    //               searchByText: '搜索提供者'
+    //             },
+    //             noResultsScreen: {
+    //               noResultsText: '无法找到相关结果',
+    //               suggestedQueryText: '你可以尝试查询',
+    //               reportMissingResultsText: '你认为该查询应该有结果？',
+    //               reportMissingResultsLinkText: '点击反馈'
+    //             },
+    //           },
+    //         },
+    //       },
+    //     },
+    //   }
+    // },
 
 
     // editLink: {
