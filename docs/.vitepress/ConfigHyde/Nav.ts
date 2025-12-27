@@ -12,7 +12,8 @@ export const Nav = [
   {
     text: '使用说明',
     items: [
-      { text: 'MiNiSTLinkV2+TTL工具', link: '/user/bruntools'},
+      { text: 'WiFi模组烧录架', link: '/user/bruntools'},
+      { text: 'STLink343调试器', link: '/user/minijlink' },
     ],
   },
 
