@@ -17,7 +17,7 @@ export const ossProjects = [
     Comment: '5',
     projectLink: "https://oshwhub.com/seahi/bruntools",
     //使用说明连接
-    usageLink: "https://oshwhub.com/seahi/bruntools",
+    usageLink: "/user/bruntools",
   },
   {
     name: "HomeAssistant 红外遥控器",

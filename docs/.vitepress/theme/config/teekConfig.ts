@@ -79,6 +79,8 @@ const teekBlogCommonConfig: TeekConfig = {
     typesOutTime: 100, // 删除一个文字的时间，单位：毫秒。descStyle 为 types 时生效
     typesNextTime: 100, // 打字与删字的间隔时间，单位：毫秒。descStyle 为 types 时生效
     typesShuffle: false, // 描述信息是否随机打字，为 false 时按顺序打字，descStyle 为 types 时生效
+    
+
   },
 
   // // 首页顶部按 F11 开启壁纸模式
@@ -95,7 +97,14 @@ const teekBlogCommonConfig: TeekConfig = {
   footerInfo: FooterInfo, // 底部信息配置 
   friendLink: FriendLink, // 友链配置
   social: SocialDate, //社交信息配置
-
+  codeBlock: {
+    enabled: true, // 是否启用新版代码块
+    collapseHeight: 700, // 超出高度后自动折叠，设置 true 则默认折叠，false 则默认不折叠
+    overlay: false, // 代码块底部是否显示展开/折叠遮罩层
+    overlayHeight: 400, // 当出现遮罩层时，指定代码块显示高度，当 overlay 为 true 时生效
+    langTextTransform: "none", // 语言文本显示样式，为 text-transform 的值:none, capitalize, lowercase, uppercase
+    copiedDone: TkMessage => TkMessage.success("复制成功！"), // 复制代码完成后的回调
+  },
 };
 
 // 博客默认配置
@@ -140,6 +149,8 @@ export const teekBlogParkConfig: TeekConfig = {
     titleFontSize: "3.2rem", // 标题字体大小
     switchShuffle: true, // 描述信息是否随机切换，为 false 时按顺序切换。descStyle 为 switch 时生效
     typesNextTime: 100,
+    //代码块
+    
   },
 
 };

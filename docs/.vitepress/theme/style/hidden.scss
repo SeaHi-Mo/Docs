@@ -8,6 +8,7 @@
 .VPMenuLink {
   border-top: none !important;
 }
+
 // 页头横条隐藏线
 .vp-doc h2 {
   border-top: none;
@@ -29,11 +30,11 @@
 }
 
 // nav导航栏深色模式切换两边隐藏线
-.menu + .appearance[data-v-df4b8734]::before,
-.translations + .appearance[data-v-df4b8734]::before {
+.menu+.appearance[data-v-df4b8734]::before,
+.translations+.appearance[data-v-df4b8734]::before {
   background-color: #ffffff00;
 }
 
-.appearance + .social-links[data-v-df4b8734]::before {
+.appearance+.social-links[data-v-df4b8734]::before {
   background-color: #ffffff00;
 }

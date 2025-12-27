@@ -16,7 +16,9 @@
 @use "./font.scss" as *; // 字体
 // @use "./text-card-hover.scss" as *; // 文字在悬停时会出现下划线动画
 
-@use "./Container/container-one.scss" as *; // container-hyde容器
+// @use "./Container/container-one.scss" as *; // container-hyde容器
+
+@use "./Container/container-border.scss" as *;
 
 @use "./vp-img-shadow.scss" as *; // 图片阴影
 @use "./vp-code-shadow.scss" as *; // 代码块阴影

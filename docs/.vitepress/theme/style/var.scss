@@ -50,7 +50,7 @@
 
 .VPDoc h1 {
   // @include text-gradient;
-text-align: center;
+  text-align: center;
 
 }
 
@@ -59,7 +59,14 @@ text-align: center;
 // }
 // 让md里的h2标题为紫色
 .VPDoc h2 {
-  background: -webkit-linear-gradient(10deg, #ad10d4 5%, #cf0f58 15%);
+  background: -webkit-linear-gradient(10deg, #ad10d4 5%, #ec1769 15%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.VPDoc h3 {
+  background: -webkit-linear-gradient(10deg, #1fa0eb 1%, #8f1feb 10%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
