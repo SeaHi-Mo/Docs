@@ -321,17 +321,17 @@ const teekConfig = defineTeekConfig({
 
 
   // // 赞赏在文章下方
-  // appreciation: {
-  //   position: "doc-after",
-  //   options: {
-  //     // buttonHtml: `<button>测试按钮</button>`,
-  //     icon: "weChatPay", // 赞赏图标，内置 weChatPay 和 alipay
-  //     expandTitle: "打赏支持", // 展开标题，支持 HTML
-  //     collapseTitle: "下次一定", // 折叠标题，支持 HTML
-  //     content: `<img src='/img/alipay/1.png'><img src='/img/alipay/2.png'>`, // 赞赏内容，支持 HTML
-  //     expand: false, // 是否默认展开，默认 false
-  //   },
-  // },  
+  appreciation: {
+    position: "doc-after",
+    options: {
+      // buttonHtml: `<button>测试按钮</button>`,
+      icon: "weChatPay", // 赞赏图标，内置 weChatPay 和 alipay
+      expandTitle: "打赏作者", // 展开标题，支持 HTML
+      collapseTitle: "下次一定", // 折叠标题，支持 HTML
+      content: `<img src='/img/alipay/1.png'><img src='/img/alipay/2.png'>`, // 赞赏内容，支持 HTML
+      expand: false, // 是否默认展开，默认 false
+    },
+  },
 
   // 单文章页banner功能
   articleBanner: {
@@ -374,20 +374,21 @@ export default defineConfig({
       detailsLabel: "详细信息",
     },
     //表格主题
-   
+
+
   },
   sitemap: {
     hostname: "https://docs.c-hi.cn",
-    // transformItems: items => {
-    //   const permalinkItemBak: typeof items = [];
-    //   // 使用永久链接生成 sitemap
-    //   const permalinks = (globalThis as any).VITEPRESS_CONFIG.site.themeConfig.permalinks;
-    //   items.forEach(item => {
-    //     const permalink = permalinks?.map[item.url];
-    //     if (permalink) permalinkItemBak.push({ url: permalink, lastmod: item.lastmod });
-    //   });
-    //   return [...items, ...permalinkItemBak];
-    // },
+    transformItems: items => {
+      const permalinkItemBak: typeof items = [];
+      // 使用永久链接生成 sitemap
+      const permalinks = (globalThis as any).VITEPRESS_CONFIG.site.themeConfig.permalinks;
+      items.forEach(item => {
+        const permalink = permalinks?.map[item.url];
+        if (permalink) permalinkItemBak.push({ url: permalink, lastmod: item.lastmod });
+      });
+      return [...items, ...permalinkItemBak];
+    },
   },
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
@@ -416,7 +417,7 @@ export default defineConfig({
     nav: Nav, // 导航栏配置    
     // socialLinks: [{ icon: "github", link: "https://github.com/Kele-Bingtang/vitepress-theme-teek" }],
     socialLinks: SocialLinks, // 社交链接配置
-    sidebar:sidebarConfig, // 侧边栏配置
+    sidebar: sidebarConfig, // 侧边栏配置
 
 
 
