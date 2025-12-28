@@ -44,28 +44,73 @@
 
 /* 文档项图标 - 折叠状态 */
 #VPSidebarNav .VPSidebarItem:not(.is-link).collapsed > .item::before {
-    background-image: url("/svg/document.svg");
+    background-image: url("/svg/docs_off.svg");
 }
 
 /* 文档项图标 - 展开状态 */
 #VPSidebarNav .VPSidebarItem:not(.is-link) > .item::before {
-    background-image: url("/svg/document-open.svg");
+    background-image: url("/svg/docs.svg");
 }
 
 /* 链接项图标 */
 #VPSidebarNav .VPSidebarItem.is-link > .item::before {
-    background-image: url("/svg/file.svg");
+    background-image: url("/svg/userfile1.svg");
 }
 
-/* 深色模式支持 */
-.dark #VPSidebarNav .VPSidebarItem > .item::before {
-    filter: brightness(0.8);
+// /* 深色模式支持 */
+// .dark #VPSidebarNav .VPSidebarItem > .item::before {
+//     filter: brightness(0.8);
+// }
+
+// .dark #VPSidebarNav .VPSidebarItem.is-active > .item::before {
+//     filter: brightness(1) hue-rotate(180deg);
+// }
+
+
+/* -------------------------- 浅色模式样式（关键补充） -------------------------- */
+:not(.dark) #VPSidebarNav .VPSidebarItem>.item::before {
+    /* 浅色模式默认图标亮度（和深色模式默认效果对称） */
+    filter: brightness(1);
 }
 
-.dark #VPSidebarNav .VPSidebarItem.is-active > .item::before {
+:not(.dark) #VPSidebarNav .VPSidebarItem.is-active>.item::before {
+    /* 浅色模式激活图标：和深色模式用完全一致的filter，保证视觉效果统一 */
     filter: brightness(1) hue-rotate(180deg);
+    /* 可选：如果hue-rotate在浅色下偏色，可微调参数，比如：
+    filter: brightness(0.95) hue-rotate(180deg) saturate(1.1);
+    */
 }
 
+// 一级文件夹hover渐变效果
+.VPSidebarItem.level-0 .item:hover .text {
+    @include var.text-gradient;
+    opacity: 0.9;
+}
+
+// 激活状态的侧边栏项渐变（通用，确保深浅模式都生效）
+.VPSidebarItem.level-0.is-active .text {
+    @include var.text-gradient;
+    opacity: 1; // 浅色模式下提升不透明度，和深色视觉一致
+}
+
+/*为独立文档兜底缩进，与一级文件夹平齐*/
+.VPSidebarItem.level-0 .items {
+    padding-left: 0px !important;
+}
+
+/*为独立文档  让高度和目录高度保持一致*/
+.VPSidebarItem.level-0 {
+    padding-bottom: 10px !important;
+}
+
+/* 可选优化：深浅模式激活项背景统一（增强视觉反馈） */
+#VPSidebarNav .VPSidebarItem.is-active>.item {
+    background-color: rgba(var(--vp-c-brand-rgb), 0.05);
+}
+
+.dark #VPSidebarNav .VPSidebarItem.is-active>.item {
+    background-color: rgba(var(--vp-c-brand-rgb), 0.1);
+}
 // 侧边栏二级菜单激活左侧|激活样式
 // #VPSidebarNav .VPSidebarItem .items {
 //     overflow: hidden;

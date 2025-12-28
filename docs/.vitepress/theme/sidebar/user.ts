@@ -10,12 +10,12 @@ export const sidebarUser = [
 			{ text: "驱动安装", link:"/user/bruntools/driver"}
 		],
 	},
-	{
-		text: "STLink343 调试器",
-		collapsed: true, // 是否折叠
-		items: [
-			{ text: "首页", link: "/user/minijlink", },
+	// {
+	// 	text: "STLink343 调试器",
+	// 	collapsed: true, // 是否折叠
+	// 	items: [
+	// 		{ text: "首页", link: "/user/minijlink", },
 
-		],
-	},
+	// 	],
+	// },
 ];

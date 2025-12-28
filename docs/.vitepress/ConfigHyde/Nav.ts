@@ -13,7 +13,7 @@ export const Nav = [
     text: '使用说明',
     items: [
       { text: 'WiFi模组烧录架', link: '/user/bruntools'},
-      { text: 'STLink343调试器', link: '/user/minijlink' },
+      // { text: 'STLink343调试器', link: '/user/minijlink' },
     ],
   },
 
