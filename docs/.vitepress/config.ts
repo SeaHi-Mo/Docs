@@ -562,8 +562,8 @@ export default defineConfig({
           const rules: TransformRule[] = [
             { folderName: "01.开源项目", prefix: "/project/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
             { folderName: "02.使用说明", prefix: "/user/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
-            { folderName: "01.模组烧录架", prefix: "/user/bruntools/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
-            { folderName: "20.STLink343", prefix: "/user/stlink343/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
+            { folderName: "10.STLink343", prefix: "/user/stlink343/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
+            { folderName: "模组烧录架", prefix: "/user/bruntools/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
             { folderName: "10.教程", prefix: "/tutorial/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
             { folderName: "20.工具", prefix: "/tools/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
             { folderName: "30.联系方式", prefix: "/contactinformation/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
