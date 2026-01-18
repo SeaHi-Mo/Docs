@@ -15,7 +15,7 @@ export const sidebarUser = [
 		collapsed: true, // 是否折叠
 		items: [
 			{ text: "首页", link: "/user/minijlink", },
-
+			{text:"自定义配置",link:"/user/user_custom"}
 		],
 	},
 ];
