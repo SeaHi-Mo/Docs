@@ -564,9 +564,9 @@ export default defineConfig({
             { folderName: "02.使用说明", prefix: "/user/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
             { folderName: "10.STLink343", prefix: "/user/stlink343/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
             { folderName: "模组烧录架", prefix: "/user/bruntools/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
-            { folderName: "10.教程", prefix: "/tutorial/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
-            { folderName: "20.工具", prefix: "/tools/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
-            { folderName: "30.联系方式", prefix: "/contactinformation/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
+            { folderName: "20.教程", prefix: "/tutorial/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
+            { folderName: "涂鸦入门教程", prefix: "/tutorial/tuya/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
+            { folderName: "15.工具", prefix: "/tools/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
             { folderName: "40.关于", prefix: "/about/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
           ];
           // 应用规则转换

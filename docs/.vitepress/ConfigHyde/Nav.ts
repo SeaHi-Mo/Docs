@@ -1,4 +1,5 @@
 // nav导航栏配置
+import { text } from "mermaid/dist/rendering-util/rendering-elements/shapes/text.js";
 import { TeekIcon, VdoingIcon, SSLIcon, BlogIcon } from "./icon/NavIcon";
 export const Nav = [
   
@@ -20,7 +21,7 @@ export const Nav = [
   {
     text: '教程',
     items: [
-
+      { text: '涂鸦入门教程', link: '/tutorial/tuya/home'},
     ],
   },
   // 专题

@@ -9,6 +9,7 @@ author:
   link: https://docs.c-hi.cn
 coverImg: /img/stlink343/Car.png
 inHomePost: false
+articleUpdate: false
 ---
 
 ## 冷启动控制
