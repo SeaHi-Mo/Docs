@@ -65,4 +65,6 @@ inHomePost: false
 
 ![alt text](IMG/vm_runing.png) 
 
-## [安装 Ubuntu](/tutorial/Linux/ubuntu_install)
+## 安装 Ubuntu
+
+- 请参考[安装 Ubuntu](/tutorial/Linux/ubuntu_install)章节
