@@ -268,7 +268,7 @@ sudo update-alternatives --config python
 
 - 👉[**安装VScode并远程连接Ubunut**](/tutorial/Linux/VScode_install)
 
-## WSL安装 Ubuntu {#wsl_ubuntu2024}
+## WSL安装 Ubuntu
 ### 安装 Ubuntu20.04 
 按住 `shift + 鼠标右键` 重新打开 `PowerShell`，运行下发指令安装 `Ubutun20.04`:
 ```shell

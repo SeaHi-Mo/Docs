@@ -171,7 +171,7 @@ sudo yum install -y gcc gcc-c++ gdb
 
 ## 连接 WSL
 ### 安装 WSL，请参考:[WSL 安装](/tutorial/Linux/wsl_install)
-### 安装 WSL 的Ubuntu,请参考：[Ubuntu 安装——WSL安装章节](/tutorial/Linux/ubuntu_install#wsl_ubuntu2024)
+### 安装 WSL 的Ubuntu,请参考：[Ubuntu 安装——WSL安装章节](/tutorial/Linux/ubuntu_install#wsl安装-ubuntu)
 ### 安装 WSL插件
 
 在扩展商店搜索 **WSL**（由 Microsoft 开发），点击 “安装”。安装完成后，左侧菜单栏会新增 “远程资源管理器” 图标（类似显示器的图标）。
