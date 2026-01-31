@@ -25,7 +25,7 @@ import { createRewrites } from "vitepress-theme-teek/config";
 import AutoFrontmatter, { FileInfo } from "vitepress-plugin-auto-frontmatter";
 import { useTransformByRules, type TransformRule } from "./theme/composables/useTransform";
 import { sidebarConfig } from "./theme/sidebar/SidebarConfig";
-
+import { withMermaid } from "vitepress-plugin-mermaid";
 
 const description = [
   "欢迎来到 SeaHi 的博客",
@@ -36,7 +36,7 @@ const CoverImgList = Cover; // 获取封面列表
 // const CoverBgList = Wallpaper; // 获取壁纸列表
 
 
-const teekConfig = defineTeekConfig({
+const teekConfig = withMermaid(defineTeekConfig({
   // // 首页顶部按 F11 开启壁纸模式
   // 首页顶部按 F11 开启壁纸模式
   wallpaper: {
@@ -341,7 +341,7 @@ const teekConfig = defineTeekConfig({
     defaultCoverImg: "", // 默认封面图
     defaultCoverBgColor: "", // 默认封面背景色，优先级低于 defaultCoverImg
   },
-});
+}));
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -374,7 +374,9 @@ export default defineConfig({
       detailsLabel: "详细信息",
     },
     //表格主题
-
+    mermaidPlugin: {
+      class: "mermaid my-class" // 为父容器设置额外的CSS类
+    },
 
   },
   sitemap: {
@@ -566,6 +568,7 @@ export default defineConfig({
             { folderName: "模组烧录架", prefix: "/user/bruntools/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
             { folderName: "20.教程", prefix: "/tutorial/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
             { folderName: "涂鸦入门教程", prefix: "/tutorial/tuya/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
+            { folderName: "Linux开发环境", prefix: "/tutorial/Linux/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
             { folderName: "15.工具", prefix: "/tools/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
             { folderName: "40.关于", prefix: "/about/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
           ];

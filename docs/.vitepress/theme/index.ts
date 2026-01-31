@@ -7,6 +7,7 @@ import { useData } from "vitepress";
 // import MNavLinks from "./components/MNavLinks.vue"; // 引入导航组件
 import confetti from "./components/Confetti.vue"; //导入五彩纸屑组件
 // import NavIcon from "./components/NavIcon.vue"; //导入导航栏图标
+import TuyaIntroCard from "./components/TuyaIntroCard.vue"; // 导入涂鸦教程简介卡片组件
 
 
 // Teek 在线主题包引用（需安装 Teek 在线版本）
@@ -77,15 +78,14 @@ export default {
 
     app.component('CoupleAlbum', CoupleAlbum) // 注册情侣相册组件
     app.component('PhotoCard', PhotoCard)
-    
+
     // app.component("NavIcon", NavIcon); //导航栏图标
 
     // 注册全局组件
     // app.component("friend-link", SLink);
 
     app.component("emoji-Shiroki", EmojiShiroki); // ◀️ 注入 Emoji 表情库组件布局
-
-  
+    app.component("TuyaIntroCard", TuyaIntroCard); // 注册涂鸦教程简介卡片组件
 
     // 非SSR环境下配置路由进度条
     // @ts-expect-error
@@ -98,16 +98,16 @@ export default {
         }, 100);
       };
 
-    // 🔽 鼠标拖尾星星动画
-    if (typeof window !== "undefined") {
-      useGuangbiaoTX();
-    }  
+      // 🔽 鼠标拖尾星星动画
+      if (typeof window !== "undefined") {
+        useGuangbiaoTX();
+      }
 
-    // 🔽 替换原版图片查看器
-    initImageViewer();
+      // 🔽 替换原版图片查看器
+      initImageViewer();
 
     }
-      // 不蒜子环境下配置路由进度条
+    // 不蒜子环境下配置路由进度条
     // if (inBrowser) {
     //   NProgress.configure({ showSpinner: false });
     //   router.onBeforeRouteChange = () => {
@@ -117,15 +117,15 @@ export default {
     //     NProgress.done(); // 停止进度条
     //   };
     // },  
-    
+
   },
   Layout: defineComponent({
     name: "LayoutProvider",
     setup() {
       if (typeof window !== 'undefined') {
-            // 监听复制事件
-            useCopyEvent();
-          }
+        // 监听复制事件
+        useCopyEvent();
+      }
 
       const props: Record<string, any> = {};
       const { frontmatter } = useData();

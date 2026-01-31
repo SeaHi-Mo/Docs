@@ -112,7 +112,6 @@
         <pre ref="messageFormat">
 名称: SeaHi
 链接: https://docs.c-hi.cn
-头像: https://img.onedayxyy.cn/images/Teek/Teekwebsite/xyy-logo.webp
 描述: 言念君子，温其如玉</pre>
         <!-- 评论区插槽 -->
         <!-- 默认为Twikoo评论组件，可通过插槽自定义其他评论系统 -->

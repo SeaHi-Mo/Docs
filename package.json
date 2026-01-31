@@ -11,14 +11,15 @@
   },
   "devDependencies": {
     "echarts": "^5.6.0",
+    "mermaid": "^11.12.2",
     "nprogress-v2": "^1.1.10",
     "sass": "^1.89.1",
     "vitepress": "^1.6.3",
+    "vitepress-plugin-mermaid": "^2.0.17",
     "vitepress-theme-teek": "^1.5.2"
   },
   "dependencies": {
     "canvas-confetti": "^1.9.3",
-    "mermaid": "^11.12.2",
     "oh-my-live2d": "^0.19.3",
     "pnpm": "^10.25.0",
     "twikoo": "^1.6.44",

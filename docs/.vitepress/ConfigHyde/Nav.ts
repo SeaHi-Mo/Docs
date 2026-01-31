@@ -21,6 +21,7 @@ export const Nav = [
   {
     text: '教程',
     items: [
+      { text: 'Linux 开发环境搭建', link: '/tutorial/Linux/home'},
       { text: '涂鸦入门教程', link: '/tutorial/tuya/home'},
     ],
   },
