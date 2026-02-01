@@ -140,7 +140,7 @@ data:
 
 ## 开始 TuyaOS 开发
 
-### 1.搜索开发包
+### 1. 搜索开发包
 
 - 在 `Tuya Wind IDE` 的资源中心中，`开发模式` 选项选择 `TuyaOS OS 开发`。<br><br>
 ![alt text](IMG/create_project.png)<br><br>
@@ -153,4 +153,123 @@ data:
 - 创建会自动转跳至 `Tuya Wind IDE` 插件下的 `开发框架` 页面并跟随以下弹窗，点击t弹窗的 `完成`按钮即可。<br><br>
 ![alt text](IMG/ST38_OK.png)
 
-### 2. 编译例程
+### 2. T2_TuyaOS-3.8.4 文件说明
+
+```SH
+T2_TuyaOS-3.8.4/                    # 项目根目录
+├── hardware/                       # 硬件相关文档
+│   └── T2/                         # T2硬件平台
+│       └── module_manual/          # 模块手册
+├── pc/                             # PC端工具
+│   └── tools/                      # 开发工具集
+│       └── T2/                     # T2专用工具
+└── software/                       # 软件核心代码
+    └── TuyaOS/                     # TuyaOS操作系统
+        ├── apps/                   # 示例应用程序
+        ├── build/                  # 编译配置
+        ├── docs/                   # 开发文档
+        ├── include/                # 头文件
+        ├── libs/                   # 库文件
+        ├── scripts/                # 工具脚本
+        └── vendor/                 # 原厂库
+```
+
+### 3. 编译例程
+
+TuyaOS 提供的 `apps` 文件夹中的历程如下：
+
+```SH
+├── apps
+    │   │   ├── tuyaos_demo_application_driver    #硬件驱动demo
+    │   │   ├── tuyaos_demo_examples              #示例应用程序 
+    │   │   ├── tuyaos_demo_quickstart            #快速入门demo
+    │   │   └── tuyaos_demo_wifi_qr_activate      #WiFi二维码激活demo
+```
+
+::: details 方式一:`鼠标右键`快捷方式编译
+- 步骤1：在 `apps` 文件夹中，找到需要编译的历程文件夹，例如 `tuyaos_demo_quickstart`。
+- 步骤2：在历程文件夹中，点击 `鼠标右键`，选择 `编译`，即可编译该历程,例如:
+
+<center><img src="./IMG/build.gif" alt="接口图" style="max-width: 60%; height: auto; object-fit: contain; margin-top: 40px;"></img></center>
+:::
+
+::: details 方式二: `build_app.sh` 脚本编译
+- 步骤1：进入 `T2_TuyaOS-3.8.4/software/TuyaOS` 目录。
+- 步骤2：在项目根目录中，打开终端，使用 `build_app.sh ` 脚本编译，例如编译 `tuyaos_demo_quickstart` 历程：
+```SH
+./build_app.sh apps/tuyaos_demo_quickstart tuyaos_demo_quickstart 1.0.0 
+```
+:::
+
+::: details 方式三: `make` 指令编译
+- 步骤1：进入 `T2_TuyaOS-3.8.4/software/TuyaOS` 目录。
+- 步骤2：在项目根目录中，打开终端，使用 `make` 指令编译，例如编译 `tuyaos_demo_quickstart` 历程：
+```SH
+make 
+```
+:::
+
+::: note 方式二和方式三的区别
+1. 方式二可以指定编译的例程、版本号等参数。方式三编译的例程只能是方式二中配置好的，不能自定义。
+2. 方式三 可以让用户自定义编译版本，方式三只能默认为 `1.0.0`。
+3. 命令行编译推荐使用方式二。
+:::
+
+### 4. 下载固件
+
+::: note 笔记
+- 编译所生成的文件位于 `apps/xxxx/output/<版本号>` 目录下。
+- 正式的固件的文件名格式为 `xxxx_QIO_<版本号>.bin`，例如 `tuyaos_demo_quickstart_QIO_1.0.0.bin`。
+:::
+
+- 步骤1：把T2-U 开发板的拨码开关的 `1`和 `2` 拨到 `ON` 位置。
+- 步骤2：把T2-U 开发板的USB线插入电脑的USB接口，并映射到 WSL2 环境中。可参考：[安装WSL2](/tutorial/Linux/wsl_install#wsl2-串口映射) 的 "WSL2串口" 章节。
+- 步骤3：在例程中，*`apps/xxxx/output/<版本号>`* 目录下，找到编译生成的固件文件，例如 `tuyaos_demo_quickstart_QIO_1.0.0.bin`。
+- 步骤4：选中固件文件，点击 `鼠标右键`，选择 `Flash App`即可下载。
+- 示例：
+
+<center><img src="./IMG/flash_bin.gif" alt="接口图" style="max-width: 100%; height: auto; object-fit: contain; margin-top: 40px;"></img></center>
+
+### 5. 验证固件
+
+- 步骤1：把T2-U 开发板的拨码开关的 `3`和 `4` 拨到 `OFF` 位置。
+- 步骤2：底部菜单栏选择 `串行监视器` 或 `Serial Monitor`，即可打开串口监视器。
+- 步骤3：在串口监视器中，端口选择 `/dev/ttyACM1`，波特率选择 `115200`，数据位为 `8`，无校验位，1 个停止位。
+- 步骤4：点击`开始监视`
+- 步骤5：复位 T2-U 开发板，即可看到开发板打印的信息。
+- 示例：
+
+<img src="./IMG/fristLog.png" alt="接口图" style="max-width: 100%; height: auto; object-fit: contain; margin-top: 40px;"></img>
+
+
+## 快捷导航
+
+
+::: navCard
+```yaml
+config:
+    target: _self
+data:
+  - name: 编写第一个Tuya OS 应用
+    desc: 实现打印 "Hello, Tuya!"
+    link: /tutorial/tuya/oneapp
+    img:  /svg/tuya.svg
+    badge: 第三步
+    badgeType: tip
+  - name: 点亮一盏LED灯
+    desc: 实现点亮开发板上的LED灯
+    link: /tutorial/tuya/led
+    img:  /svg/led.svg
+    badge: 第四步
+  - name: 连接WiFi
+    desc: 实现开发板连接到WiFi网络
+    link: /tutorial/tuya/wifi
+    img:  /svg/Wi-Fi.svg
+    badge: 第五步
+  - name: 实现连接 Tuya 开发者平台
+    desc: 实现开发板连接到 Tuya 开发者平台
+    link: /tutorial/tuya/connect
+    img:  /svg/tuya.svg
+    badge: 第六步
+```
+:::
