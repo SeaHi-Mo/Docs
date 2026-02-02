@@ -39,7 +39,7 @@ STATIC VOID user_main(VOID_T)
     return;
 }
 ```
-2. 根据 T2-U 开发板的LED引脚（[点此查看开发板框图](/tutorial/tuya/t2board#引脚及接口)），LED 的引脚在 `P26`。<br><br>
+2. 根据 T2-U 开发板的LED引脚（[点此查看开发板框图](/tutorial/tuya/t2board#引脚及接口)），LED 的引脚在 `P26`。
 3. 引用 gpio 头文件 `#include "tkl_gpio.h"`
 4. 初始化 LED 引脚为输出模式,默认低电平（低电平点亮LED）,此时可以编译烧录验证一下，代码如下：
 
