@@ -1,9 +1,11 @@
 ---
-date: 2026-01-31 11:12:32
+date: 2026-02-01 14:50:36
 title: Linux开发环境搭建
 permalink: /tutorial/Linux/home
+
 categories:
   - Linux开发环境
+  
 author:
   name: SeaHi
   link: https://docs.c-hi.cn
