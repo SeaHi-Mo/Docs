@@ -256,11 +256,11 @@ data:
     img:  /svg/tuya.svg
     badge: 第三步
     badgeType: tip
-  # - name: 点亮一盏LED灯
-  #   desc: 实现点亮开发板上的LED灯
-  #   link: /tutorial/tuya/led
-  #   img:  /svg/led.svg
-  #   badge: 第四步
+  - name: 点亮一盏LED灯
+    desc: 实现点亮开发板上的LED灯
+    link: /tutorial/tuya/led
+    img:  /svg/led.svg
+    badge: 第四步
   # - name: 连接WiFi
   #   desc: 实现开发板连接到WiFi网络
   #   link: /tutorial/tuya/wifi
