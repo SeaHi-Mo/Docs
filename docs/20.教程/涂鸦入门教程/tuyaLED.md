@@ -104,7 +104,7 @@ STATIC VOID user_main(VOID_T)
 
 
 
-::: navCard
+<!-- ::: navCard
 ```yaml
 config:
     target: _self
@@ -121,4 +121,4 @@ data:
     img:  /svg/tuya.svg
     badge: 第六步
 ```
-:::
+::: -->
