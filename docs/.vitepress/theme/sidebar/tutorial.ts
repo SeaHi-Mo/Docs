@@ -23,7 +23,7 @@ export const sidebarTutorial = [
 			{ text: "第二步:搭建开发环境", link: "/tutorial/tuya/osinstall" },
 			{ text: "第三步:输出 Hello, Tuya!", link: "/tutorial/tuya/oneapp" },
 			{ text: "第四步:点亮一盏LED灯", link: "/tutorial/tuya/led" },
-			// { text: "第五步:连接WiFi", link: "/tutorial/tuya/wifi" },
+			{ text: "第五步:连接WiFi", link: "/tutorial/tuya/wifi" },
 			// { text: "第六步:连接 Tuya 平台", link: "/tutorial/tuya/connect" },
 		],
 	},
