@@ -64,8 +64,9 @@ flowchart TB
 
 1. 打开 `blink_led/src/tuya_device.c` 文件
 2. 引用 Wi-Fi 相关的头文件：`tuya_iot_wifi_api.h`
-3. 创建一个回调函数 `user_wifi_event_cb`，用于处理 WiFi 事件
-4. 在 `user_main` 函数中初始化 WiFi 模块：`tkl_wifi_init(user_wifi_event_cb)`
+3. 先把 LWIP 初始化 
+4. 创建一个回调函数 `user_wifi_event_cb`，用于处理 WiFi 事件
+5. 在 `user_main` 函数中初始化 WiFi 模块：`tkl_wifi_init(user_wifi_event_cb)`
 - 代码如下（编译没报错就可下一步）：
 
 ```c
@@ -93,6 +94,9 @@ STATIC VOID user_main(VOID_T)//[!code focus]
     led_cfg.level = TUYA_GPIO_LEVEL_LOW; // 默认低电平
     led_cfg.direct = TUYA_GPIO_OUTPUT;   // 输出方向
     tkl_gpio_init(TUYA_GPIO_NUM_26, &led_cfg); // 初始化GPIO26
+#if defined(ENABLE_LWIP) && (ENABLE_LWIP == 1)//[!code focus][!code ++]
+    TUYA_LwIP_Init();//[!code focus][!code ++]
+#endif//[!code focus][!code ++]
     tkl_wifi_init(user_wifi_event_cb); //[!code focus][!code ++] 初始化wifi
     while (1)
     {
@@ -149,13 +153,168 @@ STATIC VOID_T user_wifi_event_cb(WF_EVENT_E event, VOID_T *arg)
 
 1. 创建两个宏定义，分别代表 Wi-Fi 名称和密码
 2. 调用 `tkl_wifi_station_connect` 函数连接到指定的 Wi-Fi 网络
-
 - 代码如下：
 ```c
+#include "tuya_iot_config.h"
+#include "tuya_cloud_types.h"
+#include "tuya_cloud_com_defs.h"
+#include "tal_thread.h"
+#include "tal_log.h"
+#include "tal_system.h"
+#include "tkl_gpio.h"
+#include "tuya_iot_wifi_api.h" // wifi相关接口
 
+#define SSID "Seahi"//[!code focus][!code ++]
+#define PASSWORD "12345678"//[!code focus][!code ++]
+// 此处省略部分代码
+STATIC VOID user_main(VOID_T)
+{
+    tuya_base_utilities_init();                   // 初始化基础组件
+    tal_log_set_manage_attr(TAL_LOG_LEVEL_DEBUG); // 设置日志级别
+    // 配置LED引脚
+    TUYA_GPIO_BASE_CFG_T led_cfg = {0};
+    led_cfg.mode = TUYA_GPIO_PUSH_PULL;        // 推挽输出
+    led_cfg.level = TUYA_GPIO_LEVEL_LOW;       // 默认低电平
+    led_cfg.direct = TUYA_GPIO_OUTPUT;         // 输出方向
+    tkl_gpio_init(TUYA_GPIO_NUM_26, &led_cfg); // 初始化GPIO26
+
+#if defined(ENABLE_LWIP) && (ENABLE_LWIP == 1)
+    TUYA_LwIP_Init();
+#endif
+
+    tkl_wifi_init(user_wifi_event_cb);         // 初始化wifi
+    tkl_wifi_set_work_mode(WWM_STATION);       // 设置wifi工作模式为STA
+    tkl_wifi_station_connect(SSID, PASSWORD); // 连接wifi//[!code focus][!code ++]
+
+    while (1)
+    {
+        tkl_gpio_write(TUYA_GPIO_NUM_26, TUYA_GPIO_LEVEL_HIGH);
+        tal_system_sleep(500);
+        tkl_gpio_write(TUYA_GPIO_NUM_26, TUYA_GPIO_LEVEL_LOW);
+        tal_system_sleep(500);
+    }
+    return;
+}
 
 ```
 
 ## 烧录验证
 
+1. 编译`blink_led` 工程，版本为: 1.0.0
+2. 烧录到 T2-U 开发板
+3. 打开串口工具，选择 *`/dev/ttyACM1`* 设置波特率为 115200，数据位为 8 位，无校验位，1 个停止位
+4. 开发板上的 LED 灯开始闪烁，并在串口工具中打印出连接成功的日志：
 
+<center>
+
+![alt text](./IMG/connetwifi.png)
+</center>
+
+## 扩展示例
+
+::: details LED 指示 WiFi 状态（断开持续快闪，连接定时闪烁）
+```c
+#include "tuya_iot_config.h"
+#include "tuya_cloud_types.h"
+#include "tuya_cloud_com_defs.h"
+#include "tal_thread.h"
+#include "tal_log.h"
+#include "tal_system.h"
+#include "tkl_gpio.h"
+#include "tuya_iot_wifi_api.h" // wifi相关接口
+
+#define SSID "*****" // wifi名称
+#define PASSWORD "12345678" // wifi密码
+
+BOOL_T user_wifi_status = FALSE; // wifi状态
+STATIC VOID_T user_wifi_event_cb(WF_EVENT_E event, VOID_T *arg)
+{
+    switch (event)
+    {
+    case WFE_CONNECTED:
+        TAL_PR_INFO("wifi connected");
+        user_wifi_status = TRUE;
+        break;
+    case WFE_CONNECT_FAILED:
+        TAL_PR_INFO("wifi connect failed");
+        user_wifi_status = FALSE;
+        break;
+    case WFE_DISCONNECTED:
+        TAL_PR_INFO("wifi disconnected");
+        user_wifi_status = FALSE;
+        break;
+    default:
+        break;
+    }
+}
+
+STATIC VOID user_main(VOID_T)
+{
+    tuya_base_utilities_init();                   // 初始化基础组件
+    tal_log_set_manage_attr(TAL_LOG_LEVEL_DEBUG); // 设置日志级别
+    // 配置LED引脚
+    TUYA_GPIO_BASE_CFG_T led_cfg = {0};
+    led_cfg.mode = TUYA_GPIO_PUSH_PULL;        // 推挽输出
+    led_cfg.level = TUYA_GPIO_LEVEL_LOW;       // 默认低电平
+    led_cfg.direct = TUYA_GPIO_OUTPUT;         // 输出方向
+    tkl_gpio_init(TUYA_GPIO_NUM_26, &led_cfg); // 初始化GPIO26
+
+#if defined(ENABLE_LWIP) && (ENABLE_LWIP == 1)
+    TUYA_LwIP_Init();
+#endif
+
+    tkl_wifi_init(user_wifi_event_cb);         // 初始化wifi
+    tkl_wifi_set_work_mode(WWM_STATION);       // 设置wifi工作模式为STA
+    tkl_wifi_set_country_code(COUNTRY_CODE_CN);
+    tkl_wifi_station_connect(SSID, PASSWORD); // 连接wifi
+
+    while (1)
+    {
+        if (user_wifi_status == 1){
+            tal_system_sleep(2000);
+             tkl_gpio_write(TUYA_GPIO_NUM_26, TUYA_GPIO_LEVEL_LOW);
+            tal_system_sleep(80 );
+            tkl_gpio_write(TUYA_GPIO_NUM_26, TUYA_GPIO_LEVEL_HIGH);
+            tal_system_sleep(80);
+        } 
+        tkl_gpio_write(TUYA_GPIO_NUM_26, TUYA_GPIO_LEVEL_LOW);
+        tal_system_sleep(user_wifi_status == 1 ? 80 : 200);
+        tkl_gpio_write(TUYA_GPIO_NUM_26, TUYA_GPIO_LEVEL_HIGH);
+        tal_system_sleep(user_wifi_status == 1 ? 80 : 200);
+    }
+    return;
+}
+
+THREAD_HANDLE ty_app_thread = NULL;
+STATIC VOID tuya_app_thread(VOID_T *arg)
+{
+    user_main();
+
+    tal_thread_delete(ty_app_thread);
+    ty_app_thread = NULL;
+}
+
+/**
+ * @brief user entry function
+ *
+ * @param[in] none
+ *
+ * @return none
+ */
+#if OPERATING_SYSTEM == SYSTEM_LINUX
+INT_T main(INT_T argc, CHAR_T **argv)
+#else
+VOID_T tuya_app_main(VOID)
+#endif
+{
+    THREAD_CFG_T thrd_param = {4096, 4, "tuya_app_main"};
+    tal_thread_create_and_start(&ty_app_thread, NULL, NULL, tuya_app_thread, NULL, &thrd_param);
+#if OPERATING_SYSTEM == SYSTEM_LINUX
+    while (1)
+    {
+        tal_system_sleep(1000);
+    }
+#endif
+}
+```
+::: 
