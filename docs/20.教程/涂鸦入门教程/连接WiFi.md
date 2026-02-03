@@ -20,7 +20,7 @@ inHomePost: false
 2. 其他外设会在做应用项目时再编写教程
 3. T2-U 开发板是一款WiFi+BLE 的模组，无线功能才是重点
 
-接下来的正式进入 T2-U 开发板的无线功能编程部分，从本章开始，我们才算真正入门涂鸦开放平台。
+接下来正式进入 T2-U 开发板的无线功能编程部分，从本章开始，我们才算真正入门涂鸦开放平台。
 
 ## 实现思路
 - 本章不会新建工程了，沿用之前的工程，在 `blink_led` 工程的基础上进行修改
@@ -42,11 +42,11 @@ inHomePost: false
 
 ```mermaid
 flowchart TB
-    A["开始"] -- <br> --> B("初始化WiFi")
+    A["开始"] -- <br> --> B("初始化Wi-Fi")
     B --> n11["设置成STA模式"]
-    n11 --> n1["配置 WiFi 事件回调"]
-    n1 --> n2["WiFi 是否已经就绪"]
-    n2 -- 是 --> n3["连接WiFi"]
+    n11 --> n1["配置Wi-Fi事件回调"]
+    n1 --> n2["Wi-Fi是否已经就绪"]
+    n2 -- 是 --> n3["连接Wi-Fi"]
     n3 --> n4(["结束"])
     n2 -- 否 --> n4
 
@@ -121,10 +121,10 @@ tkl_wifi_set_work_mode(WWM_STATION);
 ## 配置WiFi事件回调
 
 TuyaOS 的文档当中，并没有详细介绍 `WF_EVENT_E` 事件，我们需要自己去查看 `tuya_iot_wifi_api.h` 文件，介绍如下：
-::: note WF_EVENT_E
-- WFE_CONNECTED: 连接成功
-- WFE_CONNECT_FAILED: 连接失败
-- WFE_DISCONNECTED: 断开连接
+::: note WF_EVENT_E 事件类型说明
+- WFE_CONNECTED: WiFi连接成功
+- WFE_CONNECT_FAILED: WiFi连接失败
+- WFE_DISCONNECTED: WiFi断开连接
 :::
 
 所以，我们需要在 `user_wifi_event_cb` 函数中处理这三个事件，代码如下：
@@ -166,7 +166,7 @@ STATIC VOID_T user_wifi_event_cb(WF_EVENT_E event, VOID_T *arg)
 
 #define SSID "Seahi"//[!code focus][!code ++]
 #define PASSWORD "12345678"//[!code focus][!code ++]
-// 此处省略部分代码
+// 此处省略已展示的部分代码
 STATIC VOID user_main(VOID_T)
 {
     tuya_base_utilities_init();                   // 初始化基础组件
@@ -184,7 +184,7 @@ STATIC VOID user_main(VOID_T)
 
     tkl_wifi_init(user_wifi_event_cb);         // 初始化wifi
     tkl_wifi_set_work_mode(WWM_STATION);       // 设置wifi工作模式为STA
-    tkl_wifi_station_connect(SSID, PASSWORD); // 连接wifi//[!code focus][!code ++]
+    tkl_wifi_station_connect(SSID, PASSWORD); // 连接Wi-Fi//[!code focus][!code ++]
 
     while (1)
     {
@@ -223,8 +223,8 @@ STATIC VOID user_main(VOID_T)
 #include "tkl_gpio.h"
 #include "tuya_iot_wifi_api.h" // wifi相关接口
 
-#define SSID "*****" // wifi名称
-#define PASSWORD "12345678" // wifi密码
+#define SSID "*****" // Wi-Fi名称
+#define PASSWORD "12345678" // Wi-Fi密码
 
 BOOL_T user_wifi_status = FALSE; // wifi状态
 STATIC VOID_T user_wifi_event_cb(WF_EVENT_E event, VOID_T *arg)
@@ -270,17 +270,17 @@ STATIC VOID user_main(VOID_T)
 
     while (1)
     {
-        if (user_wifi_status == 1){
+        if (user_wifi_status == TRUE){
             tal_system_sleep(2000);
-             tkl_gpio_write(TUYA_GPIO_NUM_26, TUYA_GPIO_LEVEL_LOW);
-            tal_system_sleep(80 );
+            tkl_gpio_write(TUYA_GPIO_NUM_26, TUYA_GPIO_LEVEL_LOW);
+            tal_system_sleep(80);
             tkl_gpio_write(TUYA_GPIO_NUM_26, TUYA_GPIO_LEVEL_HIGH);
             tal_system_sleep(80);
         } 
         tkl_gpio_write(TUYA_GPIO_NUM_26, TUYA_GPIO_LEVEL_LOW);
-        tal_system_sleep(user_wifi_status == 1 ? 80 : 200);
+        tal_system_sleep(user_wifi_status == TRUE ? 80 : 200);
         tkl_gpio_write(TUYA_GPIO_NUM_26, TUYA_GPIO_LEVEL_HIGH);
-        tal_system_sleep(user_wifi_status == 1 ? 80 : 200);
+        tal_system_sleep(user_wifi_status == TRUE ? 80 : 200);
     }
     return;
 }
@@ -317,4 +317,4 @@ VOID_T tuya_app_main(VOID)
 #endif
 }
 ```
-::: 
+:::
