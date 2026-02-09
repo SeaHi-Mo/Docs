@@ -24,7 +24,16 @@ export const sidebarTutorial = [
 			{ text: "第三步:输出 Hello, Tuya!", link: "/tutorial/tuya/oneapp" },
 			{ text: "第四步:点亮一盏LED灯", link: "/tutorial/tuya/led" },
 			{ text: "第五步:连接WiFi", link: "/tutorial/tuya/wifi" },
-			// { text: "第六步:连接 Tuya 平台", link: "/tutorial/tuya/connect" },
+			{
+				text: "第六步:连接 Tuya 平台",
+				link: "/tutorial/tuya/connect",
+				collapsed: true, // 是否折叠
+				items: [
+					{ text: "1.创建产品", link:"/tutorial/tuya/create-product"},
+					{ text: "2.配网功能", link:"/tutorial/tuya/netconfig"},
+				],
+
+			},
 		],
 	},
 ];
