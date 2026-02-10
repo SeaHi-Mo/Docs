@@ -66,6 +66,7 @@ import { useGuangbiaoTX } from "./components/guangbiaoTX/useGuangbiaoTX"; // ⬅
 import { initImageViewer } from "./style/dd-image/dd-image.ts" // 引入图片查看器功能（替换原版
 
 import EmojiShiroki from "./components/EmojiShiroki/index.vue"; // 引入EmojiShiroki组件
+import StepList from './components/stepList/StepList.vue' // 引入步骤列表组件
 
 
 
@@ -86,6 +87,7 @@ export default {
 
     app.component("emoji-Shiroki", EmojiShiroki); // ◀️ 注入 Emoji 表情库组件布局
     app.component("TuyaIntroCard", TuyaIntroCard); // 注册涂鸦教程简介卡片组件
+    app.component('StepList', StepList) // 注册步骤列表组件
 
     // 非SSR环境下配置路由进度条
     // @ts-expect-error
