@@ -26,6 +26,7 @@ import AutoFrontmatter, { FileInfo } from "vitepress-plugin-auto-frontmatter";
 import { useTransformByRules, type TransformRule } from "./theme/composables/useTransform";
 import { sidebarConfig } from "./theme/sidebar/SidebarConfig";
 import { withMermaid } from "vitepress-plugin-mermaid";
+import { stepsContainer } from "./theme/components/stepList/stepsContainer";
 
 const description = [
   "欢迎来到 SeaHi 的博客",
@@ -299,11 +300,12 @@ const teekConfig = withMermaid(defineTeekConfig({
     config: (md) => {
       md.use(timeline); //时间线插件
       md.use(groupIconMdPlugin); // 代码组图标插件
+      md.use(stepsContainer); // 步骤列表插件
     },
     demo: {
       githubUrl: "https://github.com/Kele-Bingtang/vitepress-theme-teek/blob/master/docs",
     },
-    
+
   },
   // siteAnalytics: [
   //   {

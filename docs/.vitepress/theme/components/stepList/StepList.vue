@@ -1,10 +1,6 @@
 <template>
   <div class="step-list">
-    <div
-      v-for="(step, index) in steps"
-      :key="index"
-      class="step-item"
-    >
+    <div v-for="(step, index) in steps" :key="index" class="step-item">
       <!-- 顶部：icon + 步骤标题 -->
       <div class="step-header">
         <div class="step-icon">
@@ -18,12 +14,7 @@
       <div class="step-content">
         <div class="step-body">
           <div class="step-text">{{ step.text }}</div>
-          <img
-            v-if="step.image"
-            :src="step.image.startsWith('/') ? step.image : '/' + step.image"
-            :alt="step.alt || `步骤 ${index + 1} 截图`"
-            class="step-image"
-          />
+          <img v-if="step.image" :src="step.image" :alt="step.alt || `步骤 ${index + 1} 截图`" class="step-image" />
         </div>
       </div>
     </div>
@@ -69,7 +60,7 @@ const props = defineProps({
   top: 3rem;
   bottom: 0.5rem;
   width: 2px;
-  background-color:  #c936ee;
+  background-color: #c936ee;
 }
 
 .step-header {
@@ -96,14 +87,16 @@ const props = defineProps({
 }
 
 .step-title {
-  color: var(--vp-c-text-1); /* 适配VitePress主题色变量 */
+  color: var(--vp-c-text-1);
+  /* 适配VitePress主题色变量 */
   font-size: 1rem;
   font-weight: 500;
   margin-left: 1rem;
 }
 
 .step-content {
-  background-color: var(--vp-c-bg-alt); /* 适配VitePress背景色 */
+  background-color: var(--vp-c-bg-alt);
+  /* 适配VitePress背景色 */
   border: 1px solid #605e61;
   border-radius: 8px;
   padding: 1.5rem;
@@ -134,6 +127,7 @@ const props = defineProps({
 .dark .step-content {
   background-color: var(--vp-c-bg-alt);
   /* border-color: var(--vp-c-border-dark); */
-  border-color: #605e61;  /* 修改暗黑模式下的边框颜色 */
+  border-color: #605e61;
+  /* 修改暗黑模式下的边框颜色 */
 }
 </style>
