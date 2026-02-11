@@ -100,16 +100,16 @@ const props = defineProps({
   color: #fff;
   font-size: 1rem;
   font-weight: 500;
-  /* 标题本身无需额外样式，靠step-header的align-items:center对齐 */
+  margin-left: 1rem; /* 增加与icon的间距 */
 }
 
-/* 内容卡片：缩进对齐 */
+/* 内容卡片：与标题左对齐 */
 .step-content {
   background-color: #1a1a1a;
   border: 1px solid #2a2a2a;
   border-radius: 8px;
   padding: 1.5rem;
-  margin-left: 0;
+  margin-left: 1rem; /* 与 step-title 的 margin-left 保持一致，实现左对齐 */
 }
 
 .step-body {
