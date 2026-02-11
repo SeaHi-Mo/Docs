@@ -303,6 +303,7 @@ const teekConfig = withMermaid(defineTeekConfig({
     demo: {
       githubUrl: "https://github.com/Kele-Bingtang/vitepress-theme-teek/blob/master/docs",
     },
+    
   },
   // siteAnalytics: [
   //   {

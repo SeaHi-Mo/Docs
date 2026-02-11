@@ -5,7 +5,7 @@
       :key="index"
       class="step-item"
     >
-      <!-- 顶部：icon + 步骤标题（确保水平对齐） -->
+      <!-- 顶部：icon + 步骤标题 -->
       <div class="step-header">
         <div class="step-icon">
           <span class="step-icon-inner" v-html="step.icon || (index + 1)"></span>
@@ -46,6 +46,7 @@ const props = defineProps({
 </script>
 
 <style scoped>
+/* 保留原样式，适配VitePress的默认样式体系 */
 .step-list {
   margin: 2rem 0;
   padding: 0;
@@ -55,30 +56,28 @@ const props = defineProps({
 .step-item {
   position: relative;
   display: flex;
-  flex-direction: column; /* 垂直布局 */
-  gap: 0.8rem; /* 标题和内容的垂直间距 */
-  padding-bottom: 1rem; /* 步骤之间的间距 */
-  margin-left: 2rem; /* 左侧留空给icon和竖线 */
+  flex-direction: column;
+  gap: 0.8rem;
+  padding-bottom: 1rem;
+  margin-left: 2rem;
 }
 
-/* 所有步骤显示竖线，精准对准icon中心 */
 .step-item::before {
   content: '';
   position: absolute;
-  left: calc(-2rem + 1.2rem - 1px); /* icon中心 - 竖线半宽 */
-  top: 3rem; /* 从icon底部开始 */
+  left: calc(-2rem + 1.2rem - 1px);
+  top: 3rem;
   bottom: 0.5rem;
   width: 2px;
-  background-color: #3f71fd;
+  background-color:  #c936ee;
 }
 
-/* 核心修正：确保icon和标题水平居中对齐 */
 .step-header {
   display: flex;
-  align-items: center; /* 保证水平居中 */
-  gap:3rem; /* 调整为你想要的间距 */
+  align-items: center;
+  gap: 3rem;
   position: relative;
-  min-height: 2.4rem; /* 匹配icon高度，确保对齐 */
+  min-height: 2.4rem;
 }
 
 .step-icon {
@@ -97,19 +96,18 @@ const props = defineProps({
 }
 
 .step-title {
-  color: #fff;
+  color: var(--vp-c-text-1); /* 适配VitePress主题色变量 */
   font-size: 1rem;
   font-weight: 500;
-  margin-left: 1rem; /* 增加与icon的间距 */
+  margin-left: 1rem;
 }
 
-/* 内容卡片：与标题左对齐 */
 .step-content {
-  background-color: #1a1a1a;
-  border: 1px solid #2a2a2a;
+  background-color: var(--vp-c-bg-alt); /* 适配VitePress背景色 */
+  border: 1px solid #605e61;
   border-radius: 8px;
   padding: 1.5rem;
-  margin-left: 1rem; /* 与 step-title 的 margin-left 保持一致，实现左对齐 */
+  margin-left: 1rem;
 }
 
 .step-body {
@@ -122,7 +120,7 @@ const props = defineProps({
 .step-text {
   flex: 1;
   min-width: 280px;
-  color: #e0e0e0;
+  color: var(--vp-c-text-2);
   line-height: 1.6;
 }
 
@@ -130,5 +128,12 @@ const props = defineProps({
   max-width: 400px;
   border-radius: 6px;
   flex-shrink: 0;
+}
+
+/* 适配暗黑模式 */
+.dark .step-content {
+  background-color: var(--vp-c-bg-alt);
+  /* border-color: var(--vp-c-border-dark); */
+  border-color: #605e61;  /* 修改暗黑模式下的边框颜色 */
 }
 </style>

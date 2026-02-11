@@ -69,17 +69,15 @@ import EmojiShiroki from "./components/EmojiShiroki/index.vue"; // 引入EmojiSh
 import StepList from './components/stepList/StepList.vue' // 引入步骤列表组件
 
 
-
-
 export default {
   extends: Teek,
   async enhanceApp({ app, router }) {
     // 注册组件
     // app.component("MNavLinks", MNavLinks); // 注册导航组件
     app.component("confetti", confetti); // 注册五彩纸屑组件
-
-    app.component('CoupleAlbum', CoupleAlbum) // 注册情侣相册组件
-    app.component('PhotoCard', PhotoCard)
+    
+    // app.component('CoupleAlbum', CoupleAlbum) // 注册情侣相册组件
+    // app.component('PhotoCard', PhotoCard)
 
     // app.component("NavIcon", NavIcon); //导航栏图标
 
