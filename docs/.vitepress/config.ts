@@ -49,7 +49,6 @@ const teekConfig = withMermaid(defineTeekConfig({
   loading: false, // 启用 Loading 动画，为 false 则关闭 Loading 动画
   // loading: "已经在很努力加载了，请稍等一下哦~", // 修改 Loading 文案
 
-
   themeEnhance: {
     themeColor: {
       defaultColorName: "vp-default",   //默认主题色为蓝色
@@ -377,9 +376,9 @@ export default defineConfig({
       detailsLabel: "详细信息",
     },
     //表格主题
-    mermaidPlugin: {
-      class: "mermaid my-class" // 为父容器设置额外的CSS类
-    },
+    // mermaidPlugin: {
+    //   class: "mermaid my-class" // 为父容器设置额外的CSS类
+    // },
 
   },
   sitemap: {
