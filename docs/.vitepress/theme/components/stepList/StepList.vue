@@ -14,7 +14,8 @@
       <div class="step-content">
         <div class="step-body">
           <div class="step-text">{{ step.text }}</div>
-          <img v-if="step.image" :src="step.image" :alt="step.alt || `步骤 ${index + 1} 截图`" class="step-image" />
+          <img v-if="step.image" :src="withBase(step.image)" :alt="step.alt || `步骤 ${index + 1} 截图`"
+            class="step-image" />
         </div>
       </div>
     </div>
@@ -22,6 +23,8 @@
 </template>
 
 <script setup lang="ts">
+import { withBase } from 'vitepress'
+
 const props = defineProps({
   steps: {
     type: Array as () => Array<{

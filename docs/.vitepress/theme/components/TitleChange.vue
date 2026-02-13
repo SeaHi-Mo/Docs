@@ -5,7 +5,7 @@ import { useEventListener } from 'vitepress-theme-teek'
 const props = defineProps({
     hiddenTitle: {
         type: String,
-        default: 'w(ﾟДﾟ)w 不要走！再看看嘛！'
+        default: 'w(ﾟДﾟ)w 同学，不要走丢了'
     },
     returnTitle: {
         type: String,
