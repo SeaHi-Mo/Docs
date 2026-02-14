@@ -76,6 +76,36 @@ export function stepsContainer(md: MarkdownIt) {
             }
 
             currentStep.image = imagePath
+          } else if (trimmedLine.startsWith('icon:')) {
+            let iconPath = trimmedLine.replace(/^icon:/, '').trim().replace(/^['"]|['"]$/g, '')
+
+            // 处理相对路径
+            if (mdPath && (iconPath.startsWith('./') || iconPath.startsWith('../'))) {
+              // 使用字符串操作处理路径
+              const mdDir = mdPath.substring(0, mdPath.lastIndexOf('/'))
+              let resolvedPath = mdDir
+
+              // 处理相对路径
+              const parts = iconPath.split('/')
+              for (const part of parts) {
+                if (part === '.') {
+                  continue
+                } else if (part === '..') {
+                  resolvedPath = resolvedPath.substring(0, resolvedPath.lastIndexOf('/'))
+                } else {
+                  resolvedPath += '/' + part
+                }
+              }
+
+              // 确保路径以/开头
+              if (!resolvedPath.startsWith('/')) {
+                resolvedPath = '/' + resolvedPath
+              }
+
+              iconPath = resolvedPath
+            }
+
+            currentStep.icon = iconPath
           } else if (trimmedLine.startsWith('alt:')) {
             currentStep.alt = trimmedLine.replace(/^alt:/, '').trim().replace(/^['"]|['"]$/g, '')
           }

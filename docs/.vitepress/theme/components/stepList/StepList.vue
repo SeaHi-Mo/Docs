@@ -4,7 +4,10 @@
       <!-- 顶部：icon + 步骤标题 -->
       <div class="step-header">
         <div class="step-icon">
-          <span class="step-icon-inner" v-html="step.icon || (index + 1)"></span>
+          <span class="step-icon-inner" v-if="step.icon && !step.icon.startsWith('/')"
+            v-html="step.icon || (index + 1)"></span>
+          <img v-else-if="step.icon" :src="withBase(step.icon)" alt="icon" class="step-icon-img" />
+          <span v-else class="step-icon-inner">{{ index + 1 }}</span>
         </div>
         <div class="step-title">
           <span class="step-title-text">{{ step.title || `第 ${index + 1} 步` }}</span>
@@ -13,7 +16,7 @@
       <!-- 下方：内容卡片 -->
       <div class="step-content">
         <div class="step-body">
-          <div class="step-text">{{ step.text }}</div>
+          <div class="step-text" v-html="step.text"></div>
           <img v-if="step.image" :src="withBase(step.image)" :alt="step.alt || `步骤 ${index + 1} 截图`"
             class="step-image" />
         </div>
@@ -87,6 +90,13 @@ const props = defineProps({
   color: #00c853;
   font-size: 1.2rem;
   flex-shrink: 0;
+}
+
+.step-icon-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  color: #00c853;
 }
 
 .step-title {
