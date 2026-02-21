@@ -82,8 +82,6 @@ data:
 config:
     target: _self
 data:
-
-
   - name: 安装Ubuntu 20.04
     desc: 主流的 Linux 发行版
     link: /tutorial/Linux/ubuntu_install#wsl_ubuntu2024

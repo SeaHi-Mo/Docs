@@ -16,9 +16,13 @@
       <!-- 下方：内容卡片 -->
       <div class="step-content">
         <div class="step-body">
-          <div class="step-text" v-html="step.text"></div>
-          <img v-if="step.image" :src="withBase(step.image)" :alt="step.alt || `步骤 ${index + 1} 截图`"
-            class="step-image" />
+          <div class="step-text">
+            <div v-html="renderMarkdown(step.text)"></div>
+          </div>
+          <div v-if="step.image" :style="step.imageSize ? { width: step.imageSize, maxWidth: 'none' } : {}"
+            class="step-image-container">
+            <img :src="withBase(step.image)" :alt="step.alt || `步骤 ${index + 1} 截图`" class="step-image" />
+          </div>
         </div>
       </div>
     </div>
@@ -27,6 +31,9 @@
 
 <script setup lang="ts">
 import { withBase } from 'vitepress'
+import markdownIt from 'markdown-it'
+import hljs from 'highlight.js'
+import { ref } from 'vue'
 
 const props = defineProps({
   steps: {
@@ -35,11 +42,30 @@ const props = defineProps({
       title?: string
       text: string
       image?: string
+      imageSize?: string
       alt?: string
     }>,
     required: true
   }
 })
+
+const md = markdownIt({
+  html: true,
+  linkify: true,
+  typographer: true,
+  highlight: function (str, lang) {
+    if (lang && hljs.getLanguage(lang)) {
+      try {
+        return `<pre class="code-block"><code class="language-${lang}">${hljs.highlight(str, { language: lang }).value}</code></pre>`
+      } catch (__) { }
+    }
+    return `<pre class="code-block"><code>${md.utils.escapeHtml(str)}</code></pre>`
+  }
+})
+
+const renderMarkdown = (text: string) => {
+  return md.render(text)
+}
 </script>
 
 <style scoped>
@@ -107,6 +133,26 @@ const props = defineProps({
   margin-left: 1rem;
 }
 
+/* 代码块样式 */
+.step-text pre {
+  background-color: var(--vp-c-bg-alt);
+  border-radius: 8px;
+  padding: 1rem;
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+
+.step-text code {
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 0.9rem;
+}
+
+.step-text pre code {
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
+}
+
 .step-content {
   background-color: var(--vp-c-bg-alt);
   /* 适配VitePress背景色 */
@@ -130,10 +176,15 @@ const props = defineProps({
   line-height: 1.6;
 }
 
-.step-image {
+.step-image-container {
   max-width: 400px;
-  border-radius: 6px;
   flex-shrink: 0;
+}
+
+.step-image {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
 }
 
 /* 适配暗黑模式 */
