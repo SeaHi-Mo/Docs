@@ -51,7 +51,10 @@
 .VPDoc h1 {
   // @include text-gradient;
   text-align: center;
-
+  background: -webkit-linear-gradient(10deg, #7596f1 5%, #848be9 15%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 // .VPDoc h2 {
@@ -59,14 +62,14 @@
 // }
 // 让md里的h2标题为紫色
 .VPDoc h2 {
-  background: -webkit-linear-gradient(10deg, #ad10d4 5%, #ec1769 15%);
+  background: -webkit-linear-gradient(10deg, #7293ee 5%, #c574f5 15%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
 .VPDoc h3 {
-  background: -webkit-linear-gradient(10deg, #1fa0eb 1%, #8f1feb 10%);
+  background: -webkit-linear-gradient(10deg, #1fa0eb 1%, #8e70f7 10%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
