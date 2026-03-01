@@ -447,7 +447,6 @@ VOID_T app_key_init(VOID_T);
 #### 示例代码 {#net_led_example}
 ::: details 查看代码
 ::: code-group
-
 ```C [net_led.c]
 /**
  * @file net_led.c
