@@ -571,4 +571,6 @@ BOOL_T get_led_status(void);
 
 ## DP 数据处理
 
+::: note 什么是DP数据?
 
+:::
