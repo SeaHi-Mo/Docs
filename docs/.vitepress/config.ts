@@ -182,8 +182,8 @@ const teekConfig = withMermaid(defineTeekConfig({
   // 新版代码块配置
   codeBlock: {
     // disabled: false, // 是否禁用新版代码块
-    collapseHeight: 700, // 超出高度后自动折叠，设置 true 则默认折叠，false 则默认不折叠
-    overlay: true, // 代码块底部是否显示展开/折叠遮罩层
+    collapseHeight: false, // 超出高度后自动折叠，设置 true 则默认折叠，false 则默认不折叠
+    overlay: false, // 代码块底部是否显示展开/折叠遮罩层
     overlayHeight: 400, // 当出现遮罩层时，指定代码块显示高度，当 overlay 为 true 时生效
     copiedDone: (TkMessage) => TkMessage.success("复制成功！"),
   },
