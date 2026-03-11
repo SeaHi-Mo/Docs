@@ -275,12 +275,10 @@ T2-U 开发板上，正好有一个按键连接到了 `P7` 引脚，我们可以
 #include "tuya_iot_base_api.h"
 #endif
 #include "user_key.h"
-
 /**
  * @brief 按键引脚定义
  */
 STATIC TUYA_GPIO_NUM_E user_key_pin_id = USER_KEY_PIN_ID;
-
 /**
  * @brief 按键监控任务函数
  * @param args 任务参数（未使用）
@@ -293,13 +291,11 @@ STATIC VOID_T app_key_task(VOID_T *args)
 	OPERATE_RET op_ret = OPRT_OK;						 // 操作返回值
 	TUYA_GPIO_LEVEL_E read_level = TUYA_GPIO_LEVEL_HIGH; // 读取的按键电平
 	UINT32_T time_start = 0, timer_end = 0;				 // 按键按下开始和结束时间
-
 	// 无限循环监控按键状态
 	for (;;)
 	{
 		// 读取按键当前电平
 		tkl_gpio_read(user_key_pin_id, &read_level);
-
 		// 检测到按键按下（低电平）
 		if (TUYA_GPIO_LEVEL_LOW == read_level)
 		{
@@ -307,16 +303,13 @@ STATIC VOID_T app_key_task(VOID_T *args)
 			tal_system_sleep(3);
 			// 再次读取电平确认
 			tkl_gpio_read(user_key_pin_id, &read_level);
-
 			// 如果电平不是低电平，说明是抖动，跳过本次检测
 			if (TUYA_GPIO_LEVEL_LOW != read_level)
 			{
 				continue; // jitter
 			}
-
 			// 记录按键按下的开始时间
 			time_start = tal_system_get_millisecond();
-
 			// 持续检测按键状态，直到按键释放
 			while (TUYA_GPIO_LEVEL_LOW == read_level)
 			{
@@ -326,7 +319,6 @@ STATIC VOID_T app_key_task(VOID_T *args)
 				tkl_gpio_read(user_key_pin_id, &read_level);
 				// 记录当前时间
 				timer_end = tal_system_get_millisecond();
-
 				// 检查是否达到长按时间阈值
 				if (timer_end - time_start >= LONE_PRESS_TIME)
 				{
@@ -347,14 +339,11 @@ STATIC VOID_T app_key_task(VOID_T *args)
 				}
 			}
 		}
-
 		// 100ms延时，降低CPU占用
 		tal_system_sleep(100);
 	}
-
 	return;
 }
-
 /**
  * @brief 按键初始化函数
  * @return VOID_T 无
@@ -363,7 +352,6 @@ STATIC VOID_T app_key_task(VOID_T *args)
 VOID_T app_key_init(VOID_T)
 {
 	OPERATE_RET rt = OPRT_OK;
-
 	// 初始化按键引脚
 	TUYA_GPIO_BASE_CFG_T key_cfg = {
 		.mode = TUYA_GPIO_PULLUP,	  // 上拉模式
@@ -372,7 +360,6 @@ VOID_T app_key_init(VOID_T)
 	};
 	// 初始化GPIO并记录错误日志
 	TUYA_CALL_ERR_LOG(tkl_gpio_init(user_key_pin_id, &key_cfg));
-
 	/* 创建并启动按键监控线程 */
 	THREAD_HANDLE key_task_handle; // 线程句柄
 	THREAD_CFG_T thread_cfg = {
@@ -382,11 +369,9 @@ VOID_T app_key_init(VOID_T)
 	};
 	// 创建并启动线程，记录错误日志
 	TUYA_CALL_ERR_LOG(tal_thread_create_and_start(&key_task_handle, NULL, NULL, app_key_task, NULL, &thread_cfg));
-
 	return;
 }
 ```
-
 ```C [user_key.h]
 /**
  * @file user_key.h
@@ -406,9 +391,9 @@ VOID_T app_key_init(VOID_T)
 
 VOID_T app_key_init(VOID_T);
 #endif
-
 ```
 :::
+
 
 ### LED 网络指示
 重置配网完成之后，还有一个问题：T2-U 开发板不看日志的话，无法知道当前是否处于配网模式或已经成功连接，这时候就需要通过 LED 网络指示来判断。<br>

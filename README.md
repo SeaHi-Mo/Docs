@@ -48,7 +48,10 @@ git clone https://cnb.cool/onedayxyy/vitepress-theme-teek-one-public.git
 ```bash
 pnpm install
 ```
-
+添加依赖
+```bash
+pnpm add @braintree/sanitize-url dayjs cytoscape cytoscape-cose-bilkent
+```
 文档项目启动
 
 ```bash
