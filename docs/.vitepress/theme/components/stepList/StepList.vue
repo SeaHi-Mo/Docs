@@ -19,8 +19,7 @@
           <div class="step-text">
             <div v-html="renderMarkdown(step.text)"></div>
           </div>
-          <div v-if="step.image" :style="step.imageSize ? { width: step.imageSize, maxWidth: 'none' } : {}"
-            class="step-image-container">
+          <div v-if="step.image" class="step-image-container">
             <img :src="withBase(step.image)" :alt="step.alt || `步骤 ${index + 1} 截图`" class="step-image" />
           </div>
         </div>
@@ -164,16 +163,28 @@ const renderMarkdown = (text: string) => {
 
 .step-body {
   display: flex;
-  align-items: center;
-  gap: 3rem;
+  align-items: flex-start;
+  gap: 1.5rem;
   flex-wrap: wrap;
 }
 
 .step-text {
   flex: 1;
-  min-width: 280px;
+  min-width: 0;
   color: var(--vp-c-text-2);
   line-height: 1.6;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.step-text :deep(p) {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.step-text :deep(pre) {
+  max-width: 100%;
+  overflow-x: auto;
 }
 
 .step-image-container {
@@ -185,6 +196,7 @@ const renderMarkdown = (text: string) => {
   width: 100%;
   height: auto;
   border-radius: 6px;
+  display: block;
 }
 
 /* 适配暗黑模式 */
@@ -193,5 +205,47 @@ const renderMarkdown = (text: string) => {
   /* border-color: var(--vp-c-border-dark); */
   border-color: #605e61;
   /* 修改暗黑模式下的边框颜色 */
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+  .step-item {
+    margin-left: 1.5rem;
+  }
+
+  .step-item::before {
+    left: calc(-1.5rem + 1rem - 1px);
+  }
+
+  .step-icon {
+    left: -1.5rem;
+    width: 2rem;
+    height: 2rem;
+    font-size: 1rem;
+  }
+
+  .step-content {
+    padding: 1rem;
+    margin-left: 0.5rem;
+  }
+
+  .step-body {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .step-text {
+    width: 100%;
+  }
+
+  .step-image-container {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .step-title {
+    font-size: 0.95rem;
+    margin-left: 0.5rem;
+  }
 }
 </style>
