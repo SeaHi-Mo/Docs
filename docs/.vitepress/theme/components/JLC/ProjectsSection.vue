@@ -2,8 +2,8 @@
   <div class="oss-section" :class="{ visible: isVisible }">
     <h2 class="oss-title">开源项目</h2>
     <div class="oss-list">
-      <div class="oss-card" v-for="(item, idx) in ossProjects" :key="item.name" :ref="setOssCardRef(idx)"
-        :class="{ visible: !isMobile || ossCardVisible[idx] }" v-memo="[item, ossCardVisible[idx]]">
+      <div class="oss-card" v-for="(item, idx) in ossProjectsData" :key="item.name" :ref="setOssCardRef(idx)"
+        :class="{ visible: !isMobile || ossCardVisible[idx] }">
         <div class="oss-img-wrap">
           <img :src="item.projectsimg" class="oss-img" :alt="item.name" />
         </div>
@@ -28,7 +28,6 @@
               {{ item.Comment }}
             </span>
           </div>
-          <!-- 美化后的按钮组 -->
           <div class="oss-btn-group">
             <a class="oss-btn":href="item.projectLink" target="_blank" rel="noopener noreferrer" >
               查看项目
@@ -45,10 +44,12 @@
 </template>
 
 <script setup>
-import { watch, nextTick, onMounted, onBeforeUnmount } from 'vue';
+import { watch, nextTick, onMounted, onBeforeUnmount, ref as vueRef } from 'vue';
 import { TkIcon } from "vitepress-theme-teek";
 import { useMultipleIntersectionObserver } from '../About/useIntersectionObserver';
-import { ossProjects, View,good, Mark ,Comment} from './data';
+import { ossProjects, View, good, Mark, Comment, updateProjectData } from './data';
+
+const ossProjectsData = vueRef(ossProjects);
 
 const props = defineProps({
   isVisible: {
@@ -61,7 +62,6 @@ const props = defineProps({
   }
 });
 
-// 使用多元素观察器组合函数
 const {
   elementsVisible: ossCardVisible,
   setElementRef: setOssCardRef,
@@ -69,19 +69,19 @@ const {
   cleanup
 } = useMultipleIntersectionObserver(0.2, true);
 
-// 监听移动端状态变化，重新设置观察器
-watch([() => props.isMobile, ossProjects], () => {
+watch([() => props.isMobile, () => ossProjectsData.value], () => {
   if (props.isMobile) {
-    nextTick(() => setupObserver(ossProjects.length));
+    nextTick(() => setupObserver(ossProjectsData.value.length));
   } else {
     cleanup();
   }
 });
 
-onMounted(() => {
+onMounted(async () => {
   if (props.isMobile) {
-    nextTick(() => setupObserver(ossProjects.length));
+    nextTick(() => setupObserver(ossProjectsData.value.length));
   }
+  await updateProjectData();
 });
 
 onBeforeUnmount(() => {
@@ -113,12 +113,11 @@ onBeforeUnmount(() => {
 
 .oss-list {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 默认4列 */
+  grid-template-columns: repeat(4, 1fr);
   gap: 32px;
   justify-content: center;
 }
 
-/* 超大屏幕：5列 */
 @media (min-width: 1920px) {
    .oss-section {
     max-width: 1400px;
@@ -136,7 +135,6 @@ onBeforeUnmount(() => {
   }
 }
 
-/* 大屏幕：4列 */
 @media (min-width: 1440px) and (max-width: 1919px) {
   .oss-section {
     max-width: 1400px;
@@ -149,7 +147,6 @@ onBeforeUnmount(() => {
   }
 }
 
-/* 中等屏幕：3列 */
 @media (min-width: 1200px) and (max-width: 1439px) {
   .oss-section {
     max-width: 1200px;
@@ -167,7 +164,6 @@ onBeforeUnmount(() => {
   }
 }
 
-/* 小屏幕：2列 */
 @media (min-width: 768px) and (max-width: 1199px) {
   .oss-section {
     max-width: 100%;
@@ -185,7 +181,6 @@ onBeforeUnmount(() => {
   }
 }
 
-/* 平板：2列（调整间距） */
 @media (min-width: 640px) and (max-width: 767px) {
   .oss-section {
     padding: 32px 16px;
@@ -202,7 +197,6 @@ onBeforeUnmount(() => {
   }
 }
 
-/* 手机端：1列 */
 @media (max-width: 639px) {
   .oss-section {
     padding: 24px 12px;
@@ -221,7 +215,6 @@ onBeforeUnmount(() => {
   }
 }
 
-/* 卡片样式调整 */
 .oss-card {
   width: 100%;
   background: #fff;
@@ -253,7 +246,6 @@ onBeforeUnmount(() => {
   overflow: hidden;
 }
 
-/* 图片高度响应式调整 */
 @media (max-width: 767px) {
   .oss-img-wrap {
     height: 160px;
@@ -316,7 +308,6 @@ onBeforeUnmount(() => {
   }
 }
 
-/* 按钮组样式 */
 .oss-btn-group {
   display: flex;
   gap: 12px;
@@ -354,7 +345,6 @@ onBeforeUnmount(() => {
   box-shadow: 0 4px 12px rgba(64, 158, 255, 0.3);
 }
 
-/* 移动端按钮调整 */
 @media (max-width: 639px) {
   .oss-btn {
     padding: 12px 16px;

@@ -541,19 +541,25 @@ export default defineConfig({
 
   vite: {
     server: {
-      // host: "127.0.0.1", // 指定服务器应该监听哪个 IP 地址
-      // port: 5173, // 指定开发服务器端口
-      // strictPort: true, // 若端口已被占用则会直接退出
-      // open: true, // 运行后自动打开网页
+      proxy: {
+        '/api/oshwhub': {
+          target: 'https://oshwhub.com',
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/api\/oshwhub/, '/api'),
+        },
+        '/api/common': {
+          target: 'https://oshwhub.com',
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/api\/common/, '/api/common'),
+        },
+      },
     },
 
-    // 构建
     build: {
-      chunkSizeWarningLimit: 1500, // 限制警告的块大小
+      chunkSizeWarningLimit: 1500,
     },
 
     plugins: [
-      // 自动注入一级前缀（rewrite模式）
       AutoFrontmatter({
         pattern: "**/*.md",
         // exclude 指定的对象如果在 markdown frontmatter 存在，则忽略该文件。当 include 和 exclude 存在相同文件时，exclude 优先级高

@@ -4,8 +4,69 @@ import {
   Mark,
   Comment,
 } from "./TechIcons";
+import { ref } from 'vue';
 
-export const ossProjects = [
+function formatNumber(num: number): string {
+  
+  if (num >= 10000) {
+    return (num / 10000).toFixed(1) + 'w';
+  }
+  if(num >=1000){
+     return (num / 1000).toFixed(1) + 'k';
+  }
+  return num.toString();
+}
+
+async function fetchProjectData(uid: string) {
+  try {
+    const response = await fetch(`/api/oshwhub/project/${uid}`, {
+      headers: {
+        'Referer': 'https://oshwhub.com/',
+        'Accept': 'application/json'
+      }
+    });
+    const text = await response.text();
+    const result: any = { success: false };
+    
+    const countMatch = text.match(/"count":\s*\{[^}]+\}/);
+    if (countMatch) {
+      const countStr = countMatch[0].replace('"count":', '').trim();
+      result.count = JSON.parse(countStr);
+      result.success = true;
+    }
+    
+    const thumbMatch = text.match(/"thumb":\s*"([^"]+)"/);
+    if (thumbMatch) {
+      result.thumb = thumbMatch[1];
+    }
+    
+    return result;
+  } catch (error) {
+    console.error(`Error fetching project data for ${uid}:`, error);
+    return null;
+  }
+}
+
+async function fetchProjectComments(uid: string) {
+  try {
+    const response = await fetch(`/api/common/projects/${uid}/comments?all=1`, {
+      headers: {
+        'Referer': 'https://oshwhub.com/',
+        'Accept': 'application/json'
+      }
+    });
+    const data = await response.json();
+    if (data && data.success && data.result) {
+      return data.result.all || 0;
+    }
+    return 0;
+  } catch (error) {
+    console.error(`Error fetching comments for ${uid}:`, error);
+    return 0;
+  }
+}
+
+const ossProjectsData = ref([
   {
     name: "BrunTools（WiFi模组烧录架）",
     desc: "这是一款专门为 WiFi 模组提供免焊接烧录的烧录架，可以把模组安装在烧录架上，然后使用串口进行固件烧录。",
@@ -16,7 +77,7 @@ export const ossProjects = [
     Mark: '20',
     Comment: '5',
     projectLink: "https://oshwhub.com/seahi/bruntools",
-    //使用说明连接
+    uid: "e2a3f561673446439b2d4b6a7ae47cc1",
     usageLink: "/user/bruntools",
   },
   {
@@ -28,8 +89,8 @@ export const ossProjects = [
     good: '45',
     Mark: '134',
     Comment: '30',
-
     projectLink: "https://oshwhub.com/seahi/homeassistant-intelligent-air-re",
+    uid: "9f645a40b47a47b9a87eb08b11ddf62c",
     usageLink: "https://oshwhub.com/seahi/homeassistant-intelligent-air-re",
   },
   {
@@ -41,11 +102,10 @@ export const ossProjects = [
     good: '4',
     Mark: '32',
     Comment: '4',
-
     projectLink: "https://oshwhub.com/seahi/ha-sensorget",
+    uid: "6b526c07b7ce458d9b82691ad2913c89",
     usageLink: "https://oshwhub.com/seahi/ha-sensorget",
   },
-
   {
     name: "HomeAssistant WiFi通断器",
     desc: "带有带防雷电路的 HomeAssistant 的WiFi通断器，最高能控4000W电器的供电。",
@@ -55,8 +115,8 @@ export const ossProjects = [
     good: '28',
     Mark: '77',
     Comment: '32',
-
     projectLink: "https://oshwhub.com/seahi/homeassistant-tong-duan-qi",
+    uid: "eea15134ac154b5d998825db69c55856",
     usageLink: "https://oshwhub.com/seahi/homeassistant-tong-duan-qi",
   },
   {
@@ -68,8 +128,8 @@ export const ossProjects = [
     good: '10',
     Mark: '25',
     Comment: '17',
-
     projectLink: "https://oshwhub.com/seahi/ha-usb-kai-guan",
+    uid: "ha-usb-kai-guan",
     usageLink: "https://oshwhub.com/seahi/ha-usb-kai-guan",
   },
   {
@@ -81,11 +141,30 @@ export const ossProjects = [
     good: '19',
     Mark: '54',
     Comment: '10',
-
     projectLink: "https://oshwhub.com/seahi/homeassistant-smart-home-infrared-remote-control",
+    uid: "homeassistant-smart-home-infrared-remote-control",
     usageLink: "https://oshwhub.com/seahi/homeassistant-smart-home-infrared-remote-control",
   },
-];
+]);
 
-// 导出开源项目图标用于子组件
+export const ossProjects = ossProjectsData.value;
+
+export async function updateProjectData() {
+  for (const project of ossProjectsData.value) {
+    const data = await fetchProjectData(project.uid);
+    if (data && data.success && data.count) {
+      project.View = formatNumber(data.count.views);
+      project.good = data.count.like.toString();
+      project.Mark = data.count.star.toString();
+      if (data.thumb) {
+        project.projectsimg = data.thumb;
+      }
+    }
+    const commentCount = await fetchProjectComments(project.uid);
+    if (commentCount > 0) {
+      project.Comment = commentCount.toString();
+    }
+  }
+}
+
 export { View, good, Mark, Comment };
