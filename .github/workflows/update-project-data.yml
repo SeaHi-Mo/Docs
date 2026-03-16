@@ -28,7 +28,6 @@ jobs:
         
       - name: Fetch project data
         run: |
-          git pull 
           node docs/.vitepress/theme/components/JLC/fetch-projects.cjs
         
       - name: Configure Git
