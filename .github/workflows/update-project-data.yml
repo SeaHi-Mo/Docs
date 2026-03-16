@@ -24,6 +24,11 @@ jobs:
       - name: Fetch project data
         run: node docs/.vitepress/theme/components/JLC/fetch-projects.cjs
         
+      - name: Configure Git
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+        
       - name: Commit and push changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
