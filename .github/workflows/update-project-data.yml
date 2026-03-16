@@ -27,7 +27,9 @@ jobs:
         run: npm install
         
       - name: Fetch project data
-        run: node docs/.vitepress/theme/components/JLC/fetch-projects.cjs
+        run: |
+          git pull --rebase
+          node docs/.vitepress/theme/components/JLC/fetch-projects.cjs
         
       - name: Configure Git
         run: |
