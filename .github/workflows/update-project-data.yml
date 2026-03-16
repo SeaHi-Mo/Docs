@@ -35,6 +35,8 @@ jobs:
         run: |
           git config --local user.email "seahi-mo@foxmail.com"
           git config --local user.name "Seahi-Mo"
+      - name: addFiles  
+        run: git add docs/.vitepress/theme/components/JLC/project-data.json
         
       - name: Commit and push changes
         uses: stefanzweifel/git-auto-commit-action@v5
