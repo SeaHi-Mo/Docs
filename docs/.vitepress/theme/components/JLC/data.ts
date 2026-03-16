@@ -68,6 +68,19 @@ async function fetchProjectComments(uid: string) {
 
 const ossProjectsData = ref([
   {
+    name: "STLink343 一个陪伴你整个电子生涯的调试器",
+    desc: "STLink343是基于STM32F103CBT6的调试工具，集成ST-Link/V2和USB转TTL串口功能，支持SWD调试、C51一键下载。",
+    tag: { name: "JavaScript", bg: "#fffbe6", color: "#e4ae3a" },
+    projectsimg: "https://image.lceda.cn/oshwhub/pullImage/41c1aa23b305448ea63934784bfb164d.jpg",
+    View: '0',
+    good: '0',
+    Mark: '0',
+    Comment: '0',
+    projectLink: "https://oshwhub.com/seahi/stlinkv2anserial",
+    uid: "e38dca3ab8a24ff3862996b420e796e3",
+    usageLink: "https://oshwhub.com/seahi/stlinkv2anserial",
+  },
+  {
     name: "BrunTools（WiFi模组烧录架）",
     desc: "这是一款专门为 WiFi 模组提供免焊接烧录的烧录架，可以把模组安装在烧录架上，然后使用串口进行固件烧录。",
     tag: { name: "React", bg: "#e3edfa", color: "#3976c6" },
@@ -145,6 +158,7 @@ const ossProjectsData = ref([
     uid: "homeassistant-smart-home-infrared-remote-control",
     usageLink: "https://oshwhub.com/seahi/homeassistant-smart-home-infrared-remote-control",
   },
+  
 ]);
 
 export const ossProjects = ossProjectsData.value;
