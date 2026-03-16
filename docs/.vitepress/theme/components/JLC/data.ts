@@ -19,7 +19,7 @@ function formatNumber(num: number): string {
 
 async function fetchProjectData(uid: string) {
   try {
-    const response = await fetch(`/api/oshwhub/project/${uid}`, {
+    const response = await fetch(`https://oshwhub.com/api/project/${uid}`, {
       headers: {
         'Referer': 'https://oshwhub.com/',
         'Accept': 'application/json'
@@ -49,25 +49,6 @@ async function fetchProjectData(uid: string) {
   } catch (error) {
     console.error(`Error fetching project data for ${uid}:`, error);
     return null;
-  }
-}
-
-async function fetchProjectComments(uid: string) {
-  try {
-    const response = await fetch(`/api/common/projects/${uid}/comments?all=1`, {
-      headers: {
-        'Referer': 'https://oshwhub.com/',
-        'Accept': 'application/json'
-      }
-    });
-    const data = await response.json();
-    if (data && data.success && data.result) {
-      return data.result.all || 0;
-    }
-    return 0;
-  } catch (error) {
-    console.error(`Error fetching comments for ${uid}:`, error);
-    return 0;
   }
 }
 
