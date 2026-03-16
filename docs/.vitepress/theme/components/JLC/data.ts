@@ -19,7 +19,7 @@ function formatNumber(num: number): string {
 
 async function fetchProjectData(uid: string) {
   try {
-    const response = await fetch(`https://oshwhub.com/api/project/${uid}`, {
+    const response = await fetch(`/api/oshwhub/project/${uid}`, {
       headers: {
         'Referer': 'https://oshwhub.com/',
         'Accept': 'application/json'
