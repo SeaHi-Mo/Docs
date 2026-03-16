@@ -8,8 +8,6 @@ import { CommentData } from "./ConfigHyde/Comment"; //导入评论配置
 import { Nav } from "./ConfigHyde/Nav"; // 导入Nav模块
 import { SocialLinks } from "./ConfigHyde/SocialLinks"; //导入社交链接配置
 
-
-
 import {
   groupIconMdPlugin,
   groupIconVitePlugin,
