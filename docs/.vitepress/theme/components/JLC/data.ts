@@ -39,6 +39,11 @@ async function fetchProjectData(uid: string) {
     if (thumbMatch) {
       result.thumb = thumbMatch[1];
     }
+
+    const commentsCountMatch = text.match(/"comments_count":\s*(\d+)/);
+    if (commentsCountMatch) {
+      result.commentsCount = parseInt(commentsCountMatch[1], 10);
+    }
     
     return result;
   } catch (error) {
@@ -68,8 +73,8 @@ async function fetchProjectComments(uid: string) {
 
 const ossProjectsData = ref([
   {
-    name: "STLink343 一个陪伴你整个电子生涯的调试器",
-    desc: "STLink343是基于STM32F103CBT6的调试工具，集成ST-Link/V2和USB转TTL串口功能，支持SWD调试、C51一键下载。",
+    name: "STLink343 调试器",
+    desc: "STLink343是基于STM32F103CBT6的调试工具，集成ST-Link/V2和USB转TTL串口功能.",
     tag: { name: "JavaScript", bg: "#fffbe6", color: "#e4ae3a" },
     projectsimg: "https://image.lceda.cn/oshwhub/pullImage/41c1aa23b305448ea63934784bfb164d.jpg",
     View: '0',
@@ -142,7 +147,7 @@ const ossProjectsData = ref([
     Mark: '25',
     Comment: '17',
     projectLink: "https://oshwhub.com/seahi/ha-usb-kai-guan",
-    uid: "ha-usb-kai-guan",
+    uid: "c2a381566abd4cc183189785bfd7f4fa",
     usageLink: "https://oshwhub.com/seahi/ha-usb-kai-guan",
   },
   {
@@ -155,7 +160,7 @@ const ossProjectsData = ref([
     Mark: '54',
     Comment: '10',
     projectLink: "https://oshwhub.com/seahi/homeassistant-smart-home-infrared-remote-control",
-    uid: "homeassistant-smart-home-infrared-remote-control",
+    uid: "e0cc8d01eded494bb613509defdfd365",
     usageLink: "https://oshwhub.com/seahi/homeassistant-smart-home-infrared-remote-control",
   },
   
@@ -164,8 +169,9 @@ const ossProjectsData = ref([
 export const ossProjects = ossProjectsData.value;
 
 export async function updateProjectData() {
-  for (const project of ossProjectsData.value) {
+  const fetchPromises = ossProjectsData.value.map(async (project) => {
     const data = await fetchProjectData(project.uid);
+    
     if (data && data.success && data.count) {
       project.View = formatNumber(data.count.views);
       project.good = data.count.like.toString();
@@ -174,11 +180,12 @@ export async function updateProjectData() {
         project.projectsimg = data.thumb;
       }
     }
-    const commentCount = await fetchProjectComments(project.uid);
-    if (commentCount > 0) {
-      project.Comment = commentCount.toString();
+    if (data && data.commentsCount > 0) {
+      project.Comment = data.commentsCount.toString();
     }
-  }
+  });
+  
+  await Promise.all(fetchPromises);
 }
 
 export { View, good, Mark, Comment };
