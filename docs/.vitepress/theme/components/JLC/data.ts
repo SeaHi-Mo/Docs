@@ -5,6 +5,8 @@ import {
   Comment,
 } from "./TechIcons";
 import { ref } from 'vue';
+import projectDataRaw from './project-data.json';
+const projectData: Record<string, any> = projectDataRaw;
 
 function formatNumber(num: number): string {
   
@@ -15,41 +17,6 @@ function formatNumber(num: number): string {
      return (num / 1000).toFixed(1) + 'k';
   }
   return num.toString();
-}
-
-async function fetchProjectData(uid: string) {
-  try {
-    const response = await fetch(`/api/oshwhub/project/${uid}`, {
-      headers: {
-        'Referer': 'https://oshwhub.com/',
-        'Accept': 'application/json'
-      }
-    });
-    const text = await response.text();
-    const result: any = { success: false };
-    
-    const countMatch = text.match(/"count":\s*\{[^}]+\}/);
-    if (countMatch) {
-      const countStr = countMatch[0].replace('"count":', '').trim();
-      result.count = JSON.parse(countStr);
-      result.success = true;
-    }
-    
-    const thumbMatch = text.match(/"thumb":\s*"([^"]+)"/);
-    if (thumbMatch) {
-      result.thumb = thumbMatch[1];
-    }
-
-    const commentsCountMatch = text.match(/"comments_count":\s*(\d+)/);
-    if (commentsCountMatch) {
-      result.commentsCount = parseInt(commentsCountMatch[1], 10);
-    }
-    
-    return result;
-  } catch (error) {
-    console.error(`Error fetching project data for ${uid}:`, error);
-    return null;
-  }
 }
 
 const ossProjectsData = ref([
@@ -150,23 +117,21 @@ const ossProjectsData = ref([
 export const ossProjects = ossProjectsData.value;
 
 export async function updateProjectData() {
-  const fetchPromises = ossProjectsData.value.map(async (project) => {
-    const data = await fetchProjectData(project.uid);
+  for (const project of ossProjectsData.value) {
+    const data = projectData[project.uid];
     
-    if (data && data.success && data.count) {
-      project.View = formatNumber(data.count.views);
-      project.good = data.count.like.toString();
-      project.Mark = data.count.star.toString();
+    if (data) {
+      project.View = formatNumber(data.views);
+      project.good = data.like.toString();
+      project.Mark = data.star.toString();
       if (data.thumb) {
-        project.projectsimg = data.thumb;
+        project.projectsimg = data.thumb.startsWith('//') ? 'https:' + data.thumb : data.thumb;
+      }
+      if (data.commentsCount > 0) {
+        project.Comment = data.commentsCount.toString();
       }
     }
-    if (data && data.commentsCount > 0) {
-      project.Comment = data.commentsCount.toString();
-    }
-  });
-  
-  await Promise.all(fetchPromises);
+  }
 }
 
 export { View, good, Mark, Comment };

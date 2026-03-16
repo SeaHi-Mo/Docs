@@ -25,12 +25,15 @@ async function fetchAllProjects() {
       const text = await response.text();
       const data = JSON.parse(text);
       
-      if (data && data.success && data.count) {
+      if (data && data.success && data.result && data.result.count) {
         results[project.uid] = {
-          views: data.count.views,
-          star: data.count.star,
-          fork: data.count.fork,
-          watch: data.count.watch
+          views: data.result.count.views,
+          like: data.result.count.like || 0,
+          star: data.result.count.star,
+          fork: data.result.count.fork,
+          watch: data.result.count.watch,
+          thumb: data.result.thumb || null,
+          commentsCount: data.result.comments_count || 0
         };
       }
     } catch (error) {
@@ -40,10 +43,7 @@ async function fetchAllProjects() {
   
   const outputPath = path.join(__dirname, 'project-data.json');
   fs.writeFileSync(outputPath, JSON.stringify(results, null, 2));
+  console.log('Project data saved to project-data.json');
 }
 
-fetchAllProjects().then(() => {
-  const outputPath = path.join(__dirname, 'project-data.json');
-  const content = fs.readFileSync(outputPath, 'utf-8');
-  process.stdout.write(content);
-});
+fetchAllProjects();
