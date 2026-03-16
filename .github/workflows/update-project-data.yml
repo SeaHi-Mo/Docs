@@ -1,0 +1,31 @@
+name: Update Project Data
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # 每天 UTC 0 点（北京时间 8 点）运行
+  workflow_dispatch:  # 允许手动触发
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          
+      - name: Install dependencies
+        run: npm install
+        
+      - name: Fetch project data
+        run: node docs/.vitepress/theme/components/JLC/fetch-projects.cjs
+        
+      - name: Commit and push changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'chore: 更新项目数据'
+          file_pattern: 'docs/.vitepress/theme/components/JLC/project-data.json'
