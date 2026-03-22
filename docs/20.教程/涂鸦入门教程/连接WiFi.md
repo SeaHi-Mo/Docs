@@ -318,3 +318,17 @@ VOID_T tuya_app_main(VOID)
 }
 ```
 :::
+
+::: navCard
+```yaml
+config:
+    target: _self
+data:
+  - name: 实现连接 Tuya 开发者平台
+    desc: 实现开发板连接到 Tuya 开发者平台
+    link: /tutorial/tuya/connect
+    img:  /svg/tuya.svg
+    badgeType: tip
+    badge: 第六步
+```
+:::

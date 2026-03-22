@@ -239,6 +239,46 @@ make
 
 <img src="./IMG/fristLog.png" alt="接口图" style="max-width: 100%; height: auto; object-fit: contain; margin-top: 40px;"></img>
 
+## 常见问题
+
+::: details 1. 编译失败 
+- 问题描述：编译出现类似以下错误信息：
+``` bash
+clean application static ...
+find: ‘apps/tuyaos_demo_quickstart/application_components’: No such file or directory
+find: ‘apps/tuyaos_demo_quickstart/application_drivers’: No such file or directory
+find: ‘apps/tuyaos_demo_quickstart/application_components’: No such file or directory
+find: ‘apps/tuyaos_demo_quickstart/application_drivers’: No such file or directory
+CC /home/seahi/workspase/T2_TuyaOS-3.8.4/software/TuyaOS/apps/tuyaos_demo_quickstart/src/app_led.c
+In file included from /home/seahi/workspase/T2_TuyaOS-3.8.4/software/TuyaOS/apps/tuyaos_demo_quickstart/src/app_led.c:12:
+include/components/tal_system/include/tal_log.h:14:10: fatal error: tuya_cloud_types.h: No such file or directory
+   14 | #include "tuya_cloud_types.h"
+```
+- 编译失败的原因:`software/TuyaOS/vendor/t2/` 目录为空，导致 T2 库文件、编译工具等文件缺失。
+- 解决方法：
+  - 解压 `T2_TuyaOS-3.8.4/software/TuyaOS/vendor/t2_1.5.0.zip` 到 `software/TuyaOS/vendor/t2/` 目录下。
+  - 安装 `unzip` 命令行工具。
+  ```
+  sudo apt install unzip
+  ```
+  - 进入 vendor 目录。
+  ```
+  cd vendor
+  ```
+  - 删除原先的 `t2/` 目录。
+  ```
+  rm -rf t2/
+  ```
+  - 解压 `t2_1.5.0.zip`
+  ```
+  unzip t2_1.5.0.zip 
+  ```
+  - 重命名 `t2_1.5.0_temp` 目录为 `t2`。
+  ```
+  mv t2_1.5.0_temp t2 
+  ```
+- 重新编译即可。
+:::
 
 ## 快捷导航
 

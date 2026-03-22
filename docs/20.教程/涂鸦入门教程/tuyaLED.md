@@ -115,10 +115,10 @@ data:
     img:  /svg/Wi-Fi.svg
     badge: 第五步
     badgeType: tip
-#   - name: 实现连接 Tuya 开发者平台
-#     desc: 实现开发板连接到 Tuya 开发者平台
-#     link: /tutorial/tuya/connect
-#     img:  /svg/tuya.svg
-#     badge: 第六步
+  - name: 实现连接 Tuya 开发者平台
+    desc: 实现开发板连接到 Tuya 开发者平台
+    link: /tutorial/tuya/connect
+    img:  /svg/tuya.svg
+    badge: 第六步
 ```
 :::
