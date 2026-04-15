@@ -575,6 +575,13 @@ export default defineConfig({
             { folderName: "20.教程", prefix: "/tutorial/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
             { folderName: "涂鸦入门教程", prefix: "/tutorial/tuya/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
             { folderName: "Linux开发环境", prefix: "/tutorial/Linux/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
+
+            { folderName: "21.Hermes Agent 中文教程", prefix: "/hermes/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
+            { folderName: "Hermes Agent 中文教程-入门", prefix: "/hermes/getting-started/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
+            { folderName: "Hermes Agent 中文教程-使用hermes", prefix: "/hermes/user-guide/$uuid5", removeLevel: 99 },
+            { folderName: "Hermes Agent 中文教程-集成", prefix: "/hermes/integrations/$uuid5", removeLevel: 99 },
+            { folderName: "Hermes Agent 中文教程-详细指南", prefix: "/hermes/guides/$uuid5", removeLevel: 99 },
+            { folderName: "Hermes Agent 中文教程-开发教程", prefix: "/hermes/developer-guide/$uuid5", removeLevel: 99 },
             { folderName: "15.工具", prefix: "/tools/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
             { folderName: "40.关于", prefix: "/about/$uuid5", removeLevel: 99 }, // 清空前缀并且添加前缀使用随机数
           ];

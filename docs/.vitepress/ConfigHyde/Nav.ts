@@ -23,6 +23,7 @@ export const Nav = [
     items: [
       { text: 'Linux 开发环境搭建', link: '/tutorial/Linux/home'},
       { text: '涂鸦入门教程', link: '/tutorial/tuya/home'},
+      {text: 'HermesAgent 中文教程',link: '/hermes/home'},
     ],
   },
   // 专题
