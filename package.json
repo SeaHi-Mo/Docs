@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "description": "vitepress-theme-teek 文档模板",
   "type": "module",
+  "packageManager": "pnpm@10.25.0",
   "scripts": {
     "docs:dev": "vitepress dev docs",
     "docs:build": "node --max-old-space-size=131072 node_modules/vitepress/bin/vitepress.js build docs",
@@ -34,7 +35,6 @@
     "debug": "^4.4.3",
     "markdown-it-container": "^4.0.0",
     "oh-my-live2d": "^0.19.3",
-    "pnpm": "^10.25.0",
     "twikoo": "^1.6.44",
     "vitepress-markdown-timeline": "^1.2.2",
     "vitepress-plugin-auto-frontmatter": "^1.0.11",

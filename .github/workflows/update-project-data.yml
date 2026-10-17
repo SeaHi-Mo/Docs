@@ -23,9 +23,10 @@ jobs:
         with:
           node-version: '20'
           
-      - name: Install dependencies
-        run: npm install
-        
+      # 抓取脚本 fetch-projects.cjs 只使用 Node 内置的 fs / path / fetch，无需安装任何依赖。
+      # 原先的 `npm install` 会触发 npm arborist 崩溃（Cannot read properties of null (reading 'edgesOut')），
+      # 且本仓库是 pnpm 项目（只提交了 pnpm-lock.yaml），不应再用 npm install 解析依赖树。
+
       - name: Fetch project data
         run: |
           node docs/.vitepress/theme/components/JLC/fetch-projects.cjs
